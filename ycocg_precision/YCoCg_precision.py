@@ -1,9 +1,10 @@
 #! /usr/bin/python
-import matplotlib.pyplot as mplt
+import matplotlib.pyplot as plt
 import numpy as np
 
 #channel = 'RGBL'
-DEBUG_ENABLE = True
+DEBUG_ENABLE = False  #True
+FILE_RECORD = True
 index = range(0, 256)
 csc_yuv2rgb = np.mat('1.1644   0.0      1.6787; \
                       1.1644  -0.1873  -0.6504; \
@@ -18,6 +19,19 @@ def DEBUG_matrix_value(str, matrix, value):
     if DEBUG_ENABLE:
         print('matrix %s[%d] value is' % (str, value))
         print(matrix)
+    else:
+        pass
+
+
+def writeToFile(name, *mat):
+    if FILE_RECORD:
+        f = open(str(name), 'w+')
+        for i in index:
+            for j in mat:
+                key = str(j[i])
+                value = str([k for k in j[i]])
+                f.write(key + '=' + value + '\n')
+        f.close()
     else:
         pass
 
@@ -47,16 +61,16 @@ def convertImage(matrixDst, matrixSrc, csc, DstSpace='RGB', type='int'):
                 matrixDst[i] = np.rint(matrixDst[i]).astype(np.int)  # YUV space has negative value
 
 
-def calcuteDeltaE(matA, matB, deltaE):
+def calcuteDeltaE(matObj, matStand, deltaE):
     for i in index:
-        matC = matA[i] - matB[i]
+        matC = matObj[i] - matStand[i]
         result = float(sum([j * j for j in matC]))
         deltaE.append(np.sqrt(result))
 
 
 def findMaxDiff(matObj, matStand, maxDiff):
     for i in index:
-        
+        matC = matStand
 
 
 redramp_RGB_raw = [np.mat([i, 0, 0]).reshape(3, 1) for i in index]
@@ -85,6 +99,10 @@ redramp_RGB_ViG = []
 greenramp_RGB_ViG = []
 blueramp_RGB_ViG = []
 grayramp_RGB_ViG = []
+redramp_RGB_ViG_deltaE = []
+greenramp_RGB_ViG_deltaE = []
+blueramp_RGB_ViG_deltaE = []
+grayramp_RGB_ViG_deltaE = []
 
 redramp_RGB_New = []
 greenramp_RGB_New = []
@@ -94,7 +112,7 @@ redramp_RGB_New_deltaE = []
 greenramp_RGB_New_deltaE = []
 blueramp_RGB_New_deltaE = []
 grayramp_RGB_New_deltaE = []
-grayramp_RGB_New_MaxDiff = {}
+#grayramp_RGB_New_MaxDiff = {}
 
 # useage introduce
 print('''usage:
@@ -114,7 +132,17 @@ if 'R' in channel:
     convertImage(matrixDst=redramp_RGB_ViG, matrixSrc=redramp_YUV, csc=csc_yuv2rgb, DstSpace='RGB', type='int')
     convertImage(matrixDst=redramp_YCoCg, matrixSrc=redramp_YUV, csc=csc_yuv2ycocg, DstSpace='YUV', type='int')
     convertImage(matrixDst=redramp_RGB_New, matrixSrc=redramp_YCoCg, csc=(csc_yuv2rgb * csc_ycocg2yuv), DstSpace='RGB', type='float')
-    calcuteDeltaE(matA=redramp_RGB_New, matB=redramp_RGB, deltaE=redramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=redramp_RGB_New, matStand=redramp_RGB, deltaE=redramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=redramp_RGB_ViG, matStand=redramp_RGB, deltaE=redramp_RGB_ViG_deltaE)
+    plt.figure(1)
+    plt.xlabel('ramp step')
+    plt.ylabel('DeltaE')
+    plt.title('RedRamp')
+    plt_redramp_new, = plt.plot(index, redramp_RGB_New_deltaE, 'ro')
+    plt_redramp_vig, = plt.plot(index, redramp_RGB_ViG_deltaE, 'yo')
+    plt.legend([plt_redramp_new, plt_redramp_vig], ('deltaE_New', 'deltaE_ViG'), 'best', numpoints=1)
+    plt.savefig('red.jpg')
+    writeToFile('redramp.txt', redramp_RGB_raw, redramp_YUV, redramp_RGB, redramp_YCoCg, redramp_RGB_ViG, redramp_RGB_New)
     DEBUG_matrix_value('redramp_YUV', redramp_YUV[value], value)
     DEBUG_matrix_value('redramp_RGB', redramp_RGB[value], value)
     DEBUG_matrix_value('redramp_RGB_ViG', redramp_RGB_ViG[value], value)
@@ -128,7 +156,16 @@ if 'G' in channel:
     convertImage(matrixDst=greenramp_RGB_ViG, matrixSrc=greenramp_YUV, csc=csc_yuv2rgb, DstSpace='RGB', type='int')
     convertImage(matrixDst=greenramp_YCoCg, matrixSrc=greenramp_YUV, csc=csc_yuv2ycocg, DstSpace='YUV', type='int')
     convertImage(matrixDst=greenramp_RGB_New, matrixSrc=greenramp_YCoCg, csc=(csc_yuv2rgb * csc_ycocg2yuv), DstSpace='RGB', type='float')
-    calcuteDeltaE(matA=greenramp_RGB_New, matB=greenramp_RGB, deltaE=greenramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=greenramp_RGB_New, matStand=greenramp_RGB, deltaE=greenramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=greenramp_RGB_ViG, matStand=greenramp_RGB, deltaE=greenramp_RGB_ViG_deltaE)
+    plt.figure(2)
+    plt.xlabel('ramp step')
+    plt.ylabel('DeltaE')
+    plt.title('GreenRamp')
+    plt_greenramp_new, = plt.plot(index, greenramp_RGB_New_deltaE, 'go')
+    plt_greenramp_vig, = plt.plot(index, greenramp_RGB_ViG_deltaE, 'yo')
+    plt.legend([plt_greenramp_new, plt_greenramp_vig], ('deltaE_New', 'deltaE_ViG'), 'best', numpoints=1)
+    plt.savefig('green.jpg')
     DEBUG_matrix_value('greenramp_YUV', greenramp_YUV[value], value)
     DEBUG_matrix_value('greenramp_RGB', greenramp_RGB[value], value)
     DEBUG_matrix_value('greenramp_RGB_ViG', greenramp_RGB_ViG[value], value)
@@ -142,7 +179,16 @@ if 'B' in channel:
     convertImage(matrixDst=blueramp_RGB_ViG, matrixSrc=blueramp_YUV, csc=csc_yuv2rgb, DstSpace='RGB', type='int')
     convertImage(matrixDst=blueramp_YCoCg, matrixSrc=blueramp_YUV, csc=csc_yuv2ycocg, DstSpace='YUV', type='int')
     convertImage(matrixDst=blueramp_RGB_New, matrixSrc=blueramp_YCoCg, csc=(csc_yuv2rgb * csc_ycocg2yuv), DstSpace='RGB', type='float')
-    calcuteDeltaE(matA=blueramp_RGB_New, matB=blueramp_RGB, deltaE=blueramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=blueramp_RGB_New, matStand=blueramp_RGB, deltaE=blueramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=blueramp_RGB_ViG, matStand=blueramp_RGB, deltaE=blueramp_RGB_ViG_deltaE)
+    plt.figure(3)
+    plt.xlabel('ramp step')
+    plt.ylabel('DeltaE')
+    plt.title('BlueRamp')
+    plt_blueramp_new, = plt.plot(index, blueramp_RGB_New_deltaE, 'bo')
+    plt_blueramp_vig, = plt.plot(index, blueramp_RGB_ViG_deltaE, 'yo')
+    plt.legend([plt_blueramp_new, plt_blueramp_vig], ('deltaE_New', 'deltaE_ViG'), 'best', numpoints=1)
+    plt.savefig('blue.jpg')
     DEBUG_matrix_value('blueramp_YUV', blueramp_YUV[value], value)
     DEBUG_matrix_value('blueramp_RGB', blueramp_RGB[value], value)
     DEBUG_matrix_value('blueramp_RGB_ViG', blueramp_RGB_ViG[value], value)
@@ -156,7 +202,16 @@ if 'L' in channel:
     convertImage(matrixDst=grayramp_RGB_ViG, matrixSrc=grayramp_YUV, csc=csc_yuv2rgb, DstSpace='RGB', type='int')
     convertImage(matrixDst=grayramp_YCoCg, matrixSrc=grayramp_YUV, csc=csc_yuv2ycocg, DstSpace='YUV', type='int')
     convertImage(matrixDst=grayramp_RGB_New, matrixSrc=grayramp_YCoCg, csc=(csc_yuv2rgb * csc_ycocg2yuv), DstSpace='RGB', type='float')
-    calcuteDeltaE(matA=grayramp_RGB_New, matB=grayramp_RGB, deltaE=grayramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=grayramp_RGB_New, matStand=grayramp_RGB, deltaE=grayramp_RGB_New_deltaE)
+    calcuteDeltaE(matObj=grayramp_RGB_ViG, matStand=grayramp_RGB, deltaE=grayramp_RGB_ViG_deltaE)
+    plt.figure(4)
+    plt.xlabel('ramp step')
+    plt.ylabel('DeltaE')
+    plt.title('GrayRamp')
+    plt_grayramp_new, = plt.plot(index, grayramp_RGB_New_deltaE, 'ko')
+    plt_grayramp_vig, = plt.plot(index, grayramp_RGB_ViG_deltaE, 'yo')
+    plt.legend([plt_grayramp_new, plt_grayramp_vig], ('deltaE_New', 'deltaE_ViG'), 'best', numpoints=1)
+    plt.savefig('gray.jpg')
     DEBUG_matrix_value('grayramp_YUV', grayramp_YUV[value], value)
     DEBUG_matrix_value('grayramp_RGB', grayramp_RGB[value], value)
     DEBUG_matrix_value('grayramp_RGB_ViG', grayramp_RGB_ViG[value], value)
@@ -164,7 +219,7 @@ if 'L' in channel:
     DEBUG_matrix_value('grayramp_RGB_New', grayramp_RGB_New[value], value)
     DEBUG_matrix_value('grayramp_RGB_New_deltaE', grayramp_RGB_New_deltaE[value], value)
 
-
+#plt.show()
 
 '''
 convertImage(matrixDst=redramp_YUV, matrixSrc=redramp_RGB_raw, csc=csc_rgb2yuv, DstSpace='YUV', type='int')
@@ -243,7 +298,4 @@ blueramp_RGB_New = [np.rint(csc_yuv2rgb * (csc_ycocg2yuv * blueramp_YCoCg[i])).a
 grayramp_RGB_New = [np.rint(csc_yuv2rgb * (csc_ycocg2yuv * grayramp_YCoCg[i])).astype(np.int8) for i in index]
 DEBUG_matrix_value('redramp_RGB_New[255]', redramp_RGB_New[255])
 '''
-
-
-
 # end of code
