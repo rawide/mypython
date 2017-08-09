@@ -1,43 +1,54 @@
 #! /usr/bin/python
 import matplotlib.pyplot as plt
 import numpy as np
-round = range(0, 365*(65-22))
+import math
+day = range(0, 365*(65-22))
 people = range(0, 100)
-money = [100 for i in people]
-LIABILITY = False # False True
-INCREASE_WEALTH = 'absolute' #absolute precent none
-#SUB_ALLOWANCE = True
+money = [100.0 for i in people]
+LIABILITY = True  # False True
+GDPCPI_EN = True
+INCREASE_WEALTH = 'individual'  # average individual none
+GDP = 0.02
+CPI = 0.05
 
-'''
-for i in people:
-    test_rand = np.random.randint(1, 100, 100)
-    print(test_rand)
-'''
-for i in round:
+
+def wealth_switch(day):
+    global INCREASE_WEALTH
+    if GDPCPI_EN:
+        return math.pow((CPI+1), day//365)
+    else:
+        INCREASE_WEALTH = 'none'
+        return 1
+
+
+for i in day:
     index = np.random.randint(0, 100, 100)
     for j in people:
+        change = wealth_switch(i)
         if LIABILITY:
-            money[j] -= 1
-            money[index[j]] += 1
+            money[j] -= change
+            money[index[j]] += change
         else:
             if money[j] > 0:
-                money[j] -= 1
-                money[index[j]] += 1
-        if INCREASE_WEALTH == 'absolute':
-            if i % 365 == 0:
-                money[j] += sum(money)*0.02/100
-        elif INCREASE_WEALTH == 'precent':
-            if i % 365 == 0:
-                money[j] += money[j]*(0.02)
+                money[j] -= change
+                money[index[j]] += change
+        if (i % 365 == 0):
+            if INCREASE_WEALTH == 'average':
+                temp = [abs(i) for i in money]
+                money[j] = money[j] + (sum(temp)*GDP)/100
+            elif INCREASE_WEALTH == 'individual':
+                money[j] = money[j]*(1+GDP)
 
+#temp = [abs(i) for i in money]
+#print(sum(temp))
+# print(len(temp))
 money.sort()
 plt.figure()
 plt.grid(True)
-#plt.title("round = %d" % round)
+plt.title("total wealth = %d" % sum(money))
 plt.xlabel("player")
 plt.ylabel("wealth")
-plt.bar(people, money, width=1, facecolor='b', alpha=0.75)
-#print(money)
+plt.bar(people, money, width=1, facecolor='g', alpha=0.75)
+# plt.plot(people, money)
 plt.savefig('money.jpg')
 plt.show()
-#'''
