@@ -9,7 +9,7 @@ LIABILITY = True  # False True
 GDPCPI_EN = True
 INCREASE_WEALTH = 'individual'  # average individual none
 GDP = 0.02
-CPI = 0.05
+CPI = 0.01
 
 
 def wealth_switch(day):
@@ -45,10 +45,11 @@ for i in day:
 money.sort()
 plt.figure()
 plt.grid(True)
-plt.title("total wealth = %d" % sum(money))
+#plt.title("total wealth = %d" % sum(money))
+plt.title("total wealth = %d\nGDP = %.1f%%, CPI = %.1f%%" % (sum(money), GDP*100, CPI*100))
 plt.xlabel("player")
 plt.ylabel("wealth")
 plt.bar(people, money, width=1, facecolor='g', alpha=0.75)
 # plt.plot(people, money)
 plt.savefig('money.jpg')
-plt.show()
+# plt.show()

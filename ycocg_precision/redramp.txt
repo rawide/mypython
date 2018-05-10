@@ -1,0 +1,2048 @@
+------------ rampvalue 0 ---------------
+redramp_RGB_raw=[[0 0 0]]
+redramp_RGB_ViG=[[19 19 19]]
+redramp_YCoCg=[[16 16 16]]
+redramp_RGB=[[ 18.6304  18.6304  18.6304]]
+redramp_RGB_New_deltaE=1.00485917356e-14
+redramp_YUV=[[16  0  0]]
+redramp_RGB_New=[[ 18.6304  18.6304  18.6304]]
+------------ rampvalue 1 ---------------
+redramp_RGB_raw=[[1 0 0]]
+redramp_RGB_ViG=[[19 19 19]]
+redramp_YCoCg=[[16 16 16]]
+redramp_RGB=[[ 18.6304  18.6304  18.6304]]
+redramp_RGB_New_deltaE=1.00485917356e-14
+redramp_YUV=[[16  0  0]]
+redramp_RGB_New=[[ 18.6304  18.6304  18.6304]]
+------------ rampvalue 2 ---------------
+redramp_RGB_raw=[[2 0 0]]
+redramp_RGB_ViG=[[20 18 19]]
+redramp_YCoCg=[[16 16 16]]
+redramp_RGB=[[ 20.3091  17.98    18.6304]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16  0  1]]
+redramp_RGB_New=[[ 18.6304  18.6304  18.6304]]
+------------ rampvalue 3 ---------------
+redramp_RGB_raw=[[3 0 0]]
+redramp_RGB_ViG=[[20 18 19]]
+redramp_YCoCg=[[16 16 16]]
+redramp_RGB=[[ 20.3091  17.98    18.6304]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16  0  1]]
+redramp_RGB_New=[[ 18.6304  18.6304  18.6304]]
+------------ rampvalue 4 ---------------
+redramp_RGB_raw=[[4 0 0]]
+redramp_RGB_ViG=[[22 17 19]]
+redramp_YCoCg=[[15 17 15]]
+redramp_RGB=[[ 21.9878  17.3296  18.6304]]
+redramp_RGB_New_deltaE=3.5527136788e-15
+redramp_YUV=[[16  0  2]]
+redramp_RGB_New=[[ 21.9878  17.3296  18.6304]]
+------------ rampvalue 5 ---------------
+redramp_RGB_raw=[[5 0 0]]
+redramp_RGB_ViG=[[22 18 16]]
+redramp_YCoCg=[[14 17 16]]
+redramp_RGB=[[ 21.9878  17.5169  16.4886]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -1  2]]
+redramp_RGB_New=[[ 21.9878  17.7042  14.3468]]
+------------ rampvalue 6 ---------------
+redramp_RGB_raw=[[6 0 0]]
+redramp_RGB_ViG=[[24 17 16]]
+redramp_YCoCg=[[14 18 15]]
+redramp_RGB=[[ 23.6665  16.8665  16.4886]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -1  3]]
+redramp_RGB_New=[[ 24.79695  16.8324   16.7797 ]]
+------------ rampvalue 7 ---------------
+redramp_RGB_raw=[[7 0 0]]
+redramp_RGB_ViG=[[24 17 16]]
+redramp_YCoCg=[[14 18 15]]
+redramp_RGB=[[ 23.6665  16.8665  16.4886]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -1  3]]
+redramp_RGB_New=[[ 24.79695  16.8324   16.7797 ]]
+------------ rampvalue 8 ---------------
+redramp_RGB_raw=[[8 0 0]]
+redramp_RGB_ViG=[[25 16 16]]
+redramp_YCoCg=[[14 18 14]]
+redramp_RGB=[[ 25.3452  16.2161  16.4886]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -1  4]]
+redramp_RGB_New=[[ 25.3452  16.0288  18.6304]]
+------------ rampvalue 9 ---------------
+redramp_RGB_raw=[[9 0 0]]
+redramp_RGB_ViG=[[25 16 16]]
+redramp_YCoCg=[[14 18 14]]
+redramp_RGB=[[ 25.3452  16.2161  16.4886]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -1  4]]
+redramp_RGB_New=[[ 25.3452  16.0288  18.6304]]
+------------ rampvalue 10 ---------------
+redramp_RGB_raw=[[10  0  0]]
+redramp_RGB_ViG=[[25 16 16]]
+redramp_YCoCg=[[14 18 14]]
+redramp_RGB=[[ 25.3452  16.2161  16.4886]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -1  4]]
+redramp_RGB_New=[[ 25.3452  16.0288  18.6304]]
+------------ rampvalue 11 ---------------
+redramp_RGB_raw=[[11  0  0]]
+redramp_RGB_ViG=[[27 16 16]]
+redramp_YCoCg=[[13 18 14]]
+redramp_RGB=[[ 27.0239  15.5657  16.4886]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -1  5]]
+redramp_RGB_New=[[ 25.89345  15.5998   16.1975 ]]
+------------ rampvalue 12 ---------------
+redramp_RGB_raw=[[12  0  0]]
+redramp_RGB_ViG=[[27 16 16]]
+redramp_YCoCg=[[13 18 14]]
+redramp_RGB=[[ 27.0239  15.5657  16.4886]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -1  5]]
+redramp_RGB_New=[[ 25.89345  15.5998   16.1975 ]]
+------------ rampvalue 13 ---------------
+redramp_RGB_raw=[[13  0  0]]
+redramp_RGB_ViG=[[29 15 14]]
+redramp_YCoCg=[[12 19 14]]
+redramp_RGB=[[ 28.7026  15.1026  14.3468]]
+redramp_RGB_New_deltaE=7.1054273576e-15
+redramp_YUV=[[16 -2  6]]
+redramp_RGB_New=[[ 28.7026  15.1026  14.3468]]
+------------ rampvalue 14 ---------------
+redramp_RGB_raw=[[14  0  0]]
+redramp_RGB_ViG=[[29 15 14]]
+redramp_YCoCg=[[12 19 14]]
+redramp_RGB=[[ 28.7026  15.1026  14.3468]]
+redramp_RGB_New_deltaE=7.1054273576e-15
+redramp_YUV=[[16 -2  6]]
+redramp_RGB_New=[[ 28.7026  15.1026  14.3468]]
+------------ rampvalue 15 ---------------
+redramp_RGB_raw=[[15  0  0]]
+redramp_RGB_ViG=[[30 14 14]]
+redramp_YCoCg=[[12 20 14]]
+redramp_RGB=[[ 30.3813  14.4522  14.3468]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[16 -2  7]]
+redramp_RGB_New=[[ 30.9635  15.0344  14.929 ]]
+------------ rampvalue 16 ---------------
+redramp_RGB_raw=[[16  0  0]]
+redramp_RGB_ViG=[[30 14 14]]
+redramp_YCoCg=[[12 20 14]]
+redramp_RGB=[[ 30.3813  14.4522  14.3468]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[16 -2  7]]
+redramp_RGB_New=[[ 30.9635  15.0344  14.929 ]]
+------------ rampvalue 17 ---------------
+redramp_RGB_raw=[[17  0  0]]
+redramp_RGB_ViG=[[30 14 14]]
+redramp_YCoCg=[[12 20 14]]
+redramp_RGB=[[ 30.3813  14.4522  14.3468]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[16 -2  7]]
+redramp_RGB_New=[[ 30.9635  15.0344  14.929 ]]
+------------ rampvalue 18 ---------------
+redramp_RGB_raw=[[18  0  0]]
+redramp_RGB_ViG=[[32 14 14]]
+redramp_YCoCg=[[11 20 13]]
+redramp_RGB=[[ 32.06    13.8018  14.3468]]
+redramp_RGB_New_deltaE=3.5527136788e-15
+redramp_YUV=[[16 -2  8]]
+redramp_RGB_New=[[ 32.06    13.8018  14.3468]]
+------------ rampvalue 19 ---------------
+redramp_RGB_raw=[[19  0  0]]
+redramp_RGB_ViG=[[32 14 14]]
+redramp_YCoCg=[[11 20 13]]
+redramp_RGB=[[ 32.06    13.8018  14.3468]]
+redramp_RGB_New_deltaE=3.5527136788e-15
+redramp_YUV=[[16 -2  8]]
+redramp_RGB_New=[[ 32.06    13.8018  14.3468]]
+------------ rampvalue 20 ---------------
+redramp_RGB_raw=[[20  0  0]]
+redramp_RGB_ViG=[[34 13 14]]
+redramp_YCoCg=[[10 20 12]]
+redramp_RGB=[[ 33.7387  13.1514  14.3468]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[16 -2  9]]
+redramp_RGB_New=[[ 33.1565  12.5692  13.7646]]
+------------ rampvalue 21 ---------------
+redramp_RGB_raw=[[21  0  0]]
+redramp_RGB_ViG=[[34 13 12]]
+redramp_YCoCg=[[10 20 13]]
+redramp_RGB=[[ 33.7387  13.3387  12.205 ]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -3  9]]
+redramp_RGB_New=[[ 32.60825  13.3728   11.9139 ]]
+------------ rampvalue 22 ---------------
+redramp_RGB_raw=[[22  0  0]]
+redramp_RGB_ViG=[[35 13 12]]
+redramp_YCoCg=[[10 21 12]]
+redramp_RGB=[[ 35.4174  12.6883  12.205 ]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -3 10]]
+redramp_RGB_New=[[ 35.4174  12.501   14.3468]]
+------------ rampvalue 23 ---------------
+redramp_RGB_raw=[[23  0  0]]
+redramp_RGB_ViG=[[35 13 12]]
+redramp_YCoCg=[[10 21 12]]
+redramp_RGB=[[ 35.4174  12.6883  12.205 ]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -3 10]]
+redramp_RGB_New=[[ 35.4174  12.501   14.3468]]
+------------ rampvalue 24 ---------------
+redramp_RGB_raw=[[24  0  0]]
+redramp_RGB_ViG=[[37 12 12]]
+redramp_YCoCg=[[ 9 22 12]]
+redramp_RGB=[[ 37.0961  12.0379  12.205 ]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -3 11]]
+redramp_RGB_New=[[ 38.22655  12.0038   12.4961 ]]
+------------ rampvalue 25 ---------------
+redramp_RGB_raw=[[25  0  0]]
+redramp_RGB_ViG=[[37 12 12]]
+redramp_YCoCg=[[ 9 22 12]]
+redramp_RGB=[[ 37.0961  12.0379  12.205 ]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -3 11]]
+redramp_RGB_New=[[ 38.22655  12.0038   12.4961 ]]
+------------ rampvalue 26 ---------------
+redramp_RGB_raw=[[26  0  0]]
+redramp_RGB_ViG=[[37 12 12]]
+redramp_YCoCg=[[ 9 22 12]]
+redramp_RGB=[[ 37.0961  12.0379  12.205 ]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -3 11]]
+redramp_RGB_New=[[ 38.22655  12.0038   12.4961 ]]
+------------ rampvalue 27 ---------------
+redramp_RGB_raw=[[27  0  0]]
+redramp_RGB_ViG=[[39 11 12]]
+redramp_YCoCg=[[ 8 22 12]]
+redramp_RGB=[[ 38.7748  11.3875  12.205 ]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -3 12]]
+redramp_RGB_New=[[ 38.7748  11.5748  10.0632]]
+------------ rampvalue 28 ---------------
+redramp_RGB_raw=[[28  0  0]]
+redramp_RGB_ViG=[[39 11 12]]
+redramp_YCoCg=[[ 8 22 12]]
+redramp_RGB=[[ 38.7748  11.3875  12.205 ]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -3 12]]
+redramp_RGB_New=[[ 38.7748  11.5748  10.0632]]
+------------ rampvalue 29 ---------------
+redramp_RGB_raw=[[29  0  0]]
+redramp_RGB_ViG=[[40 11 10]]
+redramp_YCoCg=[[ 8 22 12]]
+redramp_RGB=[[ 40.4535  10.9244  10.0632]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -4 13]]
+redramp_RGB_New=[[ 38.7748  11.5748  10.0632]]
+------------ rampvalue 30 ---------------
+redramp_RGB_raw=[[30  0  0]]
+redramp_RGB_ViG=[[40 11 10]]
+redramp_YCoCg=[[ 8 22 12]]
+redramp_RGB=[[ 40.4535  10.9244  10.0632]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -4 13]]
+redramp_RGB_New=[[ 38.7748  11.5748  10.0632]]
+------------ rampvalue 31 ---------------
+redramp_RGB_raw=[[31  0  0]]
+redramp_RGB_ViG=[[42 10 10]]
+redramp_YCoCg=[[ 7 23 11]]
+redramp_RGB=[[ 42.1322  10.274   10.0632]]
+redramp_RGB_New_deltaE=8.1402896778e-15
+redramp_YUV=[[16 -4 14]]
+redramp_RGB_New=[[ 42.1322  10.274   10.0632]]
+------------ rampvalue 32 ---------------
+redramp_RGB_raw=[[32  0  0]]
+redramp_RGB_ViG=[[42 10 10]]
+redramp_YCoCg=[[ 7 23 11]]
+redramp_RGB=[[ 42.1322  10.274   10.0632]]
+redramp_RGB_New_deltaE=8.1402896778e-15
+redramp_YUV=[[16 -4 14]]
+redramp_RGB_New=[[ 42.1322  10.274   10.0632]]
+------------ rampvalue 33 ---------------
+redramp_RGB_raw=[[33  0  0]]
+redramp_RGB_ViG=[[42 10 10]]
+redramp_YCoCg=[[ 7 23 11]]
+redramp_RGB=[[ 42.1322  10.274   10.0632]]
+redramp_RGB_New_deltaE=8.1402896778e-15
+redramp_YUV=[[16 -4 14]]
+redramp_RGB_New=[[ 42.1322  10.274   10.0632]]
+------------ rampvalue 34 ---------------
+redramp_RGB_raw=[[34  0  0]]
+redramp_RGB_ViG=[[44 10 10]]
+redramp_YCoCg=[[ 6 24 10]]
+redramp_RGB=[[ 43.8109   9.6236  10.0632]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -4 15]]
+redramp_RGB_New=[[ 45.4896   8.9732  10.0632]]
+------------ rampvalue 35 ---------------
+redramp_RGB_raw=[[35  0  0]]
+redramp_RGB_ViG=[[44 10 10]]
+redramp_YCoCg=[[ 6 24 10]]
+redramp_RGB=[[ 43.8109   9.6236  10.0632]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -4 15]]
+redramp_RGB_New=[[ 45.4896   8.9732  10.0632]]
+------------ rampvalue 36 ---------------
+redramp_RGB_raw=[[36  0  0]]
+redramp_RGB_ViG=[[45  9 10]]
+redramp_YCoCg=[[ 6 24 10]]
+redramp_RGB=[[ 45.4896   8.9732  10.0632]]
+redramp_RGB_New_deltaE=7.94410929039e-15
+redramp_YUV=[[16 -4 16]]
+redramp_RGB_New=[[ 45.4896   8.9732  10.0632]]
+------------ rampvalue 37 ---------------
+redramp_RGB_raw=[[37  0  0]]
+redramp_RGB_ViG=[[45  9  8]]
+redramp_YCoCg=[[ 6 24 10]]
+redramp_RGB=[[ 45.4896   9.1605   7.9214]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -5 16]]
+redramp_RGB_New=[[ 45.4896   8.9732  10.0632]]
+------------ rampvalue 38 ---------------
+redramp_RGB_raw=[[38  0  0]]
+redramp_RGB_ViG=[[47  9  8]]
+redramp_YCoCg=[[ 5 24 10]]
+redramp_RGB=[[ 47.1683   8.5101   7.9214]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -5 17]]
+redramp_RGB_New=[[ 46.03785   8.5442    7.6303 ]]
+------------ rampvalue 39 ---------------
+redramp_RGB_raw=[[39  0  0]]
+redramp_RGB_ViG=[[47  9  8]]
+redramp_YCoCg=[[ 5 24 10]]
+redramp_RGB=[[ 47.1683   8.5101   7.9214]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -5 17]]
+redramp_RGB_New=[[ 46.03785   8.5442    7.6303 ]]
+------------ rampvalue 40 ---------------
+redramp_RGB_raw=[[40  0  0]]
+redramp_RGB_ViG=[[49  8  8]]
+redramp_YCoCg=[[ 4 25 10]]
+redramp_RGB=[[ 48.847    7.8597   7.9214]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -5 18]]
+redramp_RGB_New=[[ 48.847    8.047    5.7796]]
+------------ rampvalue 41 ---------------
+redramp_RGB_raw=[[41  0  0]]
+redramp_RGB_ViG=[[49  8  8]]
+redramp_YCoCg=[[ 4 25 10]]
+redramp_RGB=[[ 48.847    7.8597   7.9214]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -5 18]]
+redramp_RGB_New=[[ 48.847    8.047    5.7796]]
+------------ rampvalue 42 ---------------
+redramp_RGB_raw=[[42  0  0]]
+redramp_RGB_ViG=[[49  8  8]]
+redramp_YCoCg=[[ 4 25 10]]
+redramp_RGB=[[ 48.847    7.8597   7.9214]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -5 18]]
+redramp_RGB_New=[[ 48.847    8.047    5.7796]]
+------------ rampvalue 43 ---------------
+redramp_RGB_raw=[[43  0  0]]
+redramp_RGB_ViG=[[51  7  8]]
+redramp_YCoCg=[[ 4 26  9]]
+redramp_RGB=[[ 50.5257   7.2093   7.9214]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -5 19]]
+redramp_RGB_New=[[ 51.65615   7.1752    8.2125 ]]
+------------ rampvalue 44 ---------------
+redramp_RGB_raw=[[44  0  0]]
+redramp_RGB_ViG=[[51  7  8]]
+redramp_YCoCg=[[ 4 26  9]]
+redramp_RGB=[[ 50.5257   7.2093   7.9214]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -5 19]]
+redramp_RGB_New=[[ 51.65615   7.1752    8.2125 ]]
+------------ rampvalue 45 ---------------
+redramp_RGB_raw=[[45  0  0]]
+redramp_RGB_ViG=[[52  7  6]]
+redramp_YCoCg=[[ 3 26  9]]
+redramp_RGB=[[ 52.2044   6.7462   5.7796]]
+redramp_RGB_New_deltaE=8.1402896778e-15
+redramp_YUV=[[16 -6 20]]
+redramp_RGB_New=[[ 52.2044   6.7462   5.7796]]
+------------ rampvalue 46 ---------------
+redramp_RGB_raw=[[46  0  0]]
+redramp_RGB_ViG=[[52  7  6]]
+redramp_YCoCg=[[ 3 26  9]]
+redramp_RGB=[[ 52.2044   6.7462   5.7796]]
+redramp_RGB_New_deltaE=8.1402896778e-15
+redramp_YUV=[[16 -6 20]]
+redramp_RGB_New=[[ 52.2044   6.7462   5.7796]]
+------------ rampvalue 47 ---------------
+redramp_RGB_raw=[[47  0  0]]
+redramp_RGB_ViG=[[54  6  6]]
+redramp_YCoCg=[[ 2 26  8]]
+redramp_RGB=[[ 53.8831   6.0958   5.7796]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[16 -6 21]]
+redramp_RGB_New=[[ 53.3009   5.5136   5.1974]]
+------------ rampvalue 48 ---------------
+redramp_RGB_raw=[[48  0  0]]
+redramp_RGB_ViG=[[54  6  6]]
+redramp_YCoCg=[[ 2 26  8]]
+redramp_RGB=[[ 53.8831   6.0958   5.7796]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[16 -6 21]]
+redramp_RGB_New=[[ 53.3009   5.5136   5.1974]]
+------------ rampvalue 49 ---------------
+redramp_RGB_raw=[[49  0  0]]
+redramp_RGB_ViG=[[56  5  6]]
+redramp_YCoCg=[[ 2 27  8]]
+redramp_RGB=[[ 55.5618   5.4454   5.7796]]
+redramp_RGB_New_deltaE=1.7763568394e-15
+redramp_YUV=[[16 -6 22]]
+redramp_RGB_New=[[ 55.5618   5.4454   5.7796]]
+------------ rampvalue 50 ---------------
+redramp_RGB_raw=[[50  0  0]]
+redramp_RGB_ViG=[[56  5  6]]
+redramp_YCoCg=[[ 2 27  8]]
+redramp_RGB=[[ 55.5618   5.4454   5.7796]]
+redramp_RGB_New_deltaE=1.7763568394e-15
+redramp_YUV=[[16 -6 22]]
+redramp_RGB_New=[[ 55.5618   5.4454   5.7796]]
+------------ rampvalue 51 ---------------
+redramp_RGB_raw=[[51  0  0]]
+redramp_RGB_ViG=[[56  5  6]]
+redramp_YCoCg=[[ 2 27  8]]
+redramp_RGB=[[ 55.5618   5.4454   5.7796]]
+redramp_RGB_New_deltaE=1.7763568394e-15
+redramp_YUV=[[16 -6 22]]
+redramp_RGB_New=[[ 55.5618   5.4454   5.7796]]
+------------ rampvalue 52 ---------------
+redramp_RGB_raw=[[52  0  0]]
+redramp_RGB_ViG=[[57  5  6]]
+redramp_YCoCg=[[ 2 28  8]]
+redramp_RGB=[[ 57.2405   4.795    5.7796]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[16 -6 23]]
+redramp_RGB_New=[[ 57.8227   5.3772   6.3618]]
+------------ rampvalue 53 ---------------
+redramp_RGB_raw=[[53  0  0]]
+redramp_RGB_ViG=[[57  5  4]]
+redramp_YCoCg=[[ 1 28  8]]
+redramp_RGB=[[ 57.2405   4.9823   3.6378]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -7 23]]
+redramp_RGB_New=[[ 58.37095   4.9482    3.9289 ]]
+------------ rampvalue 54 ---------------
+redramp_RGB_raw=[[54  0  0]]
+redramp_RGB_ViG=[[59  4  4]]
+redramp_YCoCg=[[ 0 28  8]]
+redramp_RGB=[[ 58.9192   4.3319   3.6378]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -7 24]]
+redramp_RGB_New=[[ 58.9192   4.5192   1.496 ]]
+------------ rampvalue 55 ---------------
+redramp_RGB_raw=[[55  0  0]]
+redramp_RGB_ViG=[[59  4  4]]
+redramp_YCoCg=[[ 0 28  8]]
+redramp_RGB=[[ 58.9192   4.3319   3.6378]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -7 24]]
+redramp_RGB_New=[[ 58.9192   4.5192   1.496 ]]
+------------ rampvalue 56 ---------------
+redramp_RGB_raw=[[56  0  0]]
+redramp_RGB_ViG=[[61  4  4]]
+redramp_YCoCg=[[ 0 28  7]]
+redramp_RGB=[[ 60.5979   3.6815   3.6378]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -7 25]]
+redramp_RGB_New=[[ 59.46745   3.7156    3.3467 ]]
+------------ rampvalue 57 ---------------
+redramp_RGB_raw=[[57  0  0]]
+redramp_RGB_ViG=[[61  4  4]]
+redramp_YCoCg=[[ 0 28  7]]
+redramp_RGB=[[ 60.5979   3.6815   3.6378]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -7 25]]
+redramp_RGB_New=[[ 59.46745   3.7156    3.3467 ]]
+------------ rampvalue 58 ---------------
+redramp_RGB_raw=[[58  0  0]]
+redramp_RGB_ViG=[[61  4  4]]
+redramp_YCoCg=[[ 0 28  7]]
+redramp_RGB=[[ 60.5979   3.6815   3.6378]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -7 25]]
+redramp_RGB_New=[[ 59.46745   3.7156    3.3467 ]]
+------------ rampvalue 59 ---------------
+redramp_RGB_raw=[[59  0  0]]
+redramp_RGB_ViG=[[62  3  4]]
+redramp_YCoCg=[[ 0 29  6]]
+redramp_RGB=[[ 62.2766   3.0311   3.6378]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -7 26]]
+redramp_RGB_New=[[ 62.2766   2.8438   5.7796]]
+------------ rampvalue 60 ---------------
+redramp_RGB_raw=[[60  0  0]]
+redramp_RGB_ViG=[[62  3  4]]
+redramp_YCoCg=[[ 0 29  6]]
+redramp_RGB=[[ 62.2766   3.0311   3.6378]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[16 -7 26]]
+redramp_RGB_New=[[ 62.2766   2.8438   5.7796]]
+------------ rampvalue 61 ---------------
+redramp_RGB_raw=[[61  0  0]]
+redramp_RGB_ViG=[[64  2  4]]
+redramp_YCoCg=[[-1 30  6]]
+redramp_RGB=[[ 63.9553   2.3807   3.6378]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[16 -7 27]]
+redramp_RGB_New=[[ 65.08575   2.3466    3.9289 ]]
+------------ rampvalue 62 ---------------
+redramp_RGB_raw=[[62  0  0]]
+redramp_RGB_ViG=[[64  3  1]]
+redramp_YCoCg=[[-2 30  6]]
+redramp_RGB=[[ 63.9553   2.568    1.496 ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -8 27]]
+redramp_RGB_New=[[ 65.634    1.9176   1.496 ]]
+------------ rampvalue 63 ---------------
+redramp_RGB_raw=[[63  0  0]]
+redramp_RGB_ViG=[[66  2  1]]
+redramp_YCoCg=[[-2 30  6]]
+redramp_RGB=[[ 65.634    1.9176   1.496 ]]
+redramp_RGB_New_deltaE=1.33226762955e-15
+redramp_YUV=[[16 -8 28]]
+redramp_RGB_New=[[ 65.634    1.9176   1.496 ]]
+------------ rampvalue 64 ---------------
+redramp_RGB_raw=[[64  0  0]]
+redramp_RGB_ViG=[[66  2  1]]
+redramp_YCoCg=[[-2 30  6]]
+redramp_RGB=[[ 65.634    1.9176   1.496 ]]
+redramp_RGB_New_deltaE=1.33226762955e-15
+redramp_YUV=[[16 -8 28]]
+redramp_RGB_New=[[ 65.634    1.9176   1.496 ]]
+------------ rampvalue 65 ---------------
+redramp_RGB_raw=[[65  0  0]]
+redramp_RGB_ViG=[[67  1  1]]
+redramp_YCoCg=[[-2 30  6]]
+redramp_RGB=[[ 67.3127   1.2672   1.496 ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -8 29]]
+redramp_RGB_New=[[ 65.634    1.9176   1.496 ]]
+------------ rampvalue 66 ---------------
+redramp_RGB_raw=[[66  0  0]]
+redramp_RGB_ViG=[[67  1  1]]
+redramp_YCoCg=[[-2 30  6]]
+redramp_RGB=[[ 67.3127   1.2672   1.496 ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -8 29]]
+redramp_RGB_New=[[ 65.634    1.9176   1.496 ]]
+------------ rampvalue 67 ---------------
+redramp_RGB_raw=[[67  0  0]]
+redramp_RGB_ViG=[[67  1  1]]
+redramp_YCoCg=[[-2 30  6]]
+redramp_RGB=[[ 67.3127   1.2672   1.496 ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[16 -8 29]]
+redramp_RGB_New=[[ 65.634    1.9176   1.496 ]]
+------------ rampvalue 68 ---------------
+redramp_RGB_raw=[[68  0  0]]
+redramp_RGB_ViG=[[69  1  1]]
+redramp_YCoCg=[[-3 31  5]]
+redramp_RGB=[[ 68.9914   0.6168   1.496 ]]
+redramp_RGB_New_deltaE=1.43214466922e-14
+redramp_YUV=[[16 -8 30]]
+redramp_RGB_New=[[ 68.9914   0.6168   1.496 ]]
+------------ rampvalue 69 ---------------
+redramp_RGB_raw=[[69  0  0]]
+redramp_RGB_ViG=[[69  1  1]]
+redramp_YCoCg=[[-3 31  5]]
+redramp_RGB=[[ 68.9914   0.6168   1.496 ]]
+redramp_RGB_New_deltaE=1.43214466922e-14
+redramp_YUV=[[16 -8 30]]
+redramp_RGB_New=[[ 68.9914   0.6168   1.496 ]]
+------------ rampvalue 70 ---------------
+redramp_RGB_raw=[[70  0  0]]
+redramp_RGB_ViG=[[71  0  0]]
+redramp_YCoCg=[[-4 32  5]]
+redramp_RGB=[[ 70.6701   0.1537   0.    ]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[16 -9 31]]
+redramp_RGB_New=[[ 71.80055   0.1196    0.     ]]
+------------ rampvalue 71 ---------------
+redramp_RGB_raw=[[71  0  0]]
+redramp_RGB_ViG=[[71  0  0]]
+redramp_YCoCg=[[-4 32  5]]
+redramp_RGB=[[ 70.6701   0.1537   0.    ]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[16 -9 31]]
+redramp_RGB_New=[[ 71.80055   0.1196    0.     ]]
+------------ rampvalue 72 ---------------
+redramp_RGB_raw=[[72  0  0]]
+redramp_RGB_ViG=[[72  0  0]]
+redramp_YCoCg=[[-4 32  4]]
+redramp_RGB=[[ 72.3488   0.       0.    ]]
+redramp_RGB_New_deltaE=1.496
+redramp_YUV=[[16 -9 32]]
+redramp_RGB_New=[[ 72.3488   0.       1.496 ]]
+------------ rampvalue 73 ---------------
+redramp_RGB_raw=[[73  0  0]]
+redramp_RGB_ViG=[[72  0  0]]
+redramp_YCoCg=[[-4 32  4]]
+redramp_RGB=[[ 72.3488   0.       0.    ]]
+redramp_RGB_New_deltaE=1.496
+redramp_YUV=[[16 -9 32]]
+redramp_RGB_New=[[ 72.3488   0.       1.496 ]]
+------------ rampvalue 74 ---------------
+redramp_RGB_raw=[[74  0  0]]
+redramp_RGB_ViG=[[75  0  1]]
+redramp_YCoCg=[[-4 34  5]]
+redramp_RGB=[[  7.51919000e+01   1.73000000e-02   5.18600000e-01]]
+redramp_RGB_New_deltaE=1.16745693818
+redramp_YUV=[[17 -9 33]]
+redramp_RGB_New=[[ 76.32235   0.        0.8097 ]]
+------------ rampvalue 75 ---------------
+redramp_RGB_raw=[[75  0  0]]
+redramp_RGB_ViG=[[75  0  1]]
+redramp_YCoCg=[[-4 34  5]]
+redramp_RGB=[[  7.51919000e+01   1.73000000e-02   5.18600000e-01]]
+redramp_RGB_New_deltaE=1.16745693818
+redramp_YUV=[[17 -9 33]]
+redramp_RGB_New=[[ 76.32235   0.        0.8097 ]]
+------------ rampvalue 76 ---------------
+redramp_RGB_raw=[[76  0  0]]
+redramp_RGB_ViG=[[75  0  1]]
+redramp_YCoCg=[[-4 34  5]]
+redramp_RGB=[[  7.51919000e+01   1.73000000e-02   5.18600000e-01]]
+redramp_RGB_New_deltaE=1.16745693818
+redramp_YUV=[[17 -9 33]]
+redramp_RGB_New=[[ 76.32235   0.        0.8097 ]]
+------------ rampvalue 77 ---------------
+redramp_RGB_raw=[[77  0  0]]
+redramp_RGB_ViG=[[77  0  1]]
+redramp_YCoCg=[[-4 34  4]]
+redramp_RGB=[[ 76.8706   0.       0.5186]]
+redramp_RGB_New_deltaE=2.1418
+redramp_YUV=[[17 -9 34]]
+redramp_RGB_New=[[ 76.8706   0.       2.6604]]
+------------ rampvalue 78 ---------------
+redramp_RGB_raw=[[78  0  0]]
+redramp_RGB_ViG=[[78  1  0]]
+redramp_YCoCg=[[-4 35  6]]
+redramp_RGB=[[ 78.035    0.7186   0.    ]]
+redramp_RGB_New_deltaE=1.46482137553e-14
+redramp_YUV=[[ 18 -10  34]]
+redramp_RGB_New=[[ 78.035    0.7186   0.    ]]
+------------ rampvalue 79 ---------------
+redramp_RGB_raw=[[79  0  0]]
+redramp_RGB_ViG=[[80  0  0]]
+redramp_YCoCg=[[-4 36  6]]
+redramp_RGB=[[  7.97137000e+01   6.82000000e-02   0.00000000e+00]]
+redramp_RGB_New_deltaE=0.83255104348
+redramp_YUV=[[ 18 -10  35]]
+redramp_RGB_New=[[ 80.2959   0.6504   0.1234]]
+------------ rampvalue 80 ---------------
+redramp_RGB_raw=[[80  0  0]]
+redramp_RGB_ViG=[[80  0  0]]
+redramp_YCoCg=[[-4 36  6]]
+redramp_RGB=[[  7.97137000e+01   6.82000000e-02   0.00000000e+00]]
+redramp_RGB_New_deltaE=0.83255104348
+redramp_YUV=[[ 18 -10  35]]
+redramp_RGB_New=[[ 80.2959   0.6504   0.1234]]
+------------ rampvalue 81 ---------------
+redramp_RGB_raw=[[81  0  0]]
+redramp_RGB_ViG=[[81  0  0]]
+redramp_YCoCg=[[-5 36  5]]
+redramp_RGB=[[ 81.3924   0.       0.    ]]
+redramp_RGB_New_deltaE=0.0
+redramp_YUV=[[ 18 -10  36]]
+redramp_RGB_New=[[ 81.3924   0.       0.    ]]
+------------ rampvalue 82 ---------------
+redramp_RGB_raw=[[82  0  0]]
+redramp_RGB_ViG=[[81  0  0]]
+redramp_YCoCg=[[-5 36  5]]
+redramp_RGB=[[ 81.3924   0.       0.    ]]
+redramp_RGB_New_deltaE=0.0
+redramp_YUV=[[ 18 -10  36]]
+redramp_RGB_New=[[ 81.3924   0.       0.    ]]
+------------ rampvalue 83 ---------------
+redramp_RGB_raw=[[83  0  0]]
+redramp_RGB_ViG=[[83  1  1]]
+redramp_YCoCg=[[-4 37  6]]
+redramp_RGB=[[ 82.5568   0.5822   0.7056]]
+redramp_RGB_New_deltaE=1.7763568394e-15
+redramp_YUV=[[ 19 -10  36]]
+redramp_RGB_New=[[ 82.5568   0.5822   0.7056]]
+------------ rampvalue 84 ---------------
+redramp_RGB_raw=[[84  0  0]]
+redramp_RGB_ViG=[[84  0  1]]
+redramp_YCoCg=[[-4 38  6]]
+redramp_RGB=[[ 84.2355   0.       0.7056]]
+redramp_RGB_New_deltaE=0.970623346103
+redramp_YUV=[[ 19 -10  37]]
+redramp_RGB_New=[[ 84.8177   0.514    1.2878]]
+------------ rampvalue 85 ---------------
+redramp_RGB_raw=[[85  0  0]]
+redramp_RGB_ViG=[[84  0  1]]
+redramp_YCoCg=[[-4 38  6]]
+redramp_RGB=[[ 84.2355   0.       0.7056]]
+redramp_RGB_New_deltaE=0.970623346103
+redramp_YUV=[[ 19 -10  37]]
+redramp_RGB_New=[[ 84.8177   0.514    1.2878]]
+------------ rampvalue 86 ---------------
+redramp_RGB_raw=[[86  0  0]]
+redramp_RGB_ViG=[[86  0  0]]
+redramp_YCoCg=[[-6 38  6]]
+redramp_RGB=[[ 85.9142   0.       0.    ]]
+redramp_RGB_New_deltaE=0.0
+redramp_YUV=[[ 19 -11  38]]
+redramp_RGB_New=[[ 85.9142   0.       0.    ]]
+------------ rampvalue 87 ---------------
+redramp_RGB_raw=[[87  0  0]]
+redramp_RGB_ViG=[[87  1  0]]
+redramp_YCoCg=[[-4 39  6]]
+redramp_RGB=[[ 87.0786   0.6331   0.    ]]
+redramp_RGB_New_deltaE=1.87935661597
+redramp_YUV=[[ 20 -11  38]]
+redramp_RGB_New=[[ 87.0786   0.4458   1.87  ]]
+------------ rampvalue 88 ---------------
+redramp_RGB_raw=[[88  0  0]]
+redramp_RGB_ViG=[[89  0  0]]
+redramp_YCoCg=[[-5 40  6]]
+redramp_RGB=[[ 88.7573   0.       0.    ]]
+redramp_RGB_New_deltaE=1.13061474097
+redramp_YUV=[[ 20 -11  39]]
+redramp_RGB_New=[[  8.98877500e+01   0.00000000e+00   1.93000000e-02]]
+------------ rampvalue 89 ---------------
+redramp_RGB_raw=[[89  0  0]]
+redramp_RGB_ViG=[[89  0  0]]
+redramp_YCoCg=[[-5 40  6]]
+redramp_RGB=[[ 88.7573   0.       0.    ]]
+redramp_RGB_New_deltaE=1.13061474097
+redramp_YUV=[[ 20 -11  39]]
+redramp_RGB_New=[[  8.98877500e+01   0.00000000e+00   1.93000000e-02]]
+------------ rampvalue 90 ---------------
+redramp_RGB_raw=[[90  0  0]]
+redramp_RGB_ViG=[[90  0  0]]
+redramp_YCoCg=[[-6 40  6]]
+redramp_RGB=[[ 90.436   0.      0.   ]]
+redramp_RGB_New_deltaE=0.0
+redramp_YUV=[[ 20 -11  40]]
+redramp_RGB_New=[[ 90.436   0.      0.   ]]
+------------ rampvalue 91 ---------------
+redramp_RGB_raw=[[91  0  0]]
+redramp_RGB_ViG=[[92  0  1]]
+redramp_YCoCg=[[-4 41  6]]
+redramp_RGB=[[ 91.6004   0.4967   0.8926]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[ 21 -11  40]]
+redramp_RGB_New=[[ 91.6004   0.3094   3.0344]]
+------------ rampvalue 92 ---------------
+redramp_RGB_raw=[[92  0  0]]
+redramp_RGB_ViG=[[92  0  1]]
+redramp_YCoCg=[[-4 41  6]]
+redramp_RGB=[[ 91.6004   0.4967   0.8926]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[ 21 -11  40]]
+redramp_RGB_New=[[ 91.6004   0.3094   3.0344]]
+------------ rampvalue 93 ---------------
+redramp_RGB_raw=[[93  0  0]]
+redramp_RGB_ViG=[[93  0  1]]
+redramp_YCoCg=[[-5 42  6]]
+redramp_RGB=[[ 93.2791   0.       0.8926]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 21 -11  41]]
+redramp_RGB_New=[[ 94.40955   0.        1.1837 ]]
+------------ rampvalue 94 ---------------
+redramp_RGB_raw=[[94  0  0]]
+redramp_RGB_ViG=[[93  0  0]]
+redramp_YCoCg=[[-6 42  6]]
+redramp_RGB=[[  9.32791000e+01   3.36000000e-02   0.00000000e+00]]
+redramp_RGB_New_deltaE=1.67903622653
+redramp_YUV=[[ 21 -12  41]]
+redramp_RGB_New=[[ 94.9578   0.       0.    ]]
+------------ rampvalue 95 ---------------
+redramp_RGB_raw=[[95  0  0]]
+redramp_RGB_ViG=[[95  0  0]]
+redramp_YCoCg=[[-6 42  6]]
+redramp_RGB=[[ 94.9578   0.       0.    ]]
+redramp_RGB_New_deltaE=1.42108547152e-14
+redramp_YUV=[[ 21 -12  42]]
+redramp_RGB_New=[[ 94.9578   0.       0.    ]]
+------------ rampvalue 96 ---------------
+redramp_RGB_raw=[[96  0  0]]
+redramp_RGB_ViG=[[96  1  0]]
+redramp_YCoCg=[[-5 43  7]]
+redramp_RGB=[[ 96.1222   0.5476   0.    ]]
+redramp_RGB_New_deltaE=4.4408920985e-15
+redramp_YUV=[[ 22 -12  42]]
+redramp_RGB_New=[[ 96.1222   0.5476   0.    ]]
+------------ rampvalue 97 ---------------
+redramp_RGB_raw=[[97  0  0]]
+redramp_RGB_ViG=[[98  0  0]]
+redramp_YCoCg=[[-6 44  6]]
+redramp_RGB=[[ 97.8009   0.       0.    ]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 22 -12  43]]
+redramp_RGB_New=[[ 99.4796   0.       0.    ]]
+------------ rampvalue 98 ---------------
+redramp_RGB_raw=[[98  0  0]]
+redramp_RGB_ViG=[[98  0  0]]
+redramp_YCoCg=[[-6 44  6]]
+redramp_RGB=[[ 97.8009   0.       0.    ]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 22 -12  43]]
+redramp_RGB_New=[[ 99.4796   0.       0.    ]]
+------------ rampvalue 99 ---------------
+redramp_RGB_raw=[[99  0  0]]
+redramp_RGB_ViG=[[98  0  0]]
+redramp_YCoCg=[[-6 44  6]]
+redramp_RGB=[[ 97.8009   0.       0.    ]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 22 -12  43]]
+redramp_RGB_New=[[ 99.4796   0.       0.    ]]
+------------ rampvalue 100 ---------------
+redramp_RGB_raw=[[100   0   0]]
+redramp_RGB_ViG=[[101   0   1]]
+redramp_YCoCg=[[-5 45  7]]
+redramp_RGB=[[ 100.644     0.4112    1.0796]]
+redramp_RGB_New_deltaE=2.6645352591e-15
+redramp_YUV=[[ 23 -12  44]]
+redramp_RGB_New=[[ 100.644     0.4112    1.0796]]
+------------ rampvalue 101 ---------------
+redramp_RGB_raw=[[101   0   0]]
+redramp_RGB_ViG=[[101   0   1]]
+redramp_YCoCg=[[-5 45  7]]
+redramp_RGB=[[ 100.644     0.4112    1.0796]]
+redramp_RGB_New_deltaE=2.6645352591e-15
+redramp_YUV=[[ 23 -12  44]]
+redramp_RGB_New=[[ 100.644     0.4112    1.0796]]
+------------ rampvalue 102 ---------------
+redramp_RGB_raw=[[102   0   0]]
+redramp_RGB_ViG=[[102   0   0]]
+redramp_YCoCg=[[-6 46  7]]
+redramp_RGB=[[ 102.3227    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 23 -13  45]]
+redramp_RGB_New=[[ 103.45315    0.         0.     ]]
+------------ rampvalue 103 ---------------
+redramp_RGB_raw=[[103   0   0]]
+redramp_RGB_ViG=[[102   0   0]]
+redramp_YCoCg=[[-6 46  7]]
+redramp_RGB=[[ 102.3227    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 23 -13  45]]
+redramp_RGB_New=[[ 103.45315    0.         0.     ]]
+------------ rampvalue 104 ---------------
+redramp_RGB_raw=[[104   0   0]]
+redramp_RGB_ViG=[[104   0   0]]
+redramp_YCoCg=[[-6 46  6]]
+redramp_RGB=[[ 104.0014    0.        0.    ]]
+redramp_RGB_New_deltaE=1.0796
+redramp_YUV=[[ 23 -13  46]]
+redramp_RGB_New=[[ 104.0014    0.        1.0796]]
+------------ rampvalue 105 ---------------
+redramp_RGB_raw=[[105   0   0]]
+redramp_RGB_ViG=[[105   0   0]]
+redramp_YCoCg=[[-6 47  8]]
+redramp_RGB=[[  1.05165800e+02   4.62100000e-01   1.02200000e-01]]
+redramp_RGB_New_deltaE=0.213368530951
+redramp_YUV=[[ 24 -13  46]]
+redramp_RGB_New=[[ 105.1658    0.6494    0.    ]]
+------------ rampvalue 106 ---------------
+redramp_RGB_raw=[[106   0   0]]
+redramp_RGB_ViG=[[107   0   0]]
+redramp_YCoCg=[[-6 48  7]]
+redramp_RGB=[[  1.06844500e+02   0.00000000e+00   1.02200000e-01]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 24 -13  47]]
+redramp_RGB_New=[[ 107.97495    0.         0.3933 ]]
+------------ rampvalue 107 ---------------
+redramp_RGB_raw=[[107   0   0]]
+redramp_RGB_ViG=[[107   0   0]]
+redramp_YCoCg=[[-6 48  7]]
+redramp_RGB=[[  1.06844500e+02   0.00000000e+00   1.02200000e-01]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 24 -13  47]]
+redramp_RGB_New=[[ 107.97495    0.         0.3933 ]]
+------------ rampvalue 108 ---------------
+redramp_RGB_raw=[[108   0   0]]
+redramp_RGB_ViG=[[107   0   0]]
+redramp_YCoCg=[[-6 48  7]]
+redramp_RGB=[[  1.06844500e+02   0.00000000e+00   1.02200000e-01]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 24 -13  47]]
+redramp_RGB_New=[[ 107.97495    0.         0.3933 ]]
+------------ rampvalue 109 ---------------
+redramp_RGB_raw=[[109   0   0]]
+redramp_RGB_ViG=[[110   0   1]]
+redramp_YCoCg=[[-6 49  8]]
+redramp_RGB=[[ 109.6876    0.3257    1.2666]]
+redramp_RGB_New_deltaE=1.28037371498
+redramp_YUV=[[ 25 -13  48]]
+redramp_RGB_New=[[ 109.6876    0.513     0.    ]]
+------------ rampvalue 110 ---------------
+redramp_RGB_raw=[[110   0   0]]
+redramp_RGB_ViG=[[110   0   1]]
+redramp_YCoCg=[[-6 49  8]]
+redramp_RGB=[[ 109.6876    0.3257    1.2666]]
+redramp_RGB_New_deltaE=1.28037371498
+redramp_YUV=[[ 25 -13  48]]
+redramp_RGB_New=[[ 109.6876    0.513     0.    ]]
+------------ rampvalue 111 ---------------
+redramp_RGB_raw=[[111   0   0]]
+redramp_RGB_ViG=[[111   0   0]]
+redramp_YCoCg=[[-6 50  8]]
+redramp_RGB=[[ 111.3663    0.        0.    ]]
+redramp_RGB_New_deltaE=0.732669011219
+redramp_YUV=[[ 25 -14  49]]
+redramp_RGB_New=[[ 111.9485    0.4448    0.    ]]
+------------ rampvalue 112 ---------------
+redramp_RGB_raw=[[112   0   0]]
+redramp_RGB_ViG=[[111   0   0]]
+redramp_YCoCg=[[-6 50  8]]
+redramp_RGB=[[ 111.3663    0.        0.    ]]
+redramp_RGB_New_deltaE=0.732669011219
+redramp_YUV=[[ 25 -14  49]]
+redramp_RGB_New=[[ 111.9485    0.4448    0.    ]]
+------------ rampvalue 113 ---------------
+redramp_RGB_raw=[[113   0   0]]
+redramp_RGB_ViG=[[113   0   0]]
+redramp_YCoCg=[[-7 50  7]]
+redramp_RGB=[[ 113.045    0.       0.   ]]
+redramp_RGB_New_deltaE=1.42108547152e-14
+redramp_YUV=[[ 25 -14  50]]
+redramp_RGB_New=[[ 113.045    0.       0.   ]]
+------------ rampvalue 114 ---------------
+redramp_RGB_raw=[[114   0   0]]
+redramp_RGB_ViG=[[114   0   0]]
+redramp_YCoCg=[[-6 51  8]]
+redramp_RGB=[[ 114.2094    0.3766    0.2892]]
+redramp_RGB_New_deltaE=2.90937751298e-14
+redramp_YUV=[[ 26 -14  50]]
+redramp_RGB_New=[[ 114.2094    0.3766    0.2892]]
+------------ rampvalue 115 ---------------
+redramp_RGB_raw=[[115   0   0]]
+redramp_RGB_ViG=[[116   0   0]]
+redramp_YCoCg=[[-6 52  8]]
+redramp_RGB=[[ 115.8881    0.        0.2892]]
+redramp_RGB_New_deltaE=0.879217970699
+redramp_YUV=[[ 26 -14  51]]
+redramp_RGB_New=[[ 116.4703    0.3084    0.8714]]
+------------ rampvalue 116 ---------------
+redramp_RGB_raw=[[116   0   0]]
+redramp_RGB_ViG=[[116   0   0]]
+redramp_YCoCg=[[-6 52  8]]
+redramp_RGB=[[ 115.8881    0.        0.2892]]
+redramp_RGB_New_deltaE=0.879217970699
+redramp_YUV=[[ 26 -14  51]]
+redramp_RGB_New=[[ 116.4703    0.3084    0.8714]]
+------------ rampvalue 117 ---------------
+redramp_RGB_raw=[[117   0   0]]
+redramp_RGB_ViG=[[116   0   0]]
+redramp_YCoCg=[[-6 52  8]]
+redramp_RGB=[[ 115.8881    0.        0.2892]]
+redramp_RGB_New_deltaE=0.879217970699
+redramp_YUV=[[ 26 -14  51]]
+redramp_RGB_New=[[ 116.4703    0.3084    0.8714]]
+------------ rampvalue 118 ---------------
+redramp_RGB_raw=[[118   0   0]]
+redramp_RGB_ViG=[[119   0   1]]
+redramp_YCoCg=[[-6 53  8]]
+redramp_RGB=[[ 118.7312    0.2402    1.4536]]
+redramp_RGB_New_deltaE=2.87665620048e-14
+redramp_YUV=[[ 27 -14  52]]
+redramp_RGB_New=[[ 118.7312    0.2402    1.4536]]
+------------ rampvalue 119 ---------------
+redramp_RGB_raw=[[119   0   0]]
+redramp_RGB_ViG=[[119   0   0]]
+redramp_YCoCg=[[-6 53  8]]
+redramp_RGB=[[ 118.7312    0.4275    0.    ]]
+redramp_RGB_New_deltaE=1.46561736139
+redramp_YUV=[[ 27 -15  52]]
+redramp_RGB_New=[[ 118.7312    0.2402    1.4536]]
+------------ rampvalue 120 ---------------
+redramp_RGB_raw=[[120   0   0]]
+redramp_RGB_ViG=[[120   0   0]]
+redramp_YCoCg=[[-7 54  8]]
+redramp_RGB=[[ 120.4099    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 27 -15  53]]
+redramp_RGB_New=[[ 121.54035    0.         0.     ]]
+------------ rampvalue 121 ---------------
+redramp_RGB_raw=[[121   0   0]]
+redramp_RGB_ViG=[[120   0   0]]
+redramp_YCoCg=[[-7 54  8]]
+redramp_RGB=[[ 120.4099    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 27 -15  53]]
+redramp_RGB_New=[[ 121.54035    0.         0.     ]]
+------------ rampvalue 122 ---------------
+redramp_RGB_raw=[[122   0   0]]
+redramp_RGB_ViG=[[123   0   0]]
+redramp_YCoCg=[[-6 55  8]]
+redramp_RGB=[[ 123.253     0.2911    0.4762]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[ 28 -15  54]]
+redramp_RGB_New=[[  1.23253000e+02   1.03800000e-01   2.61800000e+00]]
+------------ rampvalue 123 ---------------
+redramp_RGB_raw=[[123   0   0]]
+redramp_RGB_ViG=[[123   0   0]]
+redramp_YCoCg=[[-6 55  8]]
+redramp_RGB=[[ 123.253     0.2911    0.4762]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[ 28 -15  54]]
+redramp_RGB_New=[[  1.23253000e+02   1.03800000e-01   2.61800000e+00]]
+------------ rampvalue 124 ---------------
+redramp_RGB_raw=[[124   0   0]]
+redramp_RGB_ViG=[[123   0   0]]
+redramp_YCoCg=[[-6 55  8]]
+redramp_RGB=[[ 123.253     0.2911    0.4762]]
+redramp_RGB_New_deltaE=2.14997407659
+redramp_YUV=[[ 28 -15  54]]
+redramp_RGB_New=[[  1.23253000e+02   1.03800000e-01   2.61800000e+00]]
+------------ rampvalue 125 ---------------
+redramp_RGB_raw=[[125   0   0]]
+redramp_RGB_ViG=[[125   0   0]]
+redramp_YCoCg=[[-7 56  8]]
+redramp_RGB=[[ 124.9317    0.        0.4762]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 28 -15  55]]
+redramp_RGB_New=[[ 126.06215    0.         0.7673 ]]
+------------ rampvalue 126 ---------------
+redramp_RGB_raw=[[126   0   0]]
+redramp_RGB_ViG=[[125   0   0]]
+redramp_YCoCg=[[-7 56  8]]
+redramp_RGB=[[ 124.9317    0.        0.4762]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 28 -15  55]]
+redramp_RGB_New=[[ 126.06215    0.         0.7673 ]]
+------------ rampvalue 127 ---------------
+redramp_RGB_raw=[[127   0   0]]
+redramp_RGB_ViG=[[128   0   0]]
+redramp_YCoCg=[[-7 57  9]]
+redramp_RGB=[[ 127.7748    0.342     0.    ]]
+redramp_RGB_New_deltaE=8.881784197e-16
+redramp_YUV=[[ 29 -16  56]]
+redramp_RGB_New=[[ 127.7748    0.342     0.    ]]
+------------ rampvalue 128 ---------------
+redramp_RGB_raw=[[128   0   0]]
+redramp_RGB_ViG=[[128   0   0]]
+redramp_YCoCg=[[-7 57  9]]
+redramp_RGB=[[ 127.7748    0.342     0.    ]]
+redramp_RGB_New_deltaE=8.881784197e-16
+redramp_YUV=[[ 29 -16  56]]
+redramp_RGB_New=[[ 127.7748    0.342     0.    ]]
+------------ rampvalue 129 ---------------
+redramp_RGB_raw=[[129   0   0]]
+redramp_RGB_ViG=[[129   0   0]]
+redramp_YCoCg=[[-8 58  8]]
+redramp_RGB=[[ 129.4535    0.        0.    ]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 29 -16  57]]
+redramp_RGB_New=[[ 131.1322    0.        0.    ]]
+------------ rampvalue 130 ---------------
+redramp_RGB_raw=[[130   0   0]]
+redramp_RGB_ViG=[[129   0   0]]
+redramp_YCoCg=[[-8 58  8]]
+redramp_RGB=[[ 129.4535    0.        0.    ]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 29 -16  57]]
+redramp_RGB_New=[[ 131.1322    0.        0.    ]]
+------------ rampvalue 131 ---------------
+redramp_RGB_raw=[[131   0   0]]
+redramp_RGB_ViG=[[132   0   1]]
+redramp_YCoCg=[[-7 59  9]]
+redramp_RGB=[[ 132.2966    0.2056    0.6632]]
+redramp_RGB_New_deltaE=2.84355838317e-14
+redramp_YUV=[[ 30 -16  58]]
+redramp_RGB_New=[[ 132.2966    0.2056    0.6632]]
+------------ rampvalue 132 ---------------
+redramp_RGB_raw=[[132   0   0]]
+redramp_RGB_ViG=[[132   0   1]]
+redramp_YCoCg=[[-7 59  9]]
+redramp_RGB=[[ 132.2966    0.2056    0.6632]]
+redramp_RGB_New_deltaE=2.84355838317e-14
+redramp_YUV=[[ 30 -16  58]]
+redramp_RGB_New=[[ 132.2966    0.2056    0.6632]]
+------------ rampvalue 133 ---------------
+redramp_RGB_raw=[[133   0   0]]
+redramp_RGB_ViG=[[132   0   1]]
+redramp_YCoCg=[[-7 59  9]]
+redramp_RGB=[[ 132.2966    0.2056    0.6632]]
+redramp_RGB_New_deltaE=2.84355838317e-14
+redramp_YUV=[[ 30 -16  58]]
+redramp_RGB_New=[[ 132.2966    0.2056    0.6632]]
+------------ rampvalue 134 ---------------
+redramp_RGB_raw=[[134   0   0]]
+redramp_RGB_ViG=[[134   0   1]]
+redramp_YCoCg=[[-8 60  8]]
+redramp_RGB=[[ 133.9753    0.        0.6632]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 30 -16  59]]
+redramp_RGB_New=[[ 135.654     0.        0.6632]]
+------------ rampvalue 135 ---------------
+redramp_RGB_raw=[[135   0   0]]
+redramp_RGB_ViG=[[134   0   0]]
+redramp_YCoCg=[[-8 60  9]]
+redramp_RGB=[[ 133.9753    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 30 -17  59]]
+redramp_RGB_New=[[ 135.10575    0.         0.     ]]
+------------ rampvalue 136 ---------------
+redramp_RGB_raw=[[136   0   0]]
+redramp_RGB_ViG=[[137   0   0]]
+redramp_YCoCg=[[-8 61 10]]
+redramp_RGB=[[ 136.8184    0.2565    0.    ]]
+redramp_RGB_New_deltaE=0.1873
+redramp_YUV=[[ 31 -17  60]]
+redramp_RGB_New=[[ 136.8184    0.4438    0.    ]]
+------------ rampvalue 137 ---------------
+redramp_RGB_raw=[[137   0   0]]
+redramp_RGB_ViG=[[137   0   0]]
+redramp_YCoCg=[[-8 61 10]]
+redramp_RGB=[[ 136.8184    0.2565    0.    ]]
+redramp_RGB_New_deltaE=0.1873
+redramp_YUV=[[ 31 -17  60]]
+redramp_RGB_New=[[ 136.8184    0.4438    0.    ]]
+------------ rampvalue 138 ---------------
+redramp_RGB_raw=[[138   0   0]]
+redramp_RGB_ViG=[[138   0   0]]
+redramp_YCoCg=[[-8 62  9]]
+redramp_RGB=[[ 138.4971    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 31 -17  61]]
+redramp_RGB_New=[[ 139.62755    0.         0.     ]]
+------------ rampvalue 139 ---------------
+redramp_RGB_raw=[[139   0   0]]
+redramp_RGB_ViG=[[138   0   0]]
+redramp_YCoCg=[[-8 62  9]]
+redramp_RGB=[[ 138.4971    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 31 -17  61]]
+redramp_RGB_New=[[ 139.62755    0.         0.     ]]
+------------ rampvalue 140 ---------------
+redramp_RGB_raw=[[140   0   0]]
+redramp_RGB_ViG=[[140   1   1]]
+redramp_YCoCg=[[-7 62 10]]
+redramp_RGB=[[ 139.6615    0.7705    0.8502]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 32 -17  61]]
+redramp_RGB_New=[[ 138.53105    0.8046     0.5591 ]]
+------------ rampvalue 141 ---------------
+redramp_RGB_raw=[[141   0   0]]
+redramp_RGB_ViG=[[141   0   1]]
+redramp_YCoCg=[[-8 63 10]]
+redramp_RGB=[[  1.41340200e+02   1.20100000e-01   8.50200000e-01]]
+redramp_RGB_New_deltaE=0.870586773389
+redramp_YUV=[[ 32 -17  62]]
+redramp_RGB_New=[[ 141.3402    0.3074    0.    ]]
+------------ rampvalue 142 ---------------
+redramp_RGB_raw=[[142   0   0]]
+redramp_RGB_ViG=[[141   0   1]]
+redramp_YCoCg=[[-8 63 10]]
+redramp_RGB=[[  1.41340200e+02   1.20100000e-01   8.50200000e-01]]
+redramp_RGB_New_deltaE=0.870586773389
+redramp_YUV=[[ 32 -17  62]]
+redramp_RGB_New=[[ 141.3402    0.3074    0.    ]]
+------------ rampvalue 143 ---------------
+redramp_RGB_raw=[[143   0   0]]
+redramp_RGB_ViG=[[143   0   0]]
+redramp_YCoCg=[[-8 64 10]]
+redramp_RGB=[[ 143.0189    0.        0.    ]]
+redramp_RGB_New_deltaE=0.629423132718
+redramp_YUV=[[ 32 -18  63]]
+redramp_RGB_New=[[ 143.6011    0.2392    0.    ]]
+------------ rampvalue 144 ---------------
+redramp_RGB_raw=[[144   0   0]]
+redramp_RGB_ViG=[[143   0   0]]
+redramp_YCoCg=[[-8 64 10]]
+redramp_RGB=[[ 143.0189    0.        0.    ]]
+redramp_RGB_New_deltaE=0.629423132718
+redramp_YUV=[[ 32 -18  63]]
+redramp_RGB_New=[[ 143.6011    0.2392    0.    ]]
+------------ rampvalue 145 ---------------
+redramp_RGB_raw=[[145   0   0]]
+redramp_RGB_ViG=[[146   0   0]]
+redramp_YCoCg=[[-8 65 10]]
+redramp_RGB=[[ 145.862    0.171    0.   ]]
+redramp_RGB_New_deltaE=8.881784197e-16
+redramp_YUV=[[ 33 -18  64]]
+redramp_RGB_New=[[ 145.862    0.171    0.   ]]
+------------ rampvalue 146 ---------------
+redramp_RGB_raw=[[146   0   0]]
+redramp_RGB_ViG=[[146   0   0]]
+redramp_YCoCg=[[-8 65 10]]
+redramp_RGB=[[ 145.862    0.171    0.   ]]
+redramp_RGB_New_deltaE=8.881784197e-16
+redramp_YUV=[[ 33 -18  64]]
+redramp_RGB_New=[[ 145.862    0.171    0.   ]]
+------------ rampvalue 147 ---------------
+redramp_RGB_raw=[[147   0   0]]
+redramp_RGB_ViG=[[148   0   0]]
+redramp_YCoCg=[[-8 66 10]]
+redramp_RGB=[[ 147.5407    0.        0.    ]]
+redramp_RGB_New_deltaE=0.746022573385
+redramp_YUV=[[ 33 -18  65]]
+redramp_RGB_New=[[  1.48122900e+02   1.02800000e-01   4.55000000e-01]]
+------------ rampvalue 148 ---------------
+redramp_RGB_raw=[[148   0   0]]
+redramp_RGB_ViG=[[148   0   0]]
+redramp_YCoCg=[[-8 66 10]]
+redramp_RGB=[[ 147.5407    0.        0.    ]]
+redramp_RGB_New_deltaE=0.746022573385
+redramp_YUV=[[ 33 -18  65]]
+redramp_RGB_New=[[  1.48122900e+02   1.02800000e-01   4.55000000e-01]]
+------------ rampvalue 149 ---------------
+redramp_RGB_raw=[[149   0   0]]
+redramp_RGB_ViG=[[149   1   1]]
+redramp_YCoCg=[[-8 66 10]]
+redramp_RGB=[[ 148.7051    0.685     1.0372]]
+redramp_RGB_New_deltaE=1.00839998017
+redramp_YUV=[[ 34 -18  65]]
+redramp_RGB_New=[[  1.48122900e+02   1.02800000e-01   4.55000000e-01]]
+------------ rampvalue 150 ---------------
+redramp_RGB_raw=[[150   0   0]]
+redramp_RGB_ViG=[[150   0   1]]
+redramp_YCoCg=[[-8 67 10]]
+redramp_RGB=[[  1.50383800e+02   3.46000000e-02   1.03720000e+00]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 34 -18  66]]
+redramp_RGB_New=[[  1.50383800e+02   3.46000000e-02   1.03720000e+00]]
+------------ rampvalue 151 ---------------
+redramp_RGB_raw=[[151   0   0]]
+redramp_RGB_ViG=[[150   0   0]]
+redramp_YCoCg=[[-8 67 10]]
+redramp_RGB=[[ 150.3838    0.2219    0.    ]]
+redramp_RGB_New_deltaE=1.05397586785
+redramp_YUV=[[ 34 -19  66]]
+redramp_RGB_New=[[  1.50383800e+02   3.46000000e-02   1.03720000e+00]]
+------------ rampvalue 152 ---------------
+redramp_RGB_raw=[[152   0   0]]
+redramp_RGB_ViG=[[152   0   0]]
+redramp_YCoCg=[[-9 68 10]]
+redramp_RGB=[[ 152.0625    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 34 -19  67]]
+redramp_RGB_New=[[ 153.19295    0.         0.     ]]
+------------ rampvalue 153 ---------------
+redramp_RGB_raw=[[153   0   0]]
+redramp_RGB_ViG=[[153   1   0]]
+redramp_YCoCg=[[-8 68 11]]
+redramp_RGB=[[  1.53226900e+02   7.35900000e-01   5.98000000e-02]]
+redramp_RGB_New_deltaE=1.13254406206
+redramp_YUV=[[ 35 -19  67]]
+redramp_RGB_New=[[ 152.09645    0.77       0.     ]]
+------------ rampvalue 154 ---------------
+redramp_RGB_raw=[[154   0   0]]
+redramp_RGB_ViG=[[155   0   0]]
+redramp_YCoCg=[[-8 69 10]]
+redramp_RGB=[[  1.54905600e+02   8.55000000e-02   5.98000000e-02]]
+redramp_RGB_New_deltaE=2.14350588756
+redramp_YUV=[[ 35 -19  68]]
+redramp_RGB_New=[[ 154.9056    0.        2.2016]]
+------------ rampvalue 155 ---------------
+redramp_RGB_raw=[[155   0   0]]
+redramp_RGB_ViG=[[155   0   0]]
+redramp_YCoCg=[[-8 69 10]]
+redramp_RGB=[[  1.54905600e+02   8.55000000e-02   5.98000000e-02]]
+redramp_RGB_New_deltaE=2.14350588756
+redramp_YUV=[[ 35 -19  68]]
+redramp_RGB_New=[[ 154.9056    0.        2.2016]]
+------------ rampvalue 156 ---------------
+redramp_RGB_raw=[[156   0   0]]
+redramp_RGB_ViG=[[157   0   0]]
+redramp_YCoCg=[[-9 70 10]]
+redramp_RGB=[[  1.56584300e+02   0.00000000e+00   5.98000000e-02]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 35 -19  69]]
+redramp_RGB_New=[[ 157.71475    0.         0.3509 ]]
+------------ rampvalue 157 ---------------
+redramp_RGB_raw=[[157   0   0]]
+redramp_RGB_ViG=[[157   0   0]]
+redramp_YCoCg=[[-9 70 10]]
+redramp_RGB=[[  1.56584300e+02   0.00000000e+00   5.98000000e-02]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 35 -19  69]]
+redramp_RGB_New=[[ 157.71475    0.         0.3509 ]]
+------------ rampvalue 158 ---------------
+redramp_RGB_raw=[[158   0   0]]
+redramp_RGB_ViG=[[158   1   1]]
+redramp_YCoCg=[[-8 70 11]]
+redramp_RGB=[[ 157.7487    0.5995    1.2242]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 36 -19  69]]
+redramp_RGB_New=[[ 156.61825    0.6336     0.9331 ]]
+------------ rampvalue 159 ---------------
+redramp_RGB_raw=[[159   0   0]]
+redramp_RGB_ViG=[[159   0   0]]
+redramp_YCoCg=[[-9 71 11]]
+redramp_RGB=[[  1.59427400e+02   1.36400000e-01   0.00000000e+00]]
+redramp_RGB_New_deltaE=3.5527136788e-15
+redramp_YUV=[[ 36 -20  70]]
+redramp_RGB_New=[[  1.59427400e+02   1.36400000e-01   0.00000000e+00]]
+------------ rampvalue 160 ---------------
+redramp_RGB_raw=[[160   0   0]]
+redramp_RGB_ViG=[[159   0   0]]
+redramp_YCoCg=[[-9 71 11]]
+redramp_RGB=[[  1.59427400e+02   1.36400000e-01   0.00000000e+00]]
+redramp_RGB_New_deltaE=3.5527136788e-15
+redramp_YUV=[[ 36 -20  70]]
+redramp_RGB_New=[[  1.59427400e+02   1.36400000e-01   0.00000000e+00]]
+------------ rampvalue 161 ---------------
+redramp_RGB_raw=[[161   0   0]]
+redramp_RGB_ViG=[[161   0   0]]
+redramp_YCoCg=[[-10  72  10]]
+redramp_RGB=[[ 161.1061    0.        0.    ]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 36 -20  71]]
+redramp_RGB_New=[[ 162.7848    0.        0.    ]]
+------------ rampvalue 162 ---------------
+redramp_RGB_raw=[[162   0   0]]
+redramp_RGB_ViG=[[162   1   0]]
+redramp_YCoCg=[[-8 72 12]]
+redramp_RGB=[[ 162.2705    0.6504    0.2468]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 37 -20  71]]
+redramp_RGB_New=[[ 160.5918    1.3008    0.2468]]
+------------ rampvalue 163 ---------------
+redramp_RGB_raw=[[163   0   0]]
+redramp_RGB_ViG=[[164   0   0]]
+redramp_YCoCg=[[-9 73 11]]
+redramp_RGB=[[  1.63949200e+02   7.10542736e-15   2.46800000e-01]]
+redramp_RGB_New_deltaE=1.7763568394e-15
+redramp_YUV=[[ 37 -20  72]]
+redramp_RGB_New=[[  1.63949200e+02   5.32907052e-15   2.46800000e-01]]
+------------ rampvalue 164 ---------------
+redramp_RGB_raw=[[164   0   0]]
+redramp_RGB_ViG=[[164   0   0]]
+redramp_YCoCg=[[-9 73 11]]
+redramp_RGB=[[  1.63949200e+02   7.10542736e-15   2.46800000e-01]]
+redramp_RGB_New_deltaE=1.7763568394e-15
+redramp_YUV=[[ 37 -20  72]]
+redramp_RGB_New=[[  1.63949200e+02   5.32907052e-15   2.46800000e-01]]
+------------ rampvalue 165 ---------------
+redramp_RGB_raw=[[165   0   0]]
+redramp_RGB_ViG=[[164   0   0]]
+redramp_YCoCg=[[-9 73 11]]
+redramp_RGB=[[  1.63949200e+02   7.10542736e-15   2.46800000e-01]]
+redramp_RGB_New_deltaE=1.7763568394e-15
+redramp_YUV=[[ 37 -20  72]]
+redramp_RGB_New=[[  1.63949200e+02   5.32907052e-15   2.46800000e-01]]
+------------ rampvalue 166 ---------------
+redramp_RGB_raw=[[166   0   0]]
+redramp_RGB_ViG=[[166   0   0]]
+redramp_YCoCg=[[-10  74  10]]
+redramp_RGB=[[ 165.6279    0.        0.2468]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 37 -20  73]]
+redramp_RGB_New=[[ 167.3066    0.        0.2468]]
+------------ rampvalue 167 ---------------
+redramp_RGB_raw=[[167   0   0]]
+redramp_RGB_ViG=[[167   1   1]]
+redramp_YCoCg=[[-8 74 12]]
+redramp_RGB=[[ 166.7923    0.514     1.4112]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 38 -20  73]]
+redramp_RGB_New=[[ 165.1136    1.1644    1.4112]]
+------------ rampvalue 168 ---------------
+redramp_RGB_raw=[[168   0   0]]
+redramp_RGB_ViG=[[168   0   0]]
+redramp_YCoCg=[[-10  75  12]]
+redramp_RGB=[[  1.68471000e+02   5.09000000e-02   0.00000000e+00]]
+redramp_RGB_New_deltaE=0.1873
+redramp_YUV=[[ 38 -21  74]]
+redramp_RGB_New=[[ 168.471     0.2382    0.    ]]
+------------ rampvalue 169 ---------------
+redramp_RGB_raw=[[169   0   0]]
+redramp_RGB_ViG=[[168   0   0]]
+redramp_YCoCg=[[-10  75  12]]
+redramp_RGB=[[  1.68471000e+02   5.09000000e-02   0.00000000e+00]]
+redramp_RGB_New_deltaE=0.1873
+redramp_YUV=[[ 38 -21  74]]
+redramp_RGB_New=[[ 168.471     0.2382    0.    ]]
+------------ rampvalue 170 ---------------
+redramp_RGB_raw=[[170   0   0]]
+redramp_RGB_ViG=[[170   0   0]]
+redramp_YCoCg=[[-10  76  11]]
+redramp_RGB=[[ 170.1497    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 38 -21  75]]
+redramp_RGB_New=[[ 171.28015    0.         0.     ]]
+------------ rampvalue 171 ---------------
+redramp_RGB_raw=[[171   0   0]]
+redramp_RGB_ViG=[[171   1   0]]
+redramp_YCoCg=[[-9 76 12]]
+redramp_RGB=[[ 171.3141    0.5649    0.4338]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 39 -21  75]]
+redramp_RGB_New=[[  1.70183650e+02   5.99000000e-01   1.42700000e-01]]
+------------ rampvalue 172 ---------------
+redramp_RGB_raw=[[172   0   0]]
+redramp_RGB_ViG=[[173   0   0]]
+redramp_YCoCg=[[-10  77  12]]
+redramp_RGB=[[ 172.9928    0.        0.4338]]
+redramp_RGB_New_deltaE=0.445584649646
+redramp_YUV=[[ 39 -21  76]]
+redramp_RGB_New=[[  1.72992800e+02   1.01800000e-01   0.00000000e+00]]
+------------ rampvalue 173 ---------------
+redramp_RGB_raw=[[173   0   0]]
+redramp_RGB_ViG=[[173   0   0]]
+redramp_YCoCg=[[-10  77  12]]
+redramp_RGB=[[ 172.9928    0.        0.4338]]
+redramp_RGB_New_deltaE=0.445584649646
+redramp_YUV=[[ 39 -21  76]]
+redramp_RGB_New=[[  1.72992800e+02   1.01800000e-01   0.00000000e+00]]
+------------ rampvalue 174 ---------------
+redramp_RGB_raw=[[174   0   0]]
+redramp_RGB_ViG=[[173   0   0]]
+redramp_YCoCg=[[-10  77  12]]
+redramp_RGB=[[ 172.9928    0.        0.4338]]
+redramp_RGB_New_deltaE=0.445584649646
+redramp_YUV=[[ 39 -21  76]]
+redramp_RGB_New=[[  1.72992800e+02   1.01800000e-01   0.00000000e+00]]
+------------ rampvalue 175 ---------------
+redramp_RGB_raw=[[175   0   0]]
+redramp_RGB_ViG=[[175   0   0]]
+redramp_YCoCg=[[-10  78  11]]
+redramp_RGB=[[ 174.6715    0.        0.4338]]
+redramp_RGB_New_deltaE=1.16732875082
+redramp_YUV=[[ 39 -21  77]]
+redramp_RGB_New=[[ 175.80195    0.         0.7249 ]]
+------------ rampvalue 176 ---------------
+redramp_RGB_raw=[[176   0   0]]
+redramp_RGB_ViG=[[176   1   0]]
+redramp_YCoCg=[[-10  78  12]]
+redramp_RGB=[[ 175.8359    0.6158    0.    ]]
+redramp_RGB_New_deltaE=0.823355136014
+redramp_YUV=[[ 40 -22  77]]
+redramp_RGB_New=[[  1.75253700e+02   3.36000000e-02   0.00000000e+00]]
+------------ rampvalue 177 ---------------
+redramp_RGB_raw=[[177   0   0]]
+redramp_RGB_ViG=[[178   0   0]]
+redramp_YCoCg=[[-10  79  12]]
+redramp_RGB=[[ 177.5146    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 40 -22  78]]
+redramp_RGB_New=[[ 177.5146    0.        0.    ]]
+------------ rampvalue 178 ---------------
+redramp_RGB_raw=[[178   0   0]]
+redramp_RGB_ViG=[[178   0   0]]
+redramp_YCoCg=[[-10  79  12]]
+redramp_RGB=[[ 177.5146    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 40 -22  78]]
+redramp_RGB_New=[[ 177.5146    0.        0.    ]]
+------------ rampvalue 179 ---------------
+redramp_RGB_raw=[[179   0   0]]
+redramp_RGB_ViG=[[179   0   0]]
+redramp_YCoCg=[[-10  80  12]]
+redramp_RGB=[[ 179.1933    0.        0.    ]]
+redramp_RGB_New_deltaE=0.583478191538
+redramp_YUV=[[ 40 -22  79]]
+redramp_RGB_New=[[  1.79775500e+02   0.00000000e+00   3.86000000e-02]]
+------------ rampvalue 180 ---------------
+redramp_RGB_raw=[[180   0   0]]
+redramp_RGB_ViG=[[180   0   1]]
+redramp_YCoCg=[[-10  80  12]]
+redramp_RGB=[[ 180.3577    0.4794    0.6208]]
+redramp_RGB_New_deltaE=0.952752874569
+redramp_YUV=[[ 41 -22  79]]
+redramp_RGB_New=[[  1.79775500e+02   0.00000000e+00   3.86000000e-02]]
+------------ rampvalue 181 ---------------
+redramp_RGB_raw=[[181   0   0]]
+redramp_RGB_ViG=[[180   0   1]]
+redramp_YCoCg=[[-10  80  12]]
+redramp_RGB=[[ 180.3577    0.4794    0.6208]]
+redramp_RGB_New_deltaE=0.952752874569
+redramp_YUV=[[ 41 -22  79]]
+redramp_RGB_New=[[  1.79775500e+02   0.00000000e+00   3.86000000e-02]]
+------------ rampvalue 182 ---------------
+redramp_RGB_raw=[[182   0   0]]
+redramp_RGB_ViG=[[182   0   1]]
+redramp_YCoCg=[[-10  81  12]]
+redramp_RGB=[[ 182.0364    0.        0.6208]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 41 -22  80]]
+redramp_RGB_New=[[ 182.0364    0.        0.6208]]
+------------ rampvalue 183 ---------------
+redramp_RGB_raw=[[183   0   0]]
+redramp_RGB_ViG=[[182   0   1]]
+redramp_YCoCg=[[-10  81  12]]
+redramp_RGB=[[ 182.0364    0.        0.6208]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 41 -22  80]]
+redramp_RGB_New=[[ 182.0364    0.        0.6208]]
+------------ rampvalue 184 ---------------
+redramp_RGB_raw=[[184   0   0]]
+redramp_RGB_ViG=[[185   1   0]]
+redramp_YCoCg=[[-10  82  13]]
+redramp_RGB=[[ 184.8795    0.5303    0.    ]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[ 42 -23  81]]
+redramp_RGB_New=[[ 183.74905    0.5644     0.     ]]
+------------ rampvalue 185 ---------------
+redramp_RGB_raw=[[185   0   0]]
+redramp_RGB_ViG=[[185   1   0]]
+redramp_YCoCg=[[-10  82  13]]
+redramp_RGB=[[ 184.8795    0.5303    0.    ]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[ 42 -23  81]]
+redramp_RGB_New=[[ 183.74905    0.5644     0.     ]]
+------------ rampvalue 186 ---------------
+redramp_RGB_raw=[[186   0   0]]
+redramp_RGB_ViG=[[187   0   0]]
+redramp_YCoCg=[[-10  83  12]]
+redramp_RGB=[[ 186.5582    0.        0.    ]]
+redramp_RGB_New_deltaE=1.7852
+redramp_YUV=[[ 42 -23  82]]
+redramp_RGB_New=[[ 186.5582    0.        1.7852]]
+------------ rampvalue 187 ---------------
+redramp_RGB_raw=[[187   0   0]]
+redramp_RGB_ViG=[[187   0   0]]
+redramp_YCoCg=[[-10  83  12]]
+redramp_RGB=[[ 186.5582    0.        0.    ]]
+redramp_RGB_New_deltaE=1.7852
+redramp_YUV=[[ 42 -23  82]]
+redramp_RGB_New=[[ 186.5582    0.        1.7852]]
+------------ rampvalue 188 ---------------
+redramp_RGB_raw=[[188   0   0]]
+redramp_RGB_ViG=[[188   0   0]]
+redramp_YCoCg=[[-11  84  12]]
+redramp_RGB=[[ 188.2369    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13045
+redramp_YUV=[[ 42 -23  83]]
+redramp_RGB_New=[[ 189.36735    0.         0.     ]]
+------------ rampvalue 189 ---------------
+redramp_RGB_raw=[[189   0   0]]
+redramp_RGB_ViG=[[189   0   1]]
+redramp_YCoCg=[[-10  84  13]]
+redramp_RGB=[[ 189.4013    0.3939    0.8078]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 43 -23  83]]
+redramp_RGB_New=[[ 188.27085    0.428      0.5167 ]]
+------------ rampvalue 190 ---------------
+redramp_RGB_raw=[[190   0   0]]
+redramp_RGB_ViG=[[189   0   1]]
+redramp_YCoCg=[[-10  84  13]]
+redramp_RGB=[[ 189.4013    0.3939    0.8078]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 43 -23  83]]
+redramp_RGB_New=[[ 188.27085    0.428      0.5167 ]]
+------------ rampvalue 191 ---------------
+redramp_RGB_raw=[[191   0   0]]
+redramp_RGB_ViG=[[191   0   1]]
+redramp_YCoCg=[[-10  85  12]]
+redramp_RGB=[[ 191.08      0.        0.8078]]
+redramp_RGB_New_deltaE=2.1418
+redramp_YUV=[[ 43 -23  84]]
+redramp_RGB_New=[[ 191.08      0.        2.9496]]
+------------ rampvalue 192 ---------------
+redramp_RGB_raw=[[192   0   0]]
+redramp_RGB_ViG=[[191   0   0]]
+redramp_YCoCg=[[-11  85  13]]
+redramp_RGB=[[ 191.08    0.      0.  ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 43 -24  84]]
+redramp_RGB_New=[[ 191.08    0.      0.  ]]
+------------ rampvalue 193 ---------------
+redramp_RGB_raw=[[193   0   0]]
+redramp_RGB_ViG=[[194   0   0]]
+redramp_YCoCg=[[-10  86  14]]
+redramp_RGB=[[ 193.9231    0.4448    0.    ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 44 -24  85]]
+redramp_RGB_New=[[ 192.2444    1.0952    0.    ]]
+------------ rampvalue 194 ---------------
+redramp_RGB_raw=[[194   0   0]]
+redramp_RGB_ViG=[[194   0   0]]
+redramp_YCoCg=[[-10  86  14]]
+redramp_RGB=[[ 193.9231    0.4448    0.    ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 44 -24  85]]
+redramp_RGB_New=[[ 192.2444    1.0952    0.    ]]
+------------ rampvalue 195 ---------------
+redramp_RGB_raw=[[195   0   0]]
+redramp_RGB_ViG=[[196   0   0]]
+redramp_YCoCg=[[-11  87  13]]
+redramp_RGB=[[ 195.6018    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 44 -24  86]]
+redramp_RGB_New=[[ 195.6018    0.        0.    ]]
+------------ rampvalue 196 ---------------
+redramp_RGB_raw=[[196   0   0]]
+redramp_RGB_ViG=[[196   0   0]]
+redramp_YCoCg=[[-11  87  13]]
+redramp_RGB=[[ 195.6018    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 44 -24  86]]
+redramp_RGB_New=[[ 195.6018    0.        0.    ]]
+------------ rampvalue 197 ---------------
+redramp_RGB_raw=[[197   0   0]]
+redramp_RGB_ViG=[[197   0   0]]
+redramp_YCoCg=[[-12  88  12]]
+redramp_RGB=[[ 197.2805    0.        0.    ]]
+redramp_RGB_New_deltaE=1.6787
+redramp_YUV=[[ 44 -24  87]]
+redramp_RGB_New=[[ 198.9592    0.        0.    ]]
+------------ rampvalue 198 ---------------
+redramp_RGB_raw=[[198   0   0]]
+redramp_RGB_ViG=[[198   0   1]]
+redramp_YCoCg=[[-10  88  14]]
+redramp_RGB=[[ 198.4449    0.3084    0.9948]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 45 -24  87]]
+redramp_RGB_New=[[ 196.7662    0.9588    0.9948]]
+------------ rampvalue 199 ---------------
+redramp_RGB_raw=[[199   0   0]]
+redramp_RGB_ViG=[[198   0   1]]
+redramp_YCoCg=[[-10  88  14]]
+redramp_RGB=[[ 198.4449    0.3084    0.9948]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 45 -24  87]]
+redramp_RGB_New=[[ 196.7662    0.9588    0.9948]]
+------------ rampvalue 200 ---------------
+redramp_RGB_raw=[[200   0   0]]
+redramp_RGB_ViG=[[200   0   0]]
+redramp_YCoCg=[[-12  89  14]]
+redramp_RGB=[[ 200.1236    0.        0.    ]]
+redramp_RGB_New_deltaE=0.0326
+redramp_YUV=[[ 45 -25  88]]
+redramp_RGB_New=[[  2.00123600e+02   3.26000000e-02   0.00000000e+00]]
+------------ rampvalue 201 ---------------
+redramp_RGB_raw=[[201   0   0]]
+redramp_RGB_ViG=[[200   0   0]]
+redramp_YCoCg=[[-12  89  14]]
+redramp_RGB=[[ 200.1236    0.        0.    ]]
+redramp_RGB_New_deltaE=0.0326
+redramp_YUV=[[ 45 -25  88]]
+redramp_RGB_New=[[  2.00123600e+02   3.26000000e-02   0.00000000e+00]]
+------------ rampvalue 202 ---------------
+redramp_RGB_raw=[[202   0   0]]
+redramp_RGB_ViG=[[203   0   0]]
+redramp_YCoCg=[[-11  90  14]]
+redramp_RGB=[[  2.02966700e+02   3.59300000e-01   1.74000000e-02]]
+redramp_RGB_New_deltaE=1.13109803841
+redramp_YUV=[[ 46 -25  89]]
+redramp_RGB_New=[[ 201.83625    0.3934     0.     ]]
+------------ rampvalue 203 ---------------
+redramp_RGB_raw=[[203   0   0]]
+redramp_RGB_ViG=[[203   0   0]]
+redramp_YCoCg=[[-11  90  14]]
+redramp_RGB=[[  2.02966700e+02   3.59300000e-01   1.74000000e-02]]
+redramp_RGB_New_deltaE=1.13109803841
+redramp_YUV=[[ 46 -25  89]]
+redramp_RGB_New=[[ 201.83625    0.3934     0.     ]]
+------------ rampvalue 204 ---------------
+redramp_RGB_raw=[[204   0   0]]
+redramp_RGB_ViG=[[205   0   0]]
+redramp_YCoCg=[[-12  91  14]]
+redramp_RGB=[[  2.04645400e+02   0.00000000e+00   1.74000000e-02]]
+redramp_RGB_New_deltaE=0.0174
+redramp_YUV=[[ 46 -25  90]]
+redramp_RGB_New=[[ 204.6454    0.        0.    ]]
+------------ rampvalue 205 ---------------
+redramp_RGB_raw=[[205   0   0]]
+redramp_RGB_ViG=[[205   0   0]]
+redramp_YCoCg=[[-12  91  14]]
+redramp_RGB=[[  2.04645400e+02   0.00000000e+00   1.74000000e-02]]
+redramp_RGB_New_deltaE=0.0174
+redramp_YUV=[[ 46 -25  90]]
+redramp_RGB_New=[[ 204.6454    0.        0.    ]]
+------------ rampvalue 206 ---------------
+redramp_RGB_raw=[[206   0   0]]
+redramp_RGB_ViG=[[205   0   0]]
+redramp_YCoCg=[[-12  91  14]]
+redramp_RGB=[[  2.04645400e+02   0.00000000e+00   1.74000000e-02]]
+redramp_RGB_New_deltaE=0.0174
+redramp_YUV=[[ 46 -25  90]]
+redramp_RGB_New=[[ 204.6454    0.        0.    ]]
+------------ rampvalue 207 ---------------
+redramp_RGB_raw=[[207   0   0]]
+redramp_RGB_ViG=[[207   0   1]]
+redramp_YCoCg=[[-11  92  14]]
+redramp_RGB=[[ 207.4885    0.2229    1.1818]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 47 -25  91]]
+redramp_RGB_New=[[ 206.35805    0.257      0.8907 ]]
+------------ rampvalue 208 ---------------
+redramp_RGB_raw=[[208   0   0]]
+redramp_RGB_ViG=[[207   0   0]]
+redramp_YCoCg=[[-12  92  14]]
+redramp_RGB=[[ 207.4885    0.4102    0.    ]]
+redramp_RGB_New_deltaE=0.71219441166
+redramp_YUV=[[ 47 -26  91]]
+redramp_RGB_New=[[ 206.9063    0.        0.    ]]
+------------ rampvalue 209 ---------------
+redramp_RGB_raw=[[209   0   0]]
+redramp_RGB_ViG=[[209   0   0]]
+redramp_YCoCg=[[-12  93  14]]
+redramp_RGB=[[ 209.1672    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 47 -26  92]]
+redramp_RGB_New=[[ 209.1672    0.        0.    ]]
+------------ rampvalue 210 ---------------
+redramp_RGB_raw=[[210   0   0]]
+redramp_RGB_ViG=[[209   0   0]]
+redramp_YCoCg=[[-12  93  14]]
+redramp_RGB=[[ 209.1672    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 47 -26  92]]
+redramp_RGB_New=[[ 209.1672    0.        0.    ]]
+------------ rampvalue 211 ---------------
+redramp_RGB_raw=[[211   0   0]]
+redramp_RGB_ViG=[[212   0   0]]
+redramp_YCoCg=[[-12  94  14]]
+redramp_RGB=[[  2.12010300e+02   2.73800000e-01   2.04400000e-01]]
+redramp_RGB_New_deltaE=0.675057508661
+redramp_YUV=[[ 48 -26  93]]
+redramp_RGB_New=[[ 211.4281    0.        0.    ]]
+------------ rampvalue 212 ---------------
+redramp_RGB_raw=[[212   0   0]]
+redramp_RGB_ViG=[[212   0   0]]
+redramp_YCoCg=[[-12  94  14]]
+redramp_RGB=[[  2.12010300e+02   2.73800000e-01   2.04400000e-01]]
+redramp_RGB_New_deltaE=0.675057508661
+redramp_YUV=[[ 48 -26  93]]
+redramp_RGB_New=[[ 211.4281    0.        0.    ]]
+------------ rampvalue 213 ---------------
+redramp_RGB_raw=[[213   0   0]]
+redramp_RGB_ViG=[[214   0   0]]
+redramp_YCoCg=[[-12  95  14]]
+redramp_RGB=[[  2.13689000e+02   0.00000000e+00   2.04400000e-01]]
+redramp_RGB_New_deltaE=5.68434188608e-14
+redramp_YUV=[[ 48 -26  94]]
+redramp_RGB_New=[[  2.13689000e+02   0.00000000e+00   2.04400000e-01]]
+------------ rampvalue 214 ---------------
+redramp_RGB_raw=[[214   0   0]]
+redramp_RGB_ViG=[[214   0   0]]
+redramp_YCoCg=[[-12  95  14]]
+redramp_RGB=[[  2.13689000e+02   0.00000000e+00   2.04400000e-01]]
+redramp_RGB_New_deltaE=5.68434188608e-14
+redramp_YUV=[[ 48 -26  94]]
+redramp_RGB_New=[[  2.13689000e+02   0.00000000e+00   2.04400000e-01]]
+------------ rampvalue 215 ---------------
+redramp_RGB_raw=[[215   0   0]]
+redramp_RGB_ViG=[[215   1   1]]
+redramp_YCoCg=[[-11  96  15]]
+redramp_RGB=[[ 214.8534    0.7878    1.3688]]
+redramp_RGB_New_deltaE=5.69543329543e-14
+redramp_YUV=[[ 49 -26  94]]
+redramp_RGB_New=[[ 214.8534    0.7878    1.3688]]
+------------ rampvalue 216 ---------------
+redramp_RGB_raw=[[216   0   0]]
+redramp_RGB_ViG=[[217   0   1]]
+redramp_YCoCg=[[-12  96  14]]
+redramp_RGB=[[  2.16532100e+02   1.37400000e-01   1.36880000e+00]]
+redramp_RGB_New_deltaE=0.83474094185
+redramp_YUV=[[ 49 -26  95]]
+redramp_RGB_New=[[ 215.9499    0.        0.7866]]
+------------ rampvalue 217 ---------------
+redramp_RGB_raw=[[217   0   0]]
+redramp_RGB_ViG=[[217   0   0]]
+redramp_YCoCg=[[-12  96  15]]
+redramp_RGB=[[ 216.5321    0.3247    0.    ]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[ 49 -27  95]]
+redramp_RGB_New=[[ 215.40165    0.3588     0.     ]]
+------------ rampvalue 218 ---------------
+redramp_RGB_raw=[[218   0   0]]
+redramp_RGB_ViG=[[218   0   0]]
+redramp_YCoCg=[[-12  97  14]]
+redramp_RGB=[[ 218.2108    0.        0.    ]]
+redramp_RGB_New_deltaE=1.3688
+redramp_YUV=[[ 49 -27  96]]
+redramp_RGB_New=[[ 218.2108    0.        1.3688]]
+------------ rampvalue 219 ---------------
+redramp_RGB_raw=[[219   0   0]]
+redramp_RGB_ViG=[[218   0   0]]
+redramp_YCoCg=[[-12  97  14]]
+redramp_RGB=[[ 218.2108    0.        0.    ]]
+redramp_RGB_New_deltaE=1.3688
+redramp_YUV=[[ 49 -27  96]]
+redramp_RGB_New=[[ 218.2108    0.        1.3688]]
+------------ rampvalue 220 ---------------
+redramp_RGB_raw=[[220   0   0]]
+redramp_RGB_ViG=[[221   0   0]]
+redramp_YCoCg=[[-12  98  15]]
+redramp_RGB=[[  2.21053900e+02   1.88300000e-01   3.91400000e-01]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 50 -27  97]]
+redramp_RGB_New=[[  2.19923450e+02   2.22400000e-01   1.00300000e-01]]
+------------ rampvalue 221 ---------------
+redramp_RGB_raw=[[221   0   0]]
+redramp_RGB_ViG=[[221   0   0]]
+redramp_YCoCg=[[-12  98  15]]
+redramp_RGB=[[  2.21053900e+02   1.88300000e-01   3.91400000e-01]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 50 -27  97]]
+redramp_RGB_New=[[  2.19923450e+02   2.22400000e-01   1.00300000e-01]]
+------------ rampvalue 222 ---------------
+redramp_RGB_raw=[[222   0   0]]
+redramp_RGB_ViG=[[223   0   0]]
+redramp_YCoCg=[[-12  99  14]]
+redramp_RGB=[[ 222.7326    0.        0.3914]]
+redramp_RGB_New_deltaE=2.1418
+redramp_YUV=[[ 50 -27  98]]
+redramp_RGB_New=[[ 222.7326    0.        2.5332]]
+------------ rampvalue 223 ---------------
+redramp_RGB_raw=[[223   0   0]]
+redramp_RGB_ViG=[[223   0   0]]
+redramp_YCoCg=[[-12  99  14]]
+redramp_RGB=[[ 222.7326    0.        0.3914]]
+redramp_RGB_New_deltaE=2.1418
+redramp_YUV=[[ 50 -27  98]]
+redramp_RGB_New=[[ 222.7326    0.        2.5332]]
+------------ rampvalue 224 ---------------
+redramp_RGB_raw=[[224   0   0]]
+redramp_RGB_ViG=[[224   1   2]]
+redramp_YCoCg=[[-12 100  16]]
+redramp_RGB=[[ 223.897     0.7023    1.5558]]
+redramp_RGB_New_deltaE=1.56703379989
+redramp_YUV=[[ 51 -27  98]]
+redramp_RGB_New=[[ 223.897     0.8896    0.    ]]
+------------ rampvalue 225 ---------------
+redramp_RGB_raw=[[225   0   0]]
+redramp_RGB_ViG=[[226   0   0]]
+redramp_YCoCg=[[-12 100  16]]
+redramp_RGB=[[ 225.5757    0.2392    0.    ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 51 -28  99]]
+redramp_RGB_New=[[ 223.897     0.8896    0.    ]]
+------------ rampvalue 226 ---------------
+redramp_RGB_raw=[[226   0   0]]
+redramp_RGB_ViG=[[226   0   0]]
+redramp_YCoCg=[[-12 100  16]]
+redramp_RGB=[[ 225.5757    0.2392    0.    ]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 51 -28  99]]
+redramp_RGB_New=[[ 223.897     0.8896    0.    ]]
+------------ rampvalue 227 ---------------
+redramp_RGB_raw=[[227   0   0]]
+redramp_RGB_ViG=[[227   0   0]]
+redramp_YCoCg=[[-13 101  15]]
+redramp_RGB=[[ 227.2544    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 51 -28 100]]
+redramp_RGB_New=[[ 227.2544    0.        0.    ]]
+------------ rampvalue 228 ---------------
+redramp_RGB_raw=[[228   0   0]]
+redramp_RGB_ViG=[[227   0   0]]
+redramp_YCoCg=[[-13 101  15]]
+redramp_RGB=[[ 227.2544    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 51 -28 100]]
+redramp_RGB_New=[[ 227.2544    0.        0.    ]]
+------------ rampvalue 229 ---------------
+redramp_RGB_raw=[[229   0   0]]
+redramp_RGB_ViG=[[230   0   1]]
+redramp_YCoCg=[[-12 102  16]]
+redramp_RGB=[[  2.30097500e+02   1.02800000e-01   5.78400000e-01]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 52 -28 101]]
+redramp_RGB_New=[[ 228.4188    0.7532    0.5784]]
+------------ rampvalue 230 ---------------
+redramp_RGB_raw=[[230   0   0]]
+redramp_RGB_ViG=[[230   0   1]]
+redramp_YCoCg=[[-12 102  16]]
+redramp_RGB=[[  2.30097500e+02   1.02800000e-01   5.78400000e-01]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 52 -28 101]]
+redramp_RGB_New=[[ 228.4188    0.7532    0.5784]]
+------------ rampvalue 231 ---------------
+redramp_RGB_raw=[[231   0   0]]
+redramp_RGB_ViG=[[230   0   1]]
+redramp_YCoCg=[[-12 102  16]]
+redramp_RGB=[[  2.30097500e+02   1.02800000e-01   5.78400000e-01]]
+redramp_RGB_New_deltaE=1.80029271231
+redramp_YUV=[[ 52 -28 101]]
+redramp_RGB_New=[[ 228.4188    0.7532    0.5784]]
+------------ rampvalue 232 ---------------
+redramp_RGB_raw=[[232   0   0]]
+redramp_RGB_ViG=[[232   0   1]]
+redramp_YCoCg=[[-13 103  15]]
+redramp_RGB=[[ 231.7762    0.        0.5784]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 52 -28 102]]
+redramp_RGB_New=[[ 231.7762    0.        0.5784]]
+------------ rampvalue 233 ---------------
+redramp_RGB_raw=[[233   0   0]]
+redramp_RGB_ViG=[[233   1   0]]
+redramp_YCoCg=[[-12 104  16]]
+redramp_RGB=[[ 232.9406    0.8041    0.    ]]
+redramp_RGB_New_deltaE=1.75283573959
+redramp_YUV=[[ 53 -29 102]]
+redramp_RGB_New=[[ 232.9406    0.6168    1.7428]]
+------------ rampvalue 234 ---------------
+redramp_RGB_raw=[[234   0   0]]
+redramp_RGB_ViG=[[235   0   0]]
+redramp_YCoCg=[[-13 104  16]]
+redramp_RGB=[[  2.34619300e+02   1.53700000e-01   0.00000000e+00]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[ 53 -29 103]]
+redramp_RGB_New=[[  2.33488850e+02   1.87800000e-01   0.00000000e+00]]
+------------ rampvalue 235 ---------------
+redramp_RGB_raw=[[235   0   0]]
+redramp_RGB_ViG=[[235   0   0]]
+redramp_YCoCg=[[-13 104  16]]
+redramp_RGB=[[  2.34619300e+02   1.53700000e-01   0.00000000e+00]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[ 53 -29 103]]
+redramp_RGB_New=[[  2.33488850e+02   1.87800000e-01   0.00000000e+00]]
+------------ rampvalue 236 ---------------
+redramp_RGB_raw=[[236   0   0]]
+redramp_RGB_ViG=[[236   0   0]]
+redramp_YCoCg=[[-14 105  16]]
+redramp_RGB=[[ 236.298    0.       0.   ]]
+redramp_RGB_New_deltaE=5.68434188608e-14
+redramp_YUV=[[ 53 -29 104]]
+redramp_RGB_New=[[ 236.298    0.       0.   ]]
+------------ rampvalue 237 ---------------
+redramp_RGB_raw=[[237   0   0]]
+redramp_RGB_ViG=[[236   0   0]]
+redramp_YCoCg=[[-14 105  16]]
+redramp_RGB=[[ 236.298    0.       0.   ]]
+redramp_RGB_New_deltaE=5.68434188608e-14
+redramp_YUV=[[ 53 -29 104]]
+redramp_RGB_New=[[ 236.298    0.       0.   ]]
+------------ rampvalue 238 ---------------
+redramp_RGB_raw=[[238   0   0]]
+redramp_RGB_ViG=[[239   0   1]]
+redramp_YCoCg=[[-13 106  16]]
+redramp_RGB=[[  2.39141100e+02   1.73000000e-02   7.65400000e-01]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 54 -29 105]]
+redramp_RGB_New=[[  2.38010650e+02   5.14000000e-02   4.74300000e-01]]
+------------ rampvalue 239 ---------------
+redramp_RGB_raw=[[239   0   0]]
+redramp_RGB_ViG=[[239   0   1]]
+redramp_YCoCg=[[-13 106  16]]
+redramp_RGB=[[  2.39141100e+02   1.73000000e-02   7.65400000e-01]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 54 -29 105]]
+redramp_RGB_New=[[  2.38010650e+02   5.14000000e-02   4.74300000e-01]]
+------------ rampvalue 240 ---------------
+redramp_RGB_raw=[[240   0   0]]
+redramp_RGB_ViG=[[239   0   1]]
+redramp_YCoCg=[[-13 106  16]]
+redramp_RGB=[[  2.39141100e+02   1.73000000e-02   7.65400000e-01]]
+redramp_RGB_New_deltaE=1.16782670911
+redramp_YUV=[[ 54 -29 105]]
+redramp_RGB_New=[[  2.38010650e+02   5.14000000e-02   4.74300000e-01]]
+------------ rampvalue 241 ---------------
+redramp_RGB_raw=[[241   0   0]]
+redramp_RGB_ViG=[[241   0   0]]
+redramp_YCoCg=[[-14 107  16]]
+redramp_RGB=[[ 240.8198    0.        0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 54 -30 106]]
+redramp_RGB_New=[[ 240.8198    0.        0.    ]]
+------------ rampvalue 242 ---------------
+redramp_RGB_raw=[[242   0   0]]
+redramp_RGB_ViG=[[242   1   0]]
+redramp_YCoCg=[[-13 108  17]]
+redramp_RGB=[[ 241.9842    0.7186    0.    ]]
+redramp_RGB_New_deltaE=2.84217094304e-14
+redramp_YUV=[[ 55 -30 106]]
+redramp_RGB_New=[[ 241.9842    0.7186    0.    ]]
+------------ rampvalue 243 ---------------
+redramp_RGB_raw=[[243   0   0]]
+redramp_RGB_ViG=[[244   0   0]]
+redramp_YCoCg=[[-14 108  16]]
+redramp_RGB=[[  2.43662900e+02   6.82000000e-02   0.00000000e+00]]
+redramp_RGB_New_deltaE=0.586180927701
+redramp_YUV=[[ 55 -30 107]]
+redramp_RGB_New=[[ 243.0807    0.        0.    ]]
+------------ rampvalue 244 ---------------
+redramp_RGB_raw=[[244   0   0]]
+redramp_RGB_ViG=[[244   0   0]]
+redramp_YCoCg=[[-14 108  16]]
+redramp_RGB=[[  2.43662900e+02   6.82000000e-02   0.00000000e+00]]
+redramp_RGB_New_deltaE=0.586180927701
+redramp_YUV=[[ 55 -30 107]]
+redramp_RGB_New=[[ 243.0807    0.        0.    ]]
+------------ rampvalue 245 ---------------
+redramp_RGB_raw=[[245   0   0]]
+redramp_RGB_ViG=[[245   0   0]]
+redramp_YCoCg=[[-14 109  16]]
+redramp_RGB=[[ 245.3416    0.        0.    ]]
+redramp_RGB_New_deltaE=5.68434188608e-14
+redramp_YUV=[[ 55 -30 108]]
+redramp_RGB_New=[[ 245.3416    0.        0.    ]]
+------------ rampvalue 246 ---------------
+redramp_RGB_raw=[[246   0   0]]
+redramp_RGB_ViG=[[245   0   0]]
+redramp_YCoCg=[[-14 109  16]]
+redramp_RGB=[[ 245.3416    0.        0.    ]]
+redramp_RGB_New_deltaE=5.68434188608e-14
+redramp_YUV=[[ 55 -30 108]]
+redramp_RGB_New=[[ 245.3416    0.        0.    ]]
+------------ rampvalue 247 ---------------
+redramp_RGB_raw=[[247   0   0]]
+redramp_RGB_ViG=[[247   1   1]]
+redramp_YCoCg=[[-13 110  17]]
+redramp_RGB=[[ 246.506     0.5822    0.9524]]
+redramp_RGB_New_deltaE=5.82688367489e-14
+redramp_YUV=[[ 56 -30 108]]
+redramp_RGB_New=[[ 246.506     0.5822    0.9524]]
+------------ rampvalue 248 ---------------
+redramp_RGB_raw=[[248   0   0]]
+redramp_RGB_ViG=[[248   0   1]]
+redramp_YCoCg=[[-14 110  16]]
+redramp_RGB=[[ 248.1847    0.        0.9524]]
+redramp_RGB_New_deltaE=0.823355136014
+redramp_YUV=[[ 56 -30 109]]
+redramp_RGB_New=[[ 247.6025    0.        0.3702]]
+------------ rampvalue 249 ---------------
+redramp_RGB_raw=[[249   0   0]]
+redramp_RGB_ViG=[[248   0   0]]
+redramp_YCoCg=[[-14 110  17]]
+redramp_RGB=[[  2.48184700e+02   1.19100000e-01   0.00000000e+00]]
+redramp_RGB_New_deltaE=1.13096419594
+redramp_YUV=[[ 56 -31 109]]
+redramp_RGB_New=[[  2.47054250e+02   1.53200000e-01   0.00000000e+00]]
+------------ rampvalue 250 ---------------
+redramp_RGB_raw=[[250   0   0]]
+redramp_RGB_ViG=[[250   0   0]]
+redramp_YCoCg=[[-14 111  16]]
+redramp_RGB=[[ 249.8634    0.        0.    ]]
+redramp_RGB_New_deltaE=0.9524
+redramp_YUV=[[ 56 -31 110]]
+redramp_RGB_New=[[ 249.8634    0.        0.9524]]
+------------ rampvalue 251 ---------------
+redramp_RGB_raw=[[251   0   0]]
+redramp_RGB_ViG=[[251   1   0]]
+redramp_YCoCg=[[-14 112  18]]
+redramp_RGB=[[ 251.0278    0.6331    0.    ]]
+redramp_RGB_New_deltaE=0.1873
+redramp_YUV=[[ 57 -31 110]]
+redramp_RGB_New=[[ 251.0278    0.8204    0.    ]]
+------------ rampvalue 252 ---------------
+redramp_RGB_raw=[[252   0   0]]
+redramp_RGB_ViG=[[253   0   0]]
+redramp_YCoCg=[[-14 112  17]]
+redramp_RGB=[[ 252.7065    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13057482835
+redramp_YUV=[[ 57 -31 111]]
+redramp_RGB_New=[[  2.51576050e+02   1.68000000e-02   0.00000000e+00]]
+------------ rampvalue 253 ---------------
+redramp_RGB_raw=[[253   0   0]]
+redramp_RGB_ViG=[[253   0   0]]
+redramp_YCoCg=[[-14 112  17]]
+redramp_RGB=[[ 252.7065    0.        0.    ]]
+redramp_RGB_New_deltaE=1.13057482835
+redramp_YUV=[[ 57 -31 111]]
+redramp_RGB_New=[[  2.51576050e+02   1.68000000e-02   0.00000000e+00]]
+------------ rampvalue 254 ---------------
+redramp_RGB_raw=[[254   0   0]]
+redramp_RGB_ViG=[[254   0   0]]
+redramp_YCoCg=[[-14 113  16]]
+redramp_RGB=[[ 254.3852    0.        0.    ]]
+redramp_RGB_New_deltaE=2.1168
+redramp_YUV=[[ 57 -31 112]]
+redramp_RGB_New=[[ 254.3852    0.        2.1168]]
+------------ rampvalue 255 ---------------
+redramp_RGB_raw=[[255   0   0]]
+redramp_RGB_ViG=[[255   0   1]]
+redramp_YCoCg=[[-14 114  18]]
+redramp_RGB=[[ 255.        0.4967    1.1394]]
+redramp_RGB_New_deltaE=1.15469201521
+redramp_YUV=[[ 58 -31 112]]
+redramp_RGB_New=[[ 255.       0.684    0.   ]]
