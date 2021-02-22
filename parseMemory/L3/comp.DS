@@ -1,0 +1,19 @@
+===== parse mem ======
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "MOS CmdBuf" preferredMemType 1, mem_type 1, res_type 6, size 16384
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "GPU Status Buffer" preferredMemType 0, mem_type 2, res_type 6, size 4096
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "VphalVeboxHeap" preferredMemType 0, mem_type 2, res_type 6, size 528384
+[MOS]:  NORMAL   - LockMosResource:1722: resource VphalVeboxHeap is locked
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "Media Surface" preferredMemType 1, mem_type 1, res_type 2, size 13369344
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "Media Surface" preferredMemType 1, mem_type 1, res_type 2, size 3133440
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "StateHeap" preferredMemType 1, mem_type 1, res_type 6, size 8458240
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "CmdBufIdGlobal" preferredMemType 0, mem_type 2, res_type 6, size 4096
+[MOS]:  NORMAL   - LockMosResource:1722: resource CmdBufIdGlobal is locked
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "StateHeap" preferredMemType 1, mem_type 1, res_type 6, size 2113536
+[MOS]:  NORMAL   - LockMosResource:1722: resource StateHeap is locked
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "PredicationBuffer" preferredMemType 0, mem_type 2, res_type 6, size 4096
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "PerfStoreBuffer" preferredMemType 0, mem_type 2, res_type 6, size 10002432
+[MOS]:  NORMAL   - LockMosResource:1722: resource PerfStoreBuffer is locked
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "CSCCoeffSurface" preferredMemType 1, mem_type 1, res_type 2, size 4096
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "Media Buffer" preferredMemType 1, mem_type 1, res_type 1, size 13369344
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "MOS CmdBuf" preferredMemType 1, mem_type 1, res_type 6, size 32768
+[MOS]:  NORMAL   - UpdateMemoryPolicy:90: "Media Buffer" preferredMemType 1, mem_type 1, res_type 1, size 3133440

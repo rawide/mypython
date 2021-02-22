@@ -1,0 +1,225 @@
+root@gtax-ubuntu-2004:/home/gta/geng/test# ./vppscaling_csc process_scaling_csc.cfg.template
+Scaling will be done : from 4096 x 2160 to  300 x  300
+MobaXterm X11 proxy: Unsupported authorisation protocol
+error: can't connect to X server!
+libva info: VA-API version 1.9.0
+libva info: Trying to open /usr/lib/x86_64-linux-gnu/dri/iHD_drv_video.so
+libva info: Found init function __vaDriverInit_1_9
+libva info: va_openDriver() returns 0
+[VP]:   ENTER    - DdiVp_CreateContext
+[VP]:   ENTER    - DdiVp_InitCtx
+[VP]:   ENTER    - DdiVp_InitVpHal
+[VP]:   ENTER    - KernelDll_AllocateStates
+[VP]:   ENTER    - KernelDll_SetupFunctionPointers
+[VP]:   ENTER    - KernelDll_SortRuleTable
+[VP]:   ENTER    - KernelDll_SetupFunctionPointers_Ext
+[VP]:   ENTER    - KernelDll_SetupProcampParameters
+[VP]:   NORMAL   - Trace:221: Enter function:Init
+
+[VP]:   NORMAL   - Trace:221: Enter function:Init
+
+[VP]:   NORMAL   - Trace:221: Enter function:CreateFeatureManager
+
+[VP]:   NORMAL   - Trace:221: Enter function:RegisterFeatures
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:RegisterFeatures
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:CreateFeatureManager
+
+[VP]:   NORMAL   - Trace:221: Enter function:CreateVpKernelSets
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:CreateVpKernelSets
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:Init
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:Init
+
+
+Start to process, ...
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   ENTER    - DdiVp_CreateBuffer
+[VP]:   ENTER    - DdiVp_BeginPicture
+[VP]:   ENTER    - VpGetRenderParams
+[VP]:   ENTER    - VpSetOsResource
+[VP]:   ENTER    - VpGetRenderParams
+[VP]:   ENTER    - VpGetFormatFromMediaFormat
+[VP]:   ENTER    - VpGetTileTypeFromMediaTileType
+[VP]:   ENTER    - DdiVp_RenderPicture
+[VP]:   ENTER    - VpIsRenderTarget
+[VP]:   ENTER    - DdiVp_SetProcPipelineParams
+[VP]:   ENTER    - VpGetFormatFromMediaFormat
+[VP]:   ENTER    - VpGetTileTypeFromMediaTileType
+[VP]:   ENTER    - DdiVp_GetColorSpace
+[VP]:   ENTER    - DdiVp_UpdateProcPipelineForwardReferenceFrames
+[VP]:   ENTER    - VpGetRenderParams
+[VP]:   ENTER    - DdiVp_UpdateProcPipelineBackwardReferenceFrames
+[VP]:   ENTER    - VpGetRenderParams
+[VP]:   ENTER    - VpUpdateProcRotateState
+[VP]:   ENTER    - VpUpdateProcMirrorState
+[VP]:   ENTER    - DdiVp_SetProcPipelineBlendingParams
+[VP]:   ENTER    - VpGetRenderParams
+[VP]:   ENTER    - VpUpdateProcChromaSittingState
+[VP]:   ENTER    - VpUpdateProcChromaSittingState
+[VP]:   ENTER    - VpGetFormatFromMediaFormat
+[VP]:   ENTER    - VpGetTileTypeFromMediaTileType
+[VP]:   ENTER    - DdiVp_UpdateVphalTargetSurfColorSpace
+[VP]:   ENTER    - VpGetRenderParams
+[VP]:   ENTER    - DdiVp_GetColorSpace
+[VP]:   ENTER    - DdiVp_EndPicture
+[VP]:   NORMAL   - Trace:221: Enter function:Execute
+
+[VP]:   NORMAL   - Trace:221: Enter function:Prepare
+
+[VP]:   NORMAL   - Trace:221: Enter function:PrepareVpPipelineParams
+
+[VP]:   NORMAL   - IsSfcOutputFeasible:545: SFC is disabled.
+[VP]:   NORMAL   - PrepareVpPipelineParams:483: Features are not supported on APG now
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:PrepareVpPipelineParams
+
+[VP]:   NORMAL   - Prepare:544: Features are UNIMPLEMENTED on APG now
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:Prepare
+
+[VP]:   NORMAL   - Execute:98: Features are UNIMPLEMENTED on APG now
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:Execute
+
+[VP]:   NORMAL   - UpdateRenderGpuContext:4502: RenderGpuContext turns to 14
+[VP]:   NORMAL   - UpdateRenderGpuContext:4502: RenderGpuContext turns to 14
+[VP]:   NORMAL   - UpdateRenderGpuContext:1295: gpucontext switch from 14 to 14
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   ENTER    - GetOutputPipe
+[VP]:   NORMAL   - IS_COMP_BYPASS_FEASIBLE:4834: _bCompNeeded 0,          uSrcCount 1,          uDstCount 1,          pBlendingParams (nil),          bInterlacedScaling 0,          bFieldWeaving 0,          pLumaKeyParams (nil),          pConstriction (nil)
+[VP]:   NORMAL   - IS_OUTPUT_PIPE_VEBOX_FEASIBLE:4882: dwCompBypassMode 1,          _pcRenderParams->uDstCount 1,          SAME_SIZE_RECT(rcSrc, rcDst) 0,          RECT1_CONTAINS_RECT2(rcMaxSrc, rcSrc) 1,          rcSrc.top 0          rcSrc.left 0          SAME_SIZE_RECT(rcDst, pTarget[0]->rcDst) 0x1,          pIEFParams 0,          SampleType 0,          Rotation (nil),          bQueryVariance 0,          IsFormatSupported 0x1,          IsRTFormatSupported 1,          VeboxIs2PassesCSCNeeded 0,          AlphaMode 0x1,          rcDst.top 0,          rcDst.left 0
+[VP]:   NORMAL   - GetOutputPipe:224: Feature or surface format not supported by SFC Pipe.
+[VP]:   ENTER    - GetOutputPipe
+[VP]:   NORMAL   - IS_COMP_BYPASS_FEASIBLE:4834: _bCompNeeded 1,          uSrcCount 1,          uDstCount 1,          pBlendingParams (nil),          bInterlacedScaling 0,          bFieldWeaving 0,          pLumaKeyParams (nil),          pConstriction (nil)
+[VP]:   NORMAL   - IsNeeded:2477: VPHAL_OUTPUT_PIPE 0
+[VP]:   NORMAL   - VeboxSetRenderingFlags:2908: Enable 3DLut for HDR ToneMapping 0.
+[VP]:   NORMAL   - VpHal_RndrRenderVebox:4490: VPOutputPipe = 0, VEFeatureInUse = 0
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   ENTER    - Render
+[VP]:   NORMAL   - PrepareCSC:1387: Main_ColorSpace 3, Temp_ColorSpace 3, csc_count 0.
+[VP]:   NORMAL   - AddCompLayer:1785: ScalingMode 2, nSampler 7
+[VP]:   NORMAL   - AddCompLayer:1785: ScalingMode 2, nSampler 7
+[VP]:   NORMAL   - RenderPhase:5923: Modify ScalingMode to BILINREA from AVS due to 3D Sampler enabled
+[VP]:   NORMAL   - SetSurfaceParams:2817: SurfaceTYpe 3, bAVS 0, b2PlaneNV12NeededByKernel 0
+[VP]:   NORMAL   - SetLayer:4000: Layer 0, SamplerType:2, Scaling Model 1,  SamplerIndex 4
+[VP]:   NORMAL   - SetSurfaceParams:2817: SurfaceTYpe 3, bAVS 0, b2PlaneNV12NeededByKernel 0
+[VP]:   NORMAL   - RenderPhase:6084: Kernel Search Filter 0: layer 1, format 25, cspace 3,                                    bEnableDscale 0, bIsDitherNeeded 0, chromasiting -1, colorfill 0, dualout 0,                                    lumakey 0, procamp -1, RenderMethod 1, sampler 3, samplerlumakey 0
+[VP]:   NORMAL   - RenderPhase:6084: Kernel Search Filter 1: layer 15, format 25, cspace 3,                                    bEnableDscale 0, bIsDitherNeeded 1, chromasiting 0, colorfill 0, dualout 0,                                    lumakey 0, procamp -1, RenderMethod 1, sampler -2, samplerlumakey 0
+[VP]:   ENTER    - KernelDll_GetCombinedKernel
+[VP]:   ENTER    - KernelDll_StartKernelSearch_g12hp
+[VP]:   ENTER    - KernelDll_SearchKernel
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   ENTER    - KernelDll_FindRule
+[VP]:   ENTER    - KernelDll_UpdateState
+[VP]:   VERBOSE  - KernelDll_SearchKernel:3590: Search completed successfully.
+[VP]:   ENTER    - KernelDll_BuildKernel_CmFc
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 751.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 729.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 203.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 207.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 211.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 215.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 723.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 671.
+[VP]:   ENTER    - Kdll_AddKernelList
+[VP]:   NORMAL   - Kdll_AddKernelList:4850: 045.
+[VP]:   ENTER    - KernelDll_AddKernel
+[VP]:   ENTER    - KernelDll_GarbageCollection
+[VP]:   ENTER    - KernelDll_AllocateCacheEntry
+[VP]:   ENTER    - KernelDll_AllocateHashEntry
+[VP]:   EXIT     - Render:2405: eStatus 0
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   VERBOSE  - DumpSurface:2710: No surface dumpped, VphalSurfDumpManualTrigger: -1, uiStartFrame: 1,  uiEndFrame: 0
+
+[VP]:   NORMAL   - VpHal_DdiReportFeatureMode:211: VP Feature Report:         OutputPipeMode 0,         VEFeatureInUse 0,         ScalingMode 1,         DeinterlaceMode 0,         VPMMCInUse 0,         RTCompressible 0,         RTCompressMode 0,         PrimaryCompressible 0,         PrimaryCompressMode 0,         CompositionMode 0
+Finish processing, performance:
+1 frames processed in: 22 ms, ave time = 22 ms
+[VP]:   ENTER    - DdiVp_DestroyContext
+[VP]:   ENTER    - DdiVp_DestroyVpHal
+[VP]:   ENTER    - DdiVp_DestroyRenderParams
+[VP]:   ENTER    - DdiVp_DestroySrcParams
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyVpHalSurface
+[VP]:   ENTER    - DdiVp_DestroyTargetParams
+[VP]:   NORMAL   - Trace:221: Enter function:Destroy
+
+[VP]:   NORMAL   - Trace:221: Enter function:Destroy
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:Destroy
+
+[VP]:   NORMAL   - ~Trace:226: Exit function:Destroy
+
+[VP]:   ENTER    - KernelDll_ReleaseStates
+[VP]:   ENTER    - KernelDll_ReleaseAdditionalCacheEntries
