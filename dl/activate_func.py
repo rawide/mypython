@@ -6,8 +6,8 @@ x = torch.linspace(-10, 10, 400)
 y = torch.linspace(-10, 10, 400)
 
 # ReLU函数
-relu = torch.nn.ReLU()
-y_relu = relu(x)
+# relu = torch.nn.ReLU()
+# y_relu = relu(x)
 
 # Swish函数
 def swish(input):
@@ -28,24 +28,29 @@ y_glu = glu(x_glu)
 plt.figure(figsize=(12, 8))
 
 plt.subplot(2, 2, 1)
-plt.plot(x.numpy(), y_relu.numpy(), label='ReLU')
-plt.legend()
-plt.grid(True)
-
-plt.subplot(2, 2, 2)
 plt.plot(x.numpy(), y_swish.numpy(), label='Swish')
 plt.legend()
 plt.grid(True)
 
-plt.subplot(2, 2, 3)
+plt.subplot(2, 2, 2)
 plt.plot(x_glu.numpy()[:400], y_glu.numpy(), label='GLU')
 plt.legend()
 plt.grid(True)
 
-plt.subplot(2, 2, 4)
+plt.subplot(2, 2, 3)
 plt.plot(x.numpy(), y_swiGLU.numpy(), label='swiGLU')
 plt.legend()
 plt.grid(True)
+
+plt.subplot(2, 2, 4)
+plt.plot(x.numpy(), torch.sigmoid(x).numpy(), label='sigmoid')
+plt.legend()
+plt.grid(True)
+
+# plt.subplot(2, 3, 1)
+# plt.plot(x.numpy(), y_relu.numpy(), label='ReLU')
+# plt.legend()
+# plt.grid(True)
 
 plt.tight_layout()
 plt.show()
