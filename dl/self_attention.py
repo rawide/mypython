@@ -50,20 +50,31 @@ def subsequent_mask(size):
     mask = torch.triu(torch.ones(size, size), diagonal=1).bool()
     return mask.unsqueeze(0)
 
+
+def generate_input(new_lines, src_seq = torch.rand(1, 1, d_model)):
+    x = src_seq
+    for i in range(0, new_lines):
+        row = torch.rand(1, 1, d_model)
+        x = torch.concat((x, row), dim=1)
+    return x
+
 sequence_length = 3
 batch_size = 1
 
 # 示例输入
-input_tensor = torch.rand(batch_size, sequence_length, d_model)
+input_tensor_t0 = torch.rand(batch_size, sequence_length, d_model)
+input_tensor_t1 = generate_input(1, input_tensor_t0)
 
 # 创建掩码
-mask = subsequent_mask(sequence_length)
+mask_t0 = subsequent_mask(sequence_length)
+mask_t1 = subsequent_mask(sequence_length+1)
 # print(mask)
 
 # 使用多头自注意力
 mha = MultiHeadAttention(d_model, num_heads)
-output = mha(input_tensor, input_tensor, input_tensor, mask)
+output_t0 = mha(input_tensor_t0, input_tensor_t0, input_tensor_t0, mask_t0)
+output_t1 = mha(input_tensor_t1, input_tensor_t1, input_tensor_t1, mask_t1)
 
 
-print(input_tensor)
-print(output)
+print(f"{input_tensor_t0}\n{input_tensor_t1}")
+print(f"{output_t0}\n{output_t1}")

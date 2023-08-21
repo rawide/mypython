@@ -19,9 +19,10 @@ num_decoder = 32
 ffn_dims = 11008
 input_len = 8
 output_len = 256
+max_len = 1024
 d_k = d_model // num_heads
 norm_timing = 0.0475*1000*1000 # norm timing cost, 0.0475ms for d_model vector norm.
-hw_MAC = 2048 # hw macs
+hw_MAC = 1024 # hw macs
 clk_MAC = 0.050 # 50Mhz, 0.05Ghz
 lut_timing = 15*clk_MAC # 200 clk for once SRAM, ns.
 acc = 'INT8' # FP 16
@@ -55,6 +56,9 @@ def MAC_FFN_L1(len):
 
 def MAC_FFN_L2(len):
     return ffn_dims*d_model*len
+
+def MAC_DEC_BLOCK(len):
+    return num_heads*(3*MAC_Q(len)+MAC_Attn(len))+MAC_Linear(len)+MAC_FFN_L1(len)+MAC_FFN_L2(len)
 
 def TIME_Q(len):
     return MAC_Q(len)/CALC_POWER()
@@ -102,12 +106,21 @@ def TIME_Last_softmax():
 def TIME_ONE_TOKEN(len):
     return num_decoder*TIME_Dec(len) + TIME_Last_Linear() + TIME_Last_softmax()
 
+def MAC_TOTAL(len):
+    return MAC_Last_Linear()+num_decoder*MAC_DEC_BLOCK(len)
+
 # for each token generate, input is (seq_len，d_model), here seq_len = input_len + output_len
 def TOTAL_TIME_COST():
     total_time = 0
-    for i in range(0, output_len):
-        total_time += TIME_ONE_TOKEN(input_len + output_len)
-    print("input %d and output %d token w/ %d hw Macs needs %.2fs" % (input_len, output_len, hw_MAC, total_time/pow(10,9)))
+    total_mac = 0
+    # for i in range(0, output_len):
+    #     total_time += TIME_ONE_TOKEN(input_len + i)
+    #     total_mac += MAC_TOTAL(input_len+i)
+    # total_time = output_len*TIME_ONE_TOKEN(max_len)
+    # total_mac = output_len*MAC_TOTAL(max_len)
+    total_time = output_len*TIME_ONE_TOKEN(input_len+output_len)
+    total_mac = output_len*MAC_TOTAL(input_len+output_len)
+    print("input %d and output %d token, total macs is %.2fT, w/ %d hw Macs needs %.2fs" % (input_len, output_len, total_mac/pow(2,40), hw_MAC, total_time/pow(10,9)))
     return total_time/pow(10,9)
 
 TOTAL_TIME_COST()
@@ -262,5 +275,5 @@ def draw_mac_num_time():
     # plt.show()
 
 draw_mem_time()
-draw_mac_num_time()
+# draw_mac_num_time()
 plt.show()
