@@ -198,7 +198,7 @@ def draw_mem_time():
     plt.subplot(4,1,1)
     timecost_head = TIMECOST_HEAD(input_len+output_len, 'ms')
     memcost_head = MEMCOST_HEAD(input_len+output_len)
-    # print(timecost_head, memcost_head)
+    print(f"[Q, K, attn, softmax(attn), V, Z] timecost={timecost_head}, memcost={memcost_head}")
     t_head_left_boundaries = np.cumsum(timecost_head) - timecost_head
     # colors = ['green', 'blue']
     # plt.bar(x_left_boundaries, memcost_head, width=timecost_head, color=colors, align='edge')
@@ -221,7 +221,7 @@ def draw_mem_time():
     plt.subplot(4,1,3)
     timecost_dec = TIMECOST_DEC(input_len+output_len,'ms')
     memcost_dec = MEMCOST_DEC(input_len+output_len)
-    print(timecost_dec, memcost_dec)
+    # print(f"[]{timecost_dec}, {memcost_dec}")
     t_dec_left_boundaries = np.cumsum(timecost_dec) - timecost_dec
     plt.bar(t_dec_left_boundaries, memcost_dec, width=timecost_dec, edgecolor='black', align='edge')
     plt.title("dec (FFN_L1, FFN_L2,norm)")
@@ -261,7 +261,7 @@ def draw_mac_time():
 
 def draw_mac_num_time():
     global hw_MAC
-    x = range(512, 8193, 512)
+    x = range(512, 5000, 512)
     y = []
     for i in x:
         hw_MAC = i

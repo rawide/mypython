@@ -34,7 +34,7 @@ class MultiHeadAttention(nn.Module):
         # 计算注意力权重
         attn_weights = torch.matmul(Q, K.transpose(-2, -1)) / self.d_k**0.5
         if mask is not None:
-            attn_weights = attn_weights.masked_fill(mask == 0, float('-inf'))
+            attn_weights = attn_weights.masked_fill(mask == 1, float('-inf'))
         attn_weights = F.softmax(attn_weights, dim=-1)
         
         # 应用注意力权重到V
@@ -58,7 +58,7 @@ def generate_input(new_lines, src_seq = torch.rand(1, 1, d_model)):
         x = torch.concat((x, row), dim=1)
     return x
 
-sequence_length = 3
+sequence_length = 4
 batch_size = 1
 
 # 示例输入
