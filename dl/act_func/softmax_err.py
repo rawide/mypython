@@ -49,12 +49,12 @@ def calc_appr_exp(i):
     return lienar_intepolate(x0, y0, x1, y1, i)
 
 
-dec_softmax_lut = {np.float16(i): np.float16(2.**i) for i in np.arange(-0.99, 1, 0.01)}
+dec_softmax_lut = {np.float16(i): np.float16(2.**i) for i in np.arange(-0.999, 1, 0.001)}
 # print(dec_softmax_lut)
 
 def calc_appr_exp2(i):
     dec = i - int(i)
-    dec = round(dec, 2)
+    dec = round(dec, 3)
     e = int(i)
     if dec == 1.0:
         e += 1
