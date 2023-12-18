@@ -53,5 +53,5 @@ def weight(dtype):
 
 print("llama parameters are dims=%d, layers=%d, heads=%d, ffn_nodes=%d"%(word_dims, decoder_layers, heads, ffn_dims))
 print("input %d words generate %d words will cost %.3fTMACs"%(in_len, out_len, mac/2**40))
-print("under 400GB/s BW w/ utilizaiton 0.75, perf is %.1ftoken/s@FP8 and %.1ftokens@FP16"%(out_len*bw/(mac/2**40), out_len*bw*0.5/(mac/2**40)))
+print("under %.1fTB/s BW, perf is %.1ftoken/s@FP8 and %.1ftokens@FP16"%(bw, out_len*bw/(mac/2**40), out_len*bw*0.5/(mac/2**40)))
 #print("FP32 model weight size is %.2fGB, FP16 is %.2fGB, INT8 is %.2fGB"%(weight('FP32')/2**30,weight('FP16')/2**30, weight('INT8')/2**30))
