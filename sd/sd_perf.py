@@ -9,15 +9,16 @@ IMG_H = 512
 BATCH = 1
 GM_MAX_SIZE = 8*2**20 # 8mb total
 
-if len(sys.argv) == 6:
+if len(sys.argv) == 7:
     print(sys.argv, len(sys.argv))
     CORE = int(sys.argv[1])
     CLUSTER = int(sys.argv[2])
     BW = int(sys.argv[3])
     IMG_W = int(sys.argv[4])
     IMG_H = int(sys.argv[5])
+    GM_MAX_SIZE= int(sys.argv[6])*2**20
 elif len(sys.argv) == 1:
-    print("please input the x3 and sd conf, ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h]\n")
+    print("usage ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h] [GM_size(MB)]\n")
     print("run per model w/ default setting(4core,1cluster,50GB/s,8M gm, 512x512,batch 1)\n")
 else:
     print("please input the x3 and sd conf, ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h]\n")
@@ -132,10 +133,14 @@ class Time():
             op: str  = "conv2D",
             tag: str = None,
             ldst: int= 0,
-            mac:  int= 0
+            mac:  int= 0,
+            op1_shape = None,
+            op2_shape = None,
+            out_shape = None
     ):
         super().__init__()
         self.op, self.tag, self.ldst, self.mac = (op, tag, ldst, mac)
+        self.op1_shape, self.op2_shape, self.out_shape = (op1_shape, op2_shape, out_shape)
         self.op_time = self.ldst if self.ldst >= self.mac else self.mac
         self.bottleneck = "ldst" if self.ldst >= self.mac else "mac"
         self.precent = 0.0
@@ -185,7 +190,8 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
         # calculate the write time cost.
         ldst_size += output_feature.size
     ldst_time = 10**6*ldst_size/BW/2**30
-    op_time = Time("conv2D",tag=tag,ldst=ldst_time,mac=mac_time)
+    op_time = Time(op="conv2D",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.shape,
+                   op2_shape=kernel.shape,out_shape=output_feature.shape)
 
     # Printing shapes and sizes
     print("\n---> running %s <---"%tag)
@@ -221,7 +227,8 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
         # calculate the write time cost.
         ldst_size += output_feature.size
     ldst_time = 10**6*ldst_size/BW/2**30
-    op_time = Time("Linear",tag=tag,ldst=ldst_time,mac=mac_time)
+    op_time = Time(op="Linear",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.shape,
+                   op2_shape=wt_linear.shape,out_shape=output_feature.shape)
     
     # Printing shapes and sizes
     print("\n---> running %s <---"%tag)
@@ -257,7 +264,8 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
         # calculate the write time cost.
         ldst_size += output_feature.size
     ldst_time = 10**6*ldst_size/BW/2**30
-    op_time = Time("bmm",tag=tag,ldst=ldst_time,mac=mac_time)
+    op_time = Time(op="bmm",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input1.shape,
+                   op2_shape=input2.shape,out_shape=output_feature.shape)
     
     # Printing shapes and sizes
     print("\n---> running %s <---"%tag)
@@ -318,7 +326,7 @@ def ResnetBlock2D(temb:Feature, sample:Feature, ci:int, co:int, tag:str, saveout
     # 1.3 resdiual conv
     if ci != co:
         reskernel = WTConvKernel(co,ci,1,1)
-        sample_res, resconv_t = op_conv(sample, reskernel,tag+"->res conv", "GM")
+        sample_res, resconv_t = op_conv(sample, reskernel,tag+"->shortcut conv", "GM")
         sample.release()
         output, res_t = op_eltwise(sample_conv2,sample_res,tag+"->sample res add")
         sample_res.release()
@@ -333,12 +341,12 @@ def ResnetBlock2D(temb:Feature, sample:Feature, ci:int, co:int, tag:str, saveout
     return output, t
 
 def BasicTransformerBlock(txt_emb:Feature, sample:Feature, dims:int, crossdims:int, tag:str):
-    ffdims = int((dims*8/3)/256 + 0.5) * 256
+    ffdims = dims*4
     # 0 self attn
     # 0.1 TODO layer Norm
     wqkv = WTLinear(ci=dims,co=dims)
     q, q_t = op_linear(sample,wqkv,tag+"->selfattn_q")
-    k, k_t = op_linear(sample,wqkv,tag+"->selfattn_q")
+    k, k_t = op_linear(sample,wqkv,tag+"->selfattn_k")
     # TODO, transpose k to kt
     k.len = k.dims
     k.dims = q.len
@@ -358,9 +366,9 @@ def BasicTransformerBlock(txt_emb:Feature, sample:Feature, dims:int, crossdims:i
     t = (q_t,k_t,v_t,qkt_t,attn_t,selfattn_t)
 
     # 1 calc cross attn
-    wq = WTLinear(ci=dims,co=crossdims)
+    wq = WTLinear(ci=dims,co=dims)
     q,q_t = op_linear(selfattn,wq,tag+"->cross_q")
-    wkv = WTLinear(ci=txt_emb.dims,co=crossdims)
+    wkv = WTLinear(ci=txt_emb.dims,co=dims)
     k,k_t = op_linear(txt_emb,wkv,tag+"->cross_k")
     # TODO transpose k to kt
     temp_value = k.len
@@ -374,8 +382,8 @@ def BasicTransformerBlock(txt_emb:Feature, sample:Feature, dims:int, crossdims:i
     attn, attn_t = op_bmm(qkt,v,tag+"->cross_score")
     qkt.release()
     v.release()
-    wt_attnlinear = WTLinear(ci=crossdims,co=dims)
-    crossattn, crossattn_t = op_linear(attn, wt_attnlinear, tag+"->selfattn_o")
+    wt_attnlinear = WTLinear(ci=dims,co=dims)
+    crossattn, crossattn_t = op_linear(attn, wt_attnlinear, tag+"->crossattn_o")
     attn.release()
     # 1.2 TODO residual add
     selfattn.release()
@@ -455,7 +463,8 @@ def Upsample2D(input:Feature, ci:int, co:int, tag:str):
 
     return output, (t,)
 
-def UpBlock2D(input:Feature, temb:Feature, ci:int, co:int, tag:str):
+def UpBlock2D(input:Feature, temb:Feature, ci:int, co:int, tag:str,resconcat):
+    # TODO add resconcat to replace fix code *2
     input.c *= 2
     layer1, res1_t = ResnetBlock2D(temb,input,ci*2,co,tag=tag+"->layer1",saveoutput=False)
     layer1.c *= 2
@@ -467,15 +476,16 @@ def UpBlock2D(input:Feature, temb:Feature, ci:int, co:int, tag:str):
     t = res1_t + res2_t + res3_t + up_t
     return output, t
 
-def CrossAttnUpBlock2D(input:Feature, temb:Feature, txtemb:Feature, ci:int, co:int, tag:str, isLast:bool=False):
-    input.c *= 2
-    layer1_res, resb1_t = ResnetBlock2D(temb=temb,sample=input,ci=ci*2,co=co,tag=tag+"->layer1",saveoutput=False)
+def CrossAttnUpBlock2D(input:Feature, temb:Feature, txtemb:Feature, ci:int, co:int, tag:str, isLast:bool=False, resconcat=None):
+    # concatenate comes from DDR, should add ddr reading, while compare with mac, ld time is too less. so ignore.
+    input.c += resconcat[0]
+    layer1_res, resb1_t = ResnetBlock2D(temb=temb,sample=input,ci=input.c,co=co,tag=tag+"->layer1",saveoutput=False)
     layer1_trans, trans1_t = Transformer2DModel(txt_emb=txtemb,sample=layer1_res,ci=co,co=co,tag=tag+"->layer1")
-    layer1_trans.c *= 2
-    layer2_res, resb2_t = ResnetBlock2D(temb=temb,sample=layer1_trans,ci=co*2,co=co,tag=tag+"->layer2",saveoutput=False)
+    layer1_trans.c += resconcat[1]
+    layer2_res, resb2_t = ResnetBlock2D(temb=temb,sample=layer1_trans,ci=layer1_trans.c,co=co,tag=tag+"->layer2",saveoutput=False)
     layer2_trans, trans2_t = Transformer2DModel(txt_emb=txtemb,sample=layer2_res,ci=co,co=co,tag=tag+"->layer2")
-    layer2_trans.c *= 2
-    layer3_res, resb3_t = ResnetBlock2D(temb=temb,sample=layer2_trans,ci=co*2,co=co,tag=tag+"->layer3",saveoutput=False)
+    layer2_trans.c += resconcat[2]
+    layer3_res, resb3_t = ResnetBlock2D(temb=temb,sample=layer2_trans,ci=layer2_trans.c,co=co,tag=tag+"->layer3",saveoutput=False)
     layer3_trans, trans3_t = Transformer2DModel(txt_emb=txtemb,sample=layer3_res,ci=co,co=co,tag=tag+"->layer3")
 
     t = resb1_t + trans1_t + resb2_t + trans2_t + resb3_t + trans3_t
@@ -518,10 +528,12 @@ def Unet():
     midblock, mid_t = UnetMidBlock2DCrossAttn(input=downblock,temb=time_emb,txtemb=text_emb,ci=1280,co=1280,tag="midB")
 
     # 4th step, up block
-    up1, up1_t = UpBlock2D(input=midblock,temb=time_emb,ci=1280,co=1280,tag="UP1")
-    up2, up2_t = CrossAttnUpBlock2D(input=up1,temb=time_emb,txtemb=text_emb,ci=1280,co=1280,tag="UP2")
-    up3, up3_t = CrossAttnUpBlock2D(input=up2,temb=time_emb,txtemb=text_emb,ci=1280,co=640,tag="UP3")
-    upblock, up4_t = CrossAttnUpBlock2D(input=up3,temb=time_emb,txtemb=text_emb,ci=640,co=320, tag="UP4",isLast=True)
+    # up block concat feature parameters
+    upconcat = [[1280,1280,1280],[1280,1280,640],[640,640,320],[320,320,320]]
+    up1, up1_t = UpBlock2D(input=midblock,temb=time_emb,ci=1280,co=1280,tag="UP1",resconcat=upconcat[0])
+    up2, up2_t = CrossAttnUpBlock2D(input=up1,temb=time_emb,txtemb=text_emb,ci=1280,co=1280,tag="UP2",resconcat=upconcat[1])
+    up3, up3_t = CrossAttnUpBlock2D(input=up2,temb=time_emb,txtemb=text_emb,ci=1280,co=640,tag="UP3",resconcat=upconcat[2])
+    upblock, up4_t = CrossAttnUpBlock2D(input=up3,temb=time_emb,txtemb=text_emb,ci=640,co=320, tag="UP4",isLast=True,resconcat=upconcat[3])
 
     time = time+db1_t+db2_t+db3_t+db4_t+mid_t+up1_t+up2_t+up3_t+up4_t
 
@@ -532,14 +544,16 @@ def Unet():
     time += (t,)
 
     # summary all op time cost.
+    print("--------------------> summar unet perf data <--------------------")
     total_time = 0
     for op in time:
         total_time += op.op_time
 
     for op in time:
         op.update(total_time)
+        print("%s, %s %s %s to %s ldst=%.2fus, mac=%.2fus"%(op.tag, op.op1_shape, op.op, 
+                                                            op.op2_shape, op.out_shape, op.ldst, op.mac))
 
-    print("----- summar unet perf data -----")
     print("total %d ops"%len(time))
     print("unet time cost is %.2fms"%(total_time/1000.0))
     return total_time
