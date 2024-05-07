@@ -1,7 +1,4 @@
-usage ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h] [GM_size(MB)]
-
-run per model w/ default setting(4core,1cluster,50GB/s,8M gm, 512x512,batch 1)
-
+use default setting
 current gm used = 0.00MB, required = 0.00MB, free = 8.00MB
 create feature temb w/ 0.00MB at GM
 current gm used = 0.00MB, required = 0.00MB, free = 8.00MB
@@ -128,7 +125,7 @@ create feature DB1->layer1->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running DB1->layer1->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 4096.0, 320)
+Input2    Shape: (1, 320, 4096.0)
 Input2 Size(KB): 2560.0
 MAC time = 0.00us, ldst time = 673.83us
 Output    Shape: (1, 4096.0, 4096.0)
@@ -201,7 +198,7 @@ create feature DB1->layer1->Transformer2DModel->Basictransformer->selfattn_score
 ---> running DB1->layer1->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 77, 320)
+Input2    Shape: (1, 320, 77)
 Input2 Size(KB): 48.125
 MAC time = 0.00us, ldst time = 11.75us
 Output    Shape: (1, 4096.0, 77)
@@ -386,7 +383,7 @@ create feature DB1->layer2->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running DB1->layer2->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 4096.0, 320)
+Input2    Shape: (1, 320, 4096.0)
 Input2 Size(KB): 2560.0
 MAC time = 0.00us, ldst time = 673.83us
 Output    Shape: (1, 4096.0, 4096.0)
@@ -459,7 +456,7 @@ create feature DB1->layer2->Transformer2DModel->Basictransformer->selfattn_score
 ---> running DB1->layer2->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 77, 320)
+Input2    Shape: (1, 320, 77)
 Input2 Size(KB): 48.125
 MAC time = 0.00us, ldst time = 11.75us
 Output    Shape: (1, 4096.0, 77)
@@ -672,7 +669,7 @@ create feature DB2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running DB2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 1024.0, 640)
+Input2    Shape: (1, 640, 1024.0)
 Input2 Size(KB): 1280.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 1024.0)
@@ -750,7 +747,7 @@ create feature DB2->layer1->Transformer2DModel->Basictransformer->selfattn_score
 ---> running DB2->layer1->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 77, 640)
+Input2    Shape: (1, 640, 77)
 Input2 Size(KB): 96.25
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 77)
@@ -942,7 +939,7 @@ create feature DB2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running DB2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 1024.0, 640)
+Input2    Shape: (1, 640, 1024.0)
 Input2 Size(KB): 1280.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 1024.0)
@@ -1020,7 +1017,7 @@ create feature DB2->layer2->Transformer2DModel->Basictransformer->selfattn_score
 ---> running DB2->layer2->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 77, 640)
+Input2    Shape: (1, 640, 77)
 Input2 Size(KB): 96.25
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 77)
@@ -1238,7 +1235,7 @@ create feature DB3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running DB3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 256.0, 1280)
+Input2    Shape: (1, 1280, 256.0)
 Input2 Size(KB): 640.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 256.0)
@@ -1316,7 +1313,7 @@ create feature DB3->layer1->Transformer2DModel->Basictransformer->selfattn_score
 ---> running DB3->layer1->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 77, 1280)
+Input2    Shape: (1, 1280, 77)
 Input2 Size(KB): 192.5
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 77)
@@ -1510,7 +1507,7 @@ create feature DB3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running DB3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 256.0, 1280)
+Input2    Shape: (1, 1280, 256.0)
 Input2 Size(KB): 640.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 256.0)
@@ -1588,7 +1585,7 @@ create feature DB3->layer2->Transformer2DModel->Basictransformer->selfattn_score
 ---> running DB3->layer2->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 77, 1280)
+Input2    Shape: (1, 1280, 77)
 Input2 Size(KB): 192.5
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 77)
@@ -1881,7 +1878,7 @@ create feature midBtrans->Transformer2DModel->Basictransformer->setfattn_qkt w/ 
 ---> running midBtrans->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 64.0, 1280)
 Input1  Size(KB): 160.0
-Input2    Shape: (1, 64.0, 1280)
+Input2    Shape: (1, 1280, 64.0)
 Input2 Size(KB): 160.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 64.0, 64.0)
@@ -1959,7 +1956,7 @@ create feature midBtrans->Transformer2DModel->Basictransformer->selfattn_score w
 ---> running midBtrans->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 64.0, 1280)
 Input1  Size(KB): 160.0
-Input2    Shape: (1, 77, 1280)
+Input2    Shape: (1, 1280, 77)
 Input2 Size(KB): 192.5
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 64.0, 77)
@@ -2125,8 +2122,8 @@ current gm used = 0.27MB, required = 0.16MB, free = 7.57MB
 create feature UP1->layer1->ResnetBlock2D->sample conv1 w/ 0.16MB at GM
 
 ---> running UP1->layer1->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 1280, 8.0, 8.0)
-Input  Size(KB): 160.0
+Input     Shape: (1, 2560, 8.0, 8.0)
+Input  Size(KB): 320.0
 Kernel    Shape: (1280, 2560, 3, 3, 1, 1)
 Kernel Size(KB): 57600.0
 MAC time = 230.40us, ldst time = 1098.63us
@@ -2151,8 +2148,8 @@ current gm used = 0.43MB, required = 0.16MB, free = 7.42MB
 create feature UP1->layer1->ResnetBlock2D->shortcut conv w/ 0.16MB at GM
 
 ---> running UP1->layer1->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 1280, 8.0, 8.0)
-Input  Size(KB): 160.0
+Input     Shape: (1, 2560, 8.0, 8.0)
+Input  Size(KB): 320.0
 Kernel    Shape: (1280, 2560, 1, 1, 1, 1)
 Kernel Size(KB): 6400.0
 MAC time = 25.60us, ldst time = 122.07us
@@ -2181,8 +2178,8 @@ current gm used = 0.27MB, required = 0.16MB, free = 7.57MB
 create feature UP1->layer2->ResnetBlock2D->sample conv1 w/ 0.16MB at GM
 
 ---> running UP1->layer2->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 1280, 8.0, 8.0)
-Input  Size(KB): 160.0
+Input     Shape: (1, 2560, 8.0, 8.0)
+Input  Size(KB): 320.0
 Kernel    Shape: (1280, 2560, 3, 3, 1, 1)
 Kernel Size(KB): 57600.0
 MAC time = 230.40us, ldst time = 1098.63us
@@ -2207,8 +2204,8 @@ current gm used = 0.43MB, required = 0.16MB, free = 7.42MB
 create feature UP1->layer2->ResnetBlock2D->shortcut conv w/ 0.16MB at GM
 
 ---> running UP1->layer2->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 1280, 8.0, 8.0)
-Input  Size(KB): 160.0
+Input     Shape: (1, 2560, 8.0, 8.0)
+Input  Size(KB): 320.0
 Kernel    Shape: (1280, 2560, 1, 1, 1, 1)
 Kernel Size(KB): 6400.0
 MAC time = 25.60us, ldst time = 122.07us
@@ -2237,8 +2234,8 @@ current gm used = 0.27MB, required = 0.16MB, free = 7.57MB
 create feature UP1->layer3->ResnetBlock2D->sample conv1 w/ 0.16MB at GM
 
 ---> running UP1->layer3->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 1280, 8.0, 8.0)
-Input  Size(KB): 160.0
+Input     Shape: (1, 2560, 8.0, 8.0)
+Input  Size(KB): 320.0
 Kernel    Shape: (1280, 2560, 3, 3, 1, 1)
 Kernel Size(KB): 57600.0
 MAC time = 230.40us, ldst time = 1098.63us
@@ -2263,8 +2260,8 @@ current gm used = 0.43MB, required = 0.16MB, free = 7.42MB
 create feature UP1->layer3->ResnetBlock2D->shortcut conv w/ 0.16MB at GM
 
 ---> running UP1->layer3->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 1280, 8.0, 8.0)
-Input  Size(KB): 160.0
+Input     Shape: (1, 2560, 8.0, 8.0)
+Input  Size(KB): 320.0
 Kernel    Shape: (1280, 2560, 1, 1, 1, 1)
 Kernel Size(KB): 6400.0
 MAC time = 25.60us, ldst time = 122.07us
@@ -2310,8 +2307,8 @@ current gm used = 0.74MB, required = 0.62MB, free = 6.63MB
 create feature UP2->layer1->ResnetBlock2D->sample conv1 w/ 0.62MB at GM
 
 ---> running UP2->layer1->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 1280, 16.0, 16.0)
-Input  Size(KB): 640.0
+Input     Shape: (1, 2560, 16.0, 16.0)
+Input  Size(KB): 1280.0
 Kernel    Shape: (1280, 2560, 3, 3, 1, 1)
 Kernel Size(KB): 57600.0
 MAC time = 921.60us, ldst time = 1098.63us
@@ -2336,8 +2333,8 @@ current gm used = 1.37MB, required = 0.62MB, free = 6.01MB
 create feature UP2->layer1->ResnetBlock2D->shortcut conv w/ 0.62MB at GM
 
 ---> running UP2->layer1->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 1280, 16.0, 16.0)
-Input  Size(KB): 640.0
+Input     Shape: (1, 2560, 16.0, 16.0)
+Input  Size(KB): 1280.0
 Kernel    Shape: (1280, 2560, 1, 1, 1, 1)
 Kernel Size(KB): 6400.0
 MAC time = 102.40us, ldst time = 122.07us
@@ -2394,7 +2391,7 @@ create feature UP2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 256.0, 1280)
+Input2    Shape: (1, 1280, 256.0)
 Input2 Size(KB): 640.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 256.0)
@@ -2472,7 +2469,7 @@ create feature UP2->layer1->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP2->layer1->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 77, 1280)
+Input2    Shape: (1, 1280, 77)
 Input2 Size(KB): 192.5
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 77)
@@ -2595,8 +2592,8 @@ current gm used = 0.74MB, required = 0.62MB, free = 6.63MB
 create feature UP2->layer2->ResnetBlock2D->sample conv1 w/ 0.62MB at GM
 
 ---> running UP2->layer2->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 1280, 16.0, 16.0)
-Input  Size(KB): 640.0
+Input     Shape: (1, 2560, 16.0, 16.0)
+Input  Size(KB): 1280.0
 Kernel    Shape: (1280, 2560, 3, 3, 1, 1)
 Kernel Size(KB): 57600.0
 MAC time = 921.60us, ldst time = 1098.63us
@@ -2621,8 +2618,8 @@ current gm used = 1.37MB, required = 0.62MB, free = 6.01MB
 create feature UP2->layer2->ResnetBlock2D->shortcut conv w/ 0.62MB at GM
 
 ---> running UP2->layer2->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 1280, 16.0, 16.0)
-Input  Size(KB): 640.0
+Input     Shape: (1, 2560, 16.0, 16.0)
+Input  Size(KB): 1280.0
 Kernel    Shape: (1280, 2560, 1, 1, 1, 1)
 Kernel Size(KB): 6400.0
 MAC time = 102.40us, ldst time = 122.07us
@@ -2679,7 +2676,7 @@ create feature UP2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 256.0, 1280)
+Input2    Shape: (1, 1280, 256.0)
 Input2 Size(KB): 640.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 256.0)
@@ -2757,7 +2754,7 @@ create feature UP2->layer2->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP2->layer2->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 77, 1280)
+Input2    Shape: (1, 1280, 77)
 Input2 Size(KB): 192.5
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 77)
@@ -2880,8 +2877,8 @@ current gm used = 0.74MB, required = 0.62MB, free = 6.63MB
 create feature UP2->layer3->ResnetBlock2D->sample conv1 w/ 0.62MB at GM
 
 ---> running UP2->layer3->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 1280, 16.0, 16.0)
-Input  Size(KB): 640.0
+Input     Shape: (1, 1920, 16.0, 16.0)
+Input  Size(KB): 960.0
 Kernel    Shape: (1280, 1920, 3, 3, 1, 1)
 Kernel Size(KB): 43200.0
 MAC time = 691.20us, ldst time = 823.97us
@@ -2906,8 +2903,8 @@ current gm used = 1.37MB, required = 0.62MB, free = 6.01MB
 create feature UP2->layer3->ResnetBlock2D->shortcut conv w/ 0.62MB at GM
 
 ---> running UP2->layer3->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 1280, 16.0, 16.0)
-Input  Size(KB): 640.0
+Input     Shape: (1, 1920, 16.0, 16.0)
+Input  Size(KB): 960.0
 Kernel    Shape: (1280, 1920, 1, 1, 1, 1)
 Kernel Size(KB): 4800.0
 MAC time = 76.80us, ldst time = 91.55us
@@ -2964,7 +2961,7 @@ create feature UP2->layer3->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP2->layer3->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 256.0, 1280)
+Input2    Shape: (1, 1280, 256.0)
 Input2 Size(KB): 640.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 256.0)
@@ -3042,7 +3039,7 @@ create feature UP2->layer3->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP2->layer3->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 256.0, 1280)
 Input1  Size(KB): 640.0
-Input2    Shape: (1, 77, 1280)
+Input2    Shape: (1, 1280, 77)
 Input2 Size(KB): 192.5
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 256.0, 77)
@@ -3182,8 +3179,8 @@ current gm used = 2.62MB, required = 1.25MB, free = 4.13MB
 create feature UP3->layer1->ResnetBlock2D->sample conv1 w/ 1.25MB at GM
 
 ---> running UP3->layer1->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 1280, 32.0, 32.0)
-Input  Size(KB): 2560.0
+Input     Shape: (1, 1920, 32.0, 32.0)
+Input  Size(KB): 3840.0
 Kernel    Shape: (640, 1920, 3, 3, 1, 1)
 Kernel Size(KB): 21600.0
 MAC time = 1382.40us, ldst time = 411.99us
@@ -3208,8 +3205,8 @@ current gm used = 3.87MB, required = 1.25MB, free = 2.88MB
 create feature UP3->layer1->ResnetBlock2D->shortcut conv w/ 1.25MB at GM
 
 ---> running UP3->layer1->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 1280, 32.0, 32.0)
-Input  Size(KB): 2560.0
+Input     Shape: (1, 1920, 32.0, 32.0)
+Input  Size(KB): 3840.0
 Kernel    Shape: (640, 1920, 1, 1, 1, 1)
 Kernel Size(KB): 2400.0
 MAC time = 153.60us, ldst time = 45.78us
@@ -3266,7 +3263,7 @@ create feature UP3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 1024.0, 640)
+Input2    Shape: (1, 640, 1024.0)
 Input2 Size(KB): 1280.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 1024.0)
@@ -3344,7 +3341,7 @@ create feature UP3->layer1->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP3->layer1->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 77, 640)
+Input2    Shape: (1, 640, 77)
 Input2 Size(KB): 96.25
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 77)
@@ -3465,8 +3462,8 @@ current gm used = 1.37MB, required = 1.25MB, free = 5.38MB
 create feature UP3->layer2->ResnetBlock2D->sample conv1 w/ 1.25MB at GM
 
 ---> running UP3->layer2->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 640, 32.0, 32.0)
-Input  Size(KB): 1280.0
+Input     Shape: (1, 1280, 32.0, 32.0)
+Input  Size(KB): 2560.0
 Kernel    Shape: (640, 1280, 3, 3, 1, 1)
 Kernel Size(KB): 14400.0
 MAC time = 921.60us, ldst time = 274.66us
@@ -3491,8 +3488,8 @@ current gm used = 2.62MB, required = 1.25MB, free = 4.13MB
 create feature UP3->layer2->ResnetBlock2D->shortcut conv w/ 1.25MB at GM
 
 ---> running UP3->layer2->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 640, 32.0, 32.0)
-Input  Size(KB): 1280.0
+Input     Shape: (1, 1280, 32.0, 32.0)
+Input  Size(KB): 2560.0
 Kernel    Shape: (640, 1280, 1, 1, 1, 1)
 Kernel Size(KB): 1600.0
 MAC time = 102.40us, ldst time = 30.52us
@@ -3549,7 +3546,7 @@ create feature UP3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 1024.0, 640)
+Input2    Shape: (1, 640, 1024.0)
 Input2 Size(KB): 1280.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 1024.0)
@@ -3627,7 +3624,7 @@ create feature UP3->layer2->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP3->layer2->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 77, 640)
+Input2    Shape: (1, 640, 77)
 Input2 Size(KB): 96.25
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 77)
@@ -3748,8 +3745,8 @@ current gm used = 1.37MB, required = 1.25MB, free = 5.38MB
 create feature UP3->layer3->ResnetBlock2D->sample conv1 w/ 1.25MB at GM
 
 ---> running UP3->layer3->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 640, 32.0, 32.0)
-Input  Size(KB): 1280.0
+Input     Shape: (1, 960, 32.0, 32.0)
+Input  Size(KB): 1920.0
 Kernel    Shape: (640, 960, 3, 3, 1, 1)
 Kernel Size(KB): 10800.0
 MAC time = 691.20us, ldst time = 205.99us
@@ -3774,8 +3771,8 @@ current gm used = 2.62MB, required = 1.25MB, free = 4.13MB
 create feature UP3->layer3->ResnetBlock2D->shortcut conv w/ 1.25MB at GM
 
 ---> running UP3->layer3->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 640, 32.0, 32.0)
-Input  Size(KB): 1280.0
+Input     Shape: (1, 960, 32.0, 32.0)
+Input  Size(KB): 1920.0
 Kernel    Shape: (640, 960, 1, 1, 1, 1)
 Kernel Size(KB): 1200.0
 MAC time = 76.80us, ldst time = 22.89us
@@ -3832,7 +3829,7 @@ create feature UP3->layer3->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP3->layer3->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 1024.0, 640)
+Input2    Shape: (1, 640, 1024.0)
 Input2 Size(KB): 1280.0
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 1024.0)
@@ -3910,7 +3907,7 @@ create feature UP3->layer3->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP3->layer3->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 1024.0, 640)
 Input1  Size(KB): 1280.0
-Input2    Shape: (1, 77, 640)
+Input2    Shape: (1, 640, 77)
 Input2 Size(KB): 96.25
 MAC time = 0.00us, ldst time = 0.00us
 Output    Shape: (1, 1024.0, 77)
@@ -4047,11 +4044,11 @@ current gm used = 0.12MB, required = 2.50MB, free = 5.38MB
 create feature UP4->layer1->ResnetBlock2D->sample conv1 w/ 2.50MB at GM
 
 ---> running UP4->layer1->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 640, 64.0, 64.0)
-Input  Size(KB): 5120.0
+Input     Shape: (1, 960, 64.0, 64.0)
+Input  Size(KB): 7680.0
 Kernel    Shape: (320, 960, 3, 3, 1, 1)
 Kernel Size(KB): 5400.0
-MAC time = 1382.40us, ldst time = 200.65us
+MAC time = 1382.40us, ldst time = 249.48us
 Output    Shape: (1, 320, 64.0, 64.0)
 Output Size(KB): 2560.0
 gm size removed 0.00MB, still remained 2.62MB, free = 5.38MB
@@ -4073,11 +4070,11 @@ current gm used = 2.62MB, required = 2.50MB, free = 2.88MB
 create feature UP4->layer1->ResnetBlock2D->shortcut conv w/ 2.50MB at GM
 
 ---> running UP4->layer1->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 640, 64.0, 64.0)
-Input  Size(KB): 5120.0
+Input     Shape: (1, 960, 64.0, 64.0)
+Input  Size(KB): 7680.0
 Kernel    Shape: (320, 960, 1, 1, 1, 1)
 Kernel Size(KB): 600.0
-MAC time = 153.60us, ldst time = 109.10us
+MAC time = 153.60us, ldst time = 157.93us
 Output    Shape: (1, 320, 64.0, 64.0)
 Output Size(KB): 2560.0
 feature UP3Upsample2D is stored in DDR, doesn't need remove form GM
@@ -4128,7 +4125,7 @@ create feature UP4->layer1->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP4->layer1->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 4096.0, 320)
+Input2    Shape: (1, 320, 4096.0)
 Input2 Size(KB): 2560.0
 MAC time = 0.00us, ldst time = 673.83us
 Output    Shape: (1, 4096.0, 4096.0)
@@ -4201,7 +4198,7 @@ create feature UP4->layer1->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP4->layer1->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 77, 320)
+Input2    Shape: (1, 320, 77)
 Input2 Size(KB): 48.125
 MAC time = 0.00us, ldst time = 11.75us
 Output    Shape: (1, 4096.0, 77)
@@ -4317,8 +4314,8 @@ current gm used = 2.62MB, required = 2.50MB, free = 2.88MB
 create feature UP4->layer2->ResnetBlock2D->sample conv1 w/ 2.50MB at GM
 
 ---> running UP4->layer2->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 320, 64.0, 64.0)
-Input  Size(KB): 2560.0
+Input     Shape: (1, 640, 64.0, 64.0)
+Input  Size(KB): 5120.0
 Kernel    Shape: (320, 640, 3, 3, 1, 1)
 Kernel Size(KB): 3600.0
 MAC time = 921.60us, ldst time = 68.66us
@@ -4343,8 +4340,8 @@ current gm used = 5.12MB, required = 2.50MB, free = 0.38MB
 create feature UP4->layer2->ResnetBlock2D->shortcut conv w/ 2.50MB at GM
 
 ---> running UP4->layer2->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 320, 64.0, 64.0)
-Input  Size(KB): 2560.0
+Input     Shape: (1, 640, 64.0, 64.0)
+Input  Size(KB): 5120.0
 Kernel    Shape: (320, 640, 1, 1, 1, 1)
 Kernel Size(KB): 400.0
 MAC time = 102.40us, ldst time = 7.63us
@@ -4399,7 +4396,7 @@ create feature UP4->layer2->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP4->layer2->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 4096.0, 320)
+Input2    Shape: (1, 320, 4096.0)
 Input2 Size(KB): 2560.0
 MAC time = 0.00us, ldst time = 673.83us
 Output    Shape: (1, 4096.0, 4096.0)
@@ -4472,7 +4469,7 @@ create feature UP4->layer2->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP4->layer2->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 77, 320)
+Input2    Shape: (1, 320, 77)
 Input2 Size(KB): 48.125
 MAC time = 0.00us, ldst time = 11.75us
 Output    Shape: (1, 4096.0, 77)
@@ -4588,8 +4585,8 @@ current gm used = 2.62MB, required = 2.50MB, free = 2.88MB
 create feature UP4->layer3->ResnetBlock2D->sample conv1 w/ 2.50MB at GM
 
 ---> running UP4->layer3->ResnetBlock2D->sample conv1 <---
-Input     Shape: (1, 320, 64.0, 64.0)
-Input  Size(KB): 2560.0
+Input     Shape: (1, 640, 64.0, 64.0)
+Input  Size(KB): 5120.0
 Kernel    Shape: (320, 640, 3, 3, 1, 1)
 Kernel Size(KB): 3600.0
 MAC time = 921.60us, ldst time = 68.66us
@@ -4614,8 +4611,8 @@ current gm used = 5.12MB, required = 2.50MB, free = 0.38MB
 create feature UP4->layer3->ResnetBlock2D->shortcut conv w/ 2.50MB at GM
 
 ---> running UP4->layer3->ResnetBlock2D->shortcut conv <---
-Input     Shape: (1, 320, 64.0, 64.0)
-Input  Size(KB): 2560.0
+Input     Shape: (1, 640, 64.0, 64.0)
+Input  Size(KB): 5120.0
 Kernel    Shape: (320, 640, 1, 1, 1, 1)
 Kernel Size(KB): 400.0
 MAC time = 102.40us, ldst time = 7.63us
@@ -4670,7 +4667,7 @@ create feature UP4->layer3->Transformer2DModel->Basictransformer->setfattn_qkt w
 ---> running UP4->layer3->Transformer2DModel->Basictransformer->setfattn_qkt <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 4096.0, 320)
+Input2    Shape: (1, 320, 4096.0)
 Input2 Size(KB): 2560.0
 MAC time = 0.00us, ldst time = 673.83us
 Output    Shape: (1, 4096.0, 4096.0)
@@ -4743,7 +4740,7 @@ create feature UP4->layer3->Transformer2DModel->Basictransformer->selfattn_score
 ---> running UP4->layer3->Transformer2DModel->Basictransformer->selfattn_score <---
 Input1     Shape: (1, 4096.0, 320)
 Input1  Size(KB): 2560.0
-Input2    Shape: (1, 77, 320)
+Input2    Shape: (1, 320, 77)
 Input2 Size(KB): 48.125
 MAC time = 0.00us, ldst time = 11.75us
 Output    Shape: (1, 4096.0, 77)
@@ -4867,13 +4864,13 @@ DB1->layer1->Transformer2DModel->conv_in, (1, 320, 64.0, 64.0) conv2D (320, 320,
 DB1->layer1->Transformer2DModel->Basictransformer->selfattn_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->selfattn_k, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->selfattn_v, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
-DB1->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 4096.0, 320) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
+DB1->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 320, 4096.0) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 4096.0) bmm (1, 4096.0, 320) to (1, 4096.0, 320) ldst=673.83us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->selfattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->cross_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
-DB1->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 77, 320) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
+DB1->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 320, 77) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->cross_score, (1, 4096.0, 77) bmm (1, 77, 320) to (1, 4096.0, 320) ldst=11.75us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->crossattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 DB1->layer1->Transformer2DModel->Basictransformer->ff_up, (1, 4096.0, 320) Linear (320, 1280) to (1, 4096.0, 1280) ldst=259.40us, mac=0.00us
@@ -4888,13 +4885,13 @@ DB1->layer2->Transformer2DModel->conv_in, (1, 320, 64.0, 64.0) conv2D (320, 320,
 DB1->layer2->Transformer2DModel->Basictransformer->selfattn_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->selfattn_k, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->selfattn_v, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
-DB1->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 4096.0, 320) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
+DB1->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 320, 4096.0) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 4096.0) bmm (1, 4096.0, 320) to (1, 4096.0, 320) ldst=673.83us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->selfattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->cross_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
-DB1->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 77, 320) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
+DB1->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 320, 77) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->cross_score, (1, 4096.0, 77) bmm (1, 77, 320) to (1, 4096.0, 320) ldst=11.75us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->crossattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 DB1->layer2->Transformer2DModel->Basictransformer->ff_up, (1, 4096.0, 320) Linear (320, 1280) to (1, 4096.0, 1280) ldst=259.40us, mac=0.00us
@@ -4911,13 +4908,13 @@ DB2->layer1->Transformer2DModel->conv_in, (1, 640, 32.0, 32.0) conv2D (640, 640,
 DB2->layer1->Transformer2DModel->Basictransformer->selfattn_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->selfattn_k, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->selfattn_v, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
-DB2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 1024.0, 640) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
+DB2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 640, 1024.0) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 1024.0) bmm (1, 1024.0, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->selfattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->cross_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
-DB2->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 77, 640) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
+DB2->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 640, 77) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->cross_score, (1, 1024.0, 77) bmm (1, 77, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->crossattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer1->Transformer2DModel->Basictransformer->ff_up, (1, 1024.0, 640) Linear (640, 2560) to (1, 1024.0, 2560) ldst=61.04us, mac=0.00us
@@ -4932,13 +4929,13 @@ DB2->layer2->Transformer2DModel->conv_in, (1, 640, 32.0, 32.0) conv2D (640, 640,
 DB2->layer2->Transformer2DModel->Basictransformer->selfattn_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->selfattn_k, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->selfattn_v, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
-DB2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 1024.0, 640) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
+DB2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 640, 1024.0) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 1024.0) bmm (1, 1024.0, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->selfattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->cross_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
-DB2->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 77, 640) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
+DB2->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 640, 77) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->cross_score, (1, 1024.0, 77) bmm (1, 77, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->crossattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 DB2->layer2->Transformer2DModel->Basictransformer->ff_up, (1, 1024.0, 640) Linear (640, 2560) to (1, 1024.0, 2560) ldst=61.04us, mac=0.00us
@@ -4955,13 +4952,13 @@ DB3->layer1->Transformer2DModel->conv_in, (1, 1280, 16.0, 16.0) conv2D (1280, 12
 DB3->layer1->Transformer2DModel->Basictransformer->selfattn_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->selfattn_k, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->selfattn_v, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
-DB3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 256.0, 1280) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
+DB3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 1280, 256.0) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 256.0) bmm (1, 256.0, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->selfattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->cross_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
-DB3->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 77, 1280) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
+DB3->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 1280, 77) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->cross_score, (1, 256.0, 77) bmm (1, 77, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->crossattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer1->Transformer2DModel->Basictransformer->ff_up, (1, 256.0, 1280) Linear (1280, 5120) to (1, 256.0, 5120) ldst=244.14us, mac=0.00us
@@ -4976,13 +4973,13 @@ DB3->layer2->Transformer2DModel->conv_in, (1, 1280, 16.0, 16.0) conv2D (1280, 12
 DB3->layer2->Transformer2DModel->Basictransformer->selfattn_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->selfattn_k, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->selfattn_v, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
-DB3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 256.0, 1280) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
+DB3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 1280, 256.0) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 256.0) bmm (1, 256.0, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->selfattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->cross_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
-DB3->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 77, 1280) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
+DB3->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 1280, 77) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->cross_score, (1, 256.0, 77) bmm (1, 77, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->crossattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 DB3->layer2->Transformer2DModel->Basictransformer->ff_up, (1, 256.0, 1280) Linear (1280, 5120) to (1, 256.0, 5120) ldst=244.14us, mac=0.00us
@@ -5006,13 +5003,13 @@ midBtrans->Transformer2DModel->conv_in, (1, 1280, 8.0, 8.0) conv2D (1280, 1280, 
 midBtrans->Transformer2DModel->Basictransformer->selfattn_q, (1, 64.0, 1280) Linear (1280, 1280) to (1, 64.0, 1280) ldst=61.04us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->selfattn_k, (1, 64.0, 1280) Linear (1280, 1280) to (1, 64.0, 1280) ldst=61.04us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->selfattn_v, (1, 64.0, 1280) Linear (1280, 1280) to (1, 64.0, 1280) ldst=61.04us, mac=0.00us
-midBtrans->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 64.0, 1280) bmm (1, 64.0, 1280) to (1, 64.0, 64.0) ldst=0.00us, mac=0.00us
+midBtrans->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 64.0, 1280) bmm (1, 1280, 64.0) to (1, 64.0, 64.0) ldst=0.00us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->selfattn_score, (1, 64.0, 64.0) bmm (1, 64.0, 1280) to (1, 64.0, 1280) ldst=0.00us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->selfattn_o, (1, 64.0, 1280) Linear (1280, 1280) to (1, 64.0, 1280) ldst=61.04us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->cross_q, (1, 64.0, 1280) Linear (1280, 1280) to (1, 64.0, 1280) ldst=61.04us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
-midBtrans->Transformer2DModel->Basictransformer->selfattn_score, (1, 64.0, 1280) bmm (1, 77, 1280) to (1, 64.0, 77) ldst=0.00us, mac=0.00us
+midBtrans->Transformer2DModel->Basictransformer->selfattn_score, (1, 64.0, 1280) bmm (1, 1280, 77) to (1, 64.0, 77) ldst=0.00us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->cross_score, (1, 64.0, 77) bmm (1, 77, 1280) to (1, 64.0, 1280) ldst=0.00us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->crossattn_o, (1, 64.0, 1280) Linear (1280, 1280) to (1, 64.0, 1280) ldst=61.04us, mac=0.00us
 midBtrans->Transformer2DModel->Basictransformer->ff_up, (1, 64.0, 1280) Linear (1280, 5120) to (1, 64.0, 5120) ldst=244.14us, mac=0.00us
@@ -5024,37 +5021,37 @@ midB->layer2->ResnetBlock2D->sample conv1, (1, 1280, 8.0, 8.0) conv2D (1280, 128
 midB->layer2->ResnetBlock2D->sample conv2, (1, 1280, 8.0, 8.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=552.37us, mac=115.20us
 midB->layer2->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP1->layer1->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 1280) to (1, 1, 1280) ldst=61.04us, mac=0.00us
-UP1->layer1->ResnetBlock2D->sample conv1, (1, 1280, 8.0, 8.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=1098.63us, mac=230.40us
+UP1->layer1->ResnetBlock2D->sample conv1, (1, 2560, 8.0, 8.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=1098.63us, mac=230.40us
 UP1->layer1->ResnetBlock2D->sample conv2, (1, 1280, 8.0, 8.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=552.37us, mac=115.20us
-UP1->layer1->ResnetBlock2D->shortcut conv, (1, 1280, 8.0, 8.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 8.0, 8.0) ldst=122.07us, mac=25.60us
+UP1->layer1->ResnetBlock2D->shortcut conv, (1, 2560, 8.0, 8.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 8.0, 8.0) ldst=122.07us, mac=25.60us
 UP1->layer1->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP1->layer2->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 1280) to (1, 1, 1280) ldst=61.04us, mac=0.00us
-UP1->layer2->ResnetBlock2D->sample conv1, (1, 1280, 8.0, 8.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=1098.63us, mac=230.40us
+UP1->layer2->ResnetBlock2D->sample conv1, (1, 2560, 8.0, 8.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=1098.63us, mac=230.40us
 UP1->layer2->ResnetBlock2D->sample conv2, (1, 1280, 8.0, 8.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=552.37us, mac=115.20us
-UP1->layer2->ResnetBlock2D->shortcut conv, (1, 1280, 8.0, 8.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 8.0, 8.0) ldst=122.07us, mac=25.60us
+UP1->layer2->ResnetBlock2D->shortcut conv, (1, 2560, 8.0, 8.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 8.0, 8.0) ldst=122.07us, mac=25.60us
 UP1->layer2->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP1->layer3->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 1280) to (1, 1, 1280) ldst=61.04us, mac=0.00us
-UP1->layer3->ResnetBlock2D->sample conv1, (1, 1280, 8.0, 8.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=1098.63us, mac=230.40us
+UP1->layer3->ResnetBlock2D->sample conv1, (1, 2560, 8.0, 8.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=1098.63us, mac=230.40us
 UP1->layer3->ResnetBlock2D->sample conv2, (1, 1280, 8.0, 8.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 8.0, 8.0) ldst=552.37us, mac=115.20us
-UP1->layer3->ResnetBlock2D->shortcut conv, (1, 1280, 8.0, 8.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 8.0, 8.0) ldst=122.07us, mac=25.60us
+UP1->layer3->ResnetBlock2D->shortcut conv, (1, 2560, 8.0, 8.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 8.0, 8.0) ldst=122.07us, mac=25.60us
 UP1->layer3->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP1Upsample2DUpsample2D, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=549.32us, mac=460.80us
 UP2->layer1->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 1280) to (1, 1, 1280) ldst=61.04us, mac=0.00us
-UP2->layer1->ResnetBlock2D->sample conv1, (1, 1280, 16.0, 16.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=1098.63us, mac=921.60us
+UP2->layer1->ResnetBlock2D->sample conv1, (1, 2560, 16.0, 16.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=1098.63us, mac=921.60us
 UP2->layer1->ResnetBlock2D->sample conv2, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=561.52us, mac=460.80us
-UP2->layer1->ResnetBlock2D->shortcut conv, (1, 1280, 16.0, 16.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=122.07us, mac=102.40us
+UP2->layer1->ResnetBlock2D->shortcut conv, (1, 2560, 16.0, 16.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=122.07us, mac=102.40us
 UP2->layer1->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP2->layer1->Transformer2DModel->conv_in, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=61.04us, mac=51.20us
 UP2->layer1->Transformer2DModel->Basictransformer->selfattn_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->selfattn_k, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->selfattn_v, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
-UP2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 256.0, 1280) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
+UP2->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 1280, 256.0) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 256.0) bmm (1, 256.0, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->selfattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->cross_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
-UP2->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 77, 1280) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
+UP2->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 1280, 77) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->cross_score, (1, 256.0, 77) bmm (1, 77, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->crossattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer1->Transformer2DModel->Basictransformer->ff_up, (1, 256.0, 1280) Linear (1280, 5120) to (1, 256.0, 5120) ldst=244.14us, mac=0.00us
@@ -5062,21 +5059,21 @@ UP2->layer1->Transformer2DModel->Basictransformer->ff_gate, (1, 256.0, 1280) Lin
 UP2->layer1->Transformer2DModel->Basictransformer->ff_down, (1, 256.0, 5120) Linear (5120, 1280) to (1, 256.0, 1280) ldst=244.14us, mac=0.00us
 UP2->layer1->Transformer2DModel->conv_out, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=61.04us, mac=51.20us
 UP2->layer2->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 1280) to (1, 1, 1280) ldst=61.04us, mac=0.00us
-UP2->layer2->ResnetBlock2D->sample conv1, (1, 1280, 16.0, 16.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=1098.63us, mac=921.60us
+UP2->layer2->ResnetBlock2D->sample conv1, (1, 2560, 16.0, 16.0) conv2D (1280, 2560, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=1098.63us, mac=921.60us
 UP2->layer2->ResnetBlock2D->sample conv2, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=561.52us, mac=460.80us
-UP2->layer2->ResnetBlock2D->shortcut conv, (1, 1280, 16.0, 16.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=122.07us, mac=102.40us
+UP2->layer2->ResnetBlock2D->shortcut conv, (1, 2560, 16.0, 16.0) conv2D (1280, 2560, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=122.07us, mac=102.40us
 UP2->layer2->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP2->layer2->Transformer2DModel->conv_in, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=61.04us, mac=51.20us
 UP2->layer2->Transformer2DModel->Basictransformer->selfattn_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->selfattn_k, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->selfattn_v, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
-UP2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 256.0, 1280) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
+UP2->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 1280, 256.0) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 256.0) bmm (1, 256.0, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->selfattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->cross_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
-UP2->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 77, 1280) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
+UP2->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 1280, 77) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->cross_score, (1, 256.0, 77) bmm (1, 77, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->crossattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer2->Transformer2DModel->Basictransformer->ff_up, (1, 256.0, 1280) Linear (1280, 5120) to (1, 256.0, 5120) ldst=244.14us, mac=0.00us
@@ -5084,21 +5081,21 @@ UP2->layer2->Transformer2DModel->Basictransformer->ff_gate, (1, 256.0, 1280) Lin
 UP2->layer2->Transformer2DModel->Basictransformer->ff_down, (1, 256.0, 5120) Linear (5120, 1280) to (1, 256.0, 1280) ldst=244.14us, mac=0.00us
 UP2->layer2->Transformer2DModel->conv_out, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=61.04us, mac=51.20us
 UP2->layer3->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 1280) to (1, 1, 1280) ldst=61.04us, mac=0.00us
-UP2->layer3->ResnetBlock2D->sample conv1, (1, 1280, 16.0, 16.0) conv2D (1280, 1920, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=823.97us, mac=691.20us
+UP2->layer3->ResnetBlock2D->sample conv1, (1, 1920, 16.0, 16.0) conv2D (1280, 1920, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=823.97us, mac=691.20us
 UP2->layer3->ResnetBlock2D->sample conv2, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 16.0, 16.0) ldst=561.52us, mac=460.80us
-UP2->layer3->ResnetBlock2D->shortcut conv, (1, 1280, 16.0, 16.0) conv2D (1280, 1920, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=91.55us, mac=76.80us
+UP2->layer3->ResnetBlock2D->shortcut conv, (1, 1920, 16.0, 16.0) conv2D (1280, 1920, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=91.55us, mac=76.80us
 UP2->layer3->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP2->layer3->Transformer2DModel->conv_in, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=61.04us, mac=51.20us
 UP2->layer3->Transformer2DModel->Basictransformer->selfattn_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->selfattn_k, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->selfattn_v, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
-UP2->layer3->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 256.0, 1280) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
+UP2->layer3->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 256.0, 1280) bmm (1, 1280, 256.0) to (1, 256.0, 256.0) ldst=0.00us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 256.0) bmm (1, 256.0, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->selfattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->cross_q, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 1280) to (1, 77, 1280) ldst=36.62us, mac=0.00us
-UP2->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 77, 1280) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
+UP2->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 256.0, 1280) bmm (1, 1280, 77) to (1, 256.0, 77) ldst=0.00us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->cross_score, (1, 256.0, 77) bmm (1, 77, 1280) to (1, 256.0, 1280) ldst=0.00us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->crossattn_o, (1, 256.0, 1280) Linear (1280, 1280) to (1, 256.0, 1280) ldst=61.04us, mac=0.00us
 UP2->layer3->Transformer2DModel->Basictransformer->ff_up, (1, 256.0, 1280) Linear (1280, 5120) to (1, 256.0, 5120) ldst=244.14us, mac=0.00us
@@ -5107,21 +5104,21 @@ UP2->layer3->Transformer2DModel->Basictransformer->ff_down, (1, 256.0, 5120) Lin
 UP2->layer3->Transformer2DModel->conv_out, (1, 1280, 16.0, 16.0) conv2D (1280, 1280, 1, 1, 1, 1) to (1, 1280, 16.0, 16.0) ldst=61.04us, mac=51.20us
 UP2Upsample2D, (1, 1280, 32.0, 32.0) conv2D (1280, 1280, 3, 3, 1, 1) to (1, 1280, 32.0, 32.0) ldst=549.32us, mac=1843.20us
 UP3->layer1->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 640) to (1, 1, 640) ldst=30.52us, mac=0.00us
-UP3->layer1->ResnetBlock2D->sample conv1, (1, 1280, 32.0, 32.0) conv2D (640, 1920, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=411.99us, mac=1382.40us
+UP3->layer1->ResnetBlock2D->sample conv1, (1, 1920, 32.0, 32.0) conv2D (640, 1920, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=411.99us, mac=1382.40us
 UP3->layer1->ResnetBlock2D->sample conv2, (1, 640, 32.0, 32.0) conv2D (640, 640, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=161.74us, mac=460.80us
-UP3->layer1->ResnetBlock2D->shortcut conv, (1, 1280, 32.0, 32.0) conv2D (640, 1920, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=45.78us, mac=153.60us
+UP3->layer1->ResnetBlock2D->shortcut conv, (1, 1920, 32.0, 32.0) conv2D (640, 1920, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=45.78us, mac=153.60us
 UP3->layer1->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP3->layer1->Transformer2DModel->conv_in, (1, 640, 32.0, 32.0) conv2D (640, 640, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=15.26us, mac=51.20us
 UP3->layer1->Transformer2DModel->Basictransformer->selfattn_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->selfattn_k, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->selfattn_v, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
-UP3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 1024.0, 640) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
+UP3->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 640, 1024.0) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 1024.0) bmm (1, 1024.0, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->selfattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->cross_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
-UP3->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 77, 640) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
+UP3->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 640, 77) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->cross_score, (1, 1024.0, 77) bmm (1, 77, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->crossattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer1->Transformer2DModel->Basictransformer->ff_up, (1, 1024.0, 640) Linear (640, 2560) to (1, 1024.0, 2560) ldst=61.04us, mac=0.00us
@@ -5129,21 +5126,21 @@ UP3->layer1->Transformer2DModel->Basictransformer->ff_gate, (1, 1024.0, 640) Lin
 UP3->layer1->Transformer2DModel->Basictransformer->ff_down, (1, 1024.0, 2560) Linear (2560, 640) to (1, 1024.0, 640) ldst=61.04us, mac=0.00us
 UP3->layer1->Transformer2DModel->conv_out, (1, 640, 32.0, 32.0) conv2D (640, 640, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=15.26us, mac=51.20us
 UP3->layer2->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 640) to (1, 1, 640) ldst=30.52us, mac=0.00us
-UP3->layer2->ResnetBlock2D->sample conv1, (1, 640, 32.0, 32.0) conv2D (640, 1280, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=274.66us, mac=921.60us
+UP3->layer2->ResnetBlock2D->sample conv1, (1, 1280, 32.0, 32.0) conv2D (640, 1280, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=274.66us, mac=921.60us
 UP3->layer2->ResnetBlock2D->sample conv2, (1, 640, 32.0, 32.0) conv2D (640, 640, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=161.74us, mac=460.80us
-UP3->layer2->ResnetBlock2D->shortcut conv, (1, 640, 32.0, 32.0) conv2D (640, 1280, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=30.52us, mac=102.40us
+UP3->layer2->ResnetBlock2D->shortcut conv, (1, 1280, 32.0, 32.0) conv2D (640, 1280, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=30.52us, mac=102.40us
 UP3->layer2->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP3->layer2->Transformer2DModel->conv_in, (1, 640, 32.0, 32.0) conv2D (640, 640, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=15.26us, mac=51.20us
 UP3->layer2->Transformer2DModel->Basictransformer->selfattn_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->selfattn_k, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->selfattn_v, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
-UP3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 1024.0, 640) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
+UP3->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 640, 1024.0) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 1024.0) bmm (1, 1024.0, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->selfattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->cross_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
-UP3->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 77, 640) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
+UP3->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 640, 77) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->cross_score, (1, 1024.0, 77) bmm (1, 77, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->crossattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer2->Transformer2DModel->Basictransformer->ff_up, (1, 1024.0, 640) Linear (640, 2560) to (1, 1024.0, 2560) ldst=61.04us, mac=0.00us
@@ -5151,21 +5148,21 @@ UP3->layer2->Transformer2DModel->Basictransformer->ff_gate, (1, 1024.0, 640) Lin
 UP3->layer2->Transformer2DModel->Basictransformer->ff_down, (1, 1024.0, 2560) Linear (2560, 640) to (1, 1024.0, 640) ldst=61.04us, mac=0.00us
 UP3->layer2->Transformer2DModel->conv_out, (1, 640, 32.0, 32.0) conv2D (640, 640, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=15.26us, mac=51.20us
 UP3->layer3->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 640) to (1, 1, 640) ldst=30.52us, mac=0.00us
-UP3->layer3->ResnetBlock2D->sample conv1, (1, 640, 32.0, 32.0) conv2D (640, 960, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=205.99us, mac=691.20us
+UP3->layer3->ResnetBlock2D->sample conv1, (1, 960, 32.0, 32.0) conv2D (640, 960, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=205.99us, mac=691.20us
 UP3->layer3->ResnetBlock2D->sample conv2, (1, 640, 32.0, 32.0) conv2D (640, 640, 3, 3, 1, 1) to (1, 640, 32.0, 32.0) ldst=161.74us, mac=460.80us
-UP3->layer3->ResnetBlock2D->shortcut conv, (1, 640, 32.0, 32.0) conv2D (640, 960, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=22.89us, mac=76.80us
+UP3->layer3->ResnetBlock2D->shortcut conv, (1, 960, 32.0, 32.0) conv2D (640, 960, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=22.89us, mac=76.80us
 UP3->layer3->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP3->layer3->Transformer2DModel->conv_in, (1, 640, 32.0, 32.0) conv2D (640, 640, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=15.26us, mac=51.20us
 UP3->layer3->Transformer2DModel->Basictransformer->selfattn_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->selfattn_k, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->selfattn_v, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
-UP3->layer3->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 1024.0, 640) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
+UP3->layer3->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 1024.0, 640) bmm (1, 640, 1024.0) to (1, 1024.0, 1024.0) ldst=0.00us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 1024.0) bmm (1, 1024.0, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->selfattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->cross_q, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 640) to (1, 77, 640) ldst=18.31us, mac=0.00us
-UP3->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 77, 640) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
+UP3->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 1024.0, 640) bmm (1, 640, 77) to (1, 1024.0, 77) ldst=0.00us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->cross_score, (1, 1024.0, 77) bmm (1, 77, 640) to (1, 1024.0, 640) ldst=0.00us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->crossattn_o, (1, 1024.0, 640) Linear (640, 640) to (1, 1024.0, 640) ldst=15.26us, mac=0.00us
 UP3->layer3->Transformer2DModel->Basictransformer->ff_up, (1, 1024.0, 640) Linear (640, 2560) to (1, 1024.0, 2560) ldst=61.04us, mac=0.00us
@@ -5174,21 +5171,21 @@ UP3->layer3->Transformer2DModel->Basictransformer->ff_down, (1, 1024.0, 2560) Li
 UP3->layer3->Transformer2DModel->conv_out, (1, 640, 32.0, 32.0) conv2D (640, 640, 1, 1, 1, 1) to (1, 640, 32.0, 32.0) ldst=15.26us, mac=51.20us
 UP3Upsample2D, (1, 640, 64.0, 64.0) conv2D (640, 640, 3, 3, 1, 1) to (1, 640, 64.0, 64.0) ldst=234.99us, mac=1843.20us
 UP4->layer1->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 320) to (1, 1, 320) ldst=15.26us, mac=0.00us
-UP4->layer1->ResnetBlock2D->sample conv1, (1, 640, 64.0, 64.0) conv2D (320, 960, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=200.65us, mac=1382.40us
+UP4->layer1->ResnetBlock2D->sample conv1, (1, 960, 64.0, 64.0) conv2D (320, 960, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=249.48us, mac=1382.40us
 UP4->layer1->ResnetBlock2D->sample conv2, (1, 320, 64.0, 64.0) conv2D (320, 320, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=83.16us, mac=460.80us
-UP4->layer1->ResnetBlock2D->shortcut conv, (1, 640, 64.0, 64.0) conv2D (320, 960, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=109.10us, mac=153.60us
+UP4->layer1->ResnetBlock2D->shortcut conv, (1, 960, 64.0, 64.0) conv2D (320, 960, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=157.93us, mac=153.60us
 UP4->layer1->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP4->layer1->Transformer2DModel->conv_in, (1, 320, 64.0, 64.0) conv2D (320, 320, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=3.81us, mac=51.20us
 UP4->layer1->Transformer2DModel->Basictransformer->selfattn_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->selfattn_k, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->selfattn_v, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
-UP4->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 4096.0, 320) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
+UP4->layer1->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 320, 4096.0) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 4096.0) bmm (1, 4096.0, 320) to (1, 4096.0, 320) ldst=673.83us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->selfattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->cross_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
-UP4->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 77, 320) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
+UP4->layer1->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 320, 77) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->cross_score, (1, 4096.0, 77) bmm (1, 77, 320) to (1, 4096.0, 320) ldst=11.75us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->crossattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer1->Transformer2DModel->Basictransformer->ff_up, (1, 4096.0, 320) Linear (320, 1280) to (1, 4096.0, 1280) ldst=259.40us, mac=0.00us
@@ -5196,21 +5193,21 @@ UP4->layer1->Transformer2DModel->Basictransformer->ff_gate, (1, 4096.0, 320) Lin
 UP4->layer1->Transformer2DModel->Basictransformer->ff_down, (1, 4096.0, 1280) Linear (1280, 320) to (1, 4096.0, 320) ldst=210.57us, mac=0.00us
 UP4->layer1->Transformer2DModel->conv_out, (1, 320, 64.0, 64.0) conv2D (320, 320, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=3.81us, mac=51.20us
 UP4->layer2->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 320) to (1, 1, 320) ldst=15.26us, mac=0.00us
-UP4->layer2->ResnetBlock2D->sample conv1, (1, 320, 64.0, 64.0) conv2D (320, 640, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=68.66us, mac=921.60us
+UP4->layer2->ResnetBlock2D->sample conv1, (1, 640, 64.0, 64.0) conv2D (320, 640, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=68.66us, mac=921.60us
 UP4->layer2->ResnetBlock2D->sample conv2, (1, 320, 64.0, 64.0) conv2D (320, 320, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=83.16us, mac=460.80us
-UP4->layer2->ResnetBlock2D->shortcut conv, (1, 320, 64.0, 64.0) conv2D (320, 640, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=7.63us, mac=102.40us
+UP4->layer2->ResnetBlock2D->shortcut conv, (1, 640, 64.0, 64.0) conv2D (320, 640, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=7.63us, mac=102.40us
 UP4->layer2->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP4->layer2->Transformer2DModel->conv_in, (1, 320, 64.0, 64.0) conv2D (320, 320, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=3.81us, mac=51.20us
 UP4->layer2->Transformer2DModel->Basictransformer->selfattn_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->selfattn_k, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->selfattn_v, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
-UP4->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 4096.0, 320) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
+UP4->layer2->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 320, 4096.0) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 4096.0) bmm (1, 4096.0, 320) to (1, 4096.0, 320) ldst=673.83us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->selfattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->cross_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
-UP4->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 77, 320) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
+UP4->layer2->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 320, 77) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->cross_score, (1, 4096.0, 77) bmm (1, 77, 320) to (1, 4096.0, 320) ldst=11.75us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->crossattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer2->Transformer2DModel->Basictransformer->ff_up, (1, 4096.0, 320) Linear (320, 1280) to (1, 4096.0, 1280) ldst=259.40us, mac=0.00us
@@ -5218,21 +5215,21 @@ UP4->layer2->Transformer2DModel->Basictransformer->ff_gate, (1, 4096.0, 320) Lin
 UP4->layer2->Transformer2DModel->Basictransformer->ff_down, (1, 4096.0, 1280) Linear (1280, 320) to (1, 4096.0, 320) ldst=210.57us, mac=0.00us
 UP4->layer2->Transformer2DModel->conv_out, (1, 320, 64.0, 64.0) conv2D (320, 320, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=3.81us, mac=51.20us
 UP4->layer3->ResnetBlock2D->temb_linear, (1, 1, 1280) Linear (1280, 320) to (1, 1, 320) ldst=15.26us, mac=0.00us
-UP4->layer3->ResnetBlock2D->sample conv1, (1, 320, 64.0, 64.0) conv2D (320, 640, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=68.66us, mac=921.60us
+UP4->layer3->ResnetBlock2D->sample conv1, (1, 640, 64.0, 64.0) conv2D (320, 640, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=68.66us, mac=921.60us
 UP4->layer3->ResnetBlock2D->sample conv2, (1, 320, 64.0, 64.0) conv2D (320, 320, 3, 3, 1, 1) to (1, 320, 64.0, 64.0) ldst=83.16us, mac=460.80us
-UP4->layer3->ResnetBlock2D->shortcut conv, (1, 320, 64.0, 64.0) conv2D (320, 640, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=7.63us, mac=102.40us
+UP4->layer3->ResnetBlock2D->shortcut conv, (1, 640, 64.0, 64.0) conv2D (320, 640, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=7.63us, mac=102.40us
 UP4->layer3->ResnetBlock2D->sample res add, None conv2D None to None ldst=0.00us, mac=0.00us
 UP4->layer3->Transformer2DModel->conv_in, (1, 320, 64.0, 64.0) conv2D (320, 320, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=3.81us, mac=51.20us
 UP4->layer3->Transformer2DModel->Basictransformer->selfattn_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->selfattn_k, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->selfattn_v, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
-UP4->layer3->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 4096.0, 320) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
+UP4->layer3->Transformer2DModel->Basictransformer->setfattn_qkt, (1, 4096.0, 320) bmm (1, 320, 4096.0) to (1, 4096.0, 4096.0) ldst=673.83us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 4096.0) bmm (1, 4096.0, 320) to (1, 4096.0, 320) ldst=673.83us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->selfattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->cross_q, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=3.81us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->cross_k, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->cross_v, (1, 77, 768) Linear (768, 320) to (1, 77, 320) ldst=9.16us, mac=0.00us
-UP4->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 77, 320) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
+UP4->layer3->Transformer2DModel->Basictransformer->selfattn_score, (1, 4096.0, 320) bmm (1, 320, 77) to (1, 4096.0, 77) ldst=11.75us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->cross_score, (1, 4096.0, 77) bmm (1, 77, 320) to (1, 4096.0, 320) ldst=11.75us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->crossattn_o, (1, 4096.0, 320) Linear (320, 320) to (1, 4096.0, 320) ldst=52.64us, mac=0.00us
 UP4->layer3->Transformer2DModel->Basictransformer->ff_up, (1, 4096.0, 320) Linear (320, 1280) to (1, 4096.0, 1280) ldst=259.40us, mac=0.00us
@@ -5240,5 +5237,10 @@ UP4->layer3->Transformer2DModel->Basictransformer->ff_gate, (1, 4096.0, 320) Lin
 UP4->layer3->Transformer2DModel->Basictransformer->ff_down, (1, 4096.0, 1280) Linear (1280, 320) to (1, 4096.0, 320) ldst=210.57us, mac=0.00us
 UP4->layer3->Transformer2DModel->conv_out, (1, 320, 64.0, 64.0) conv2D (320, 320, 1, 1, 1, 1) to (1, 320, 64.0, 64.0) ldst=3.81us, mac=51.20us
 post-proc conv_out, (1, 320, 64.0, 64.0) conv2D (4, 320, 3, 3, 1, 1) to (1, 4, 64.0, 64.0) ldst=0.43us, mac=23.04us
-total 384 ops
-unet time cost is 58.32ms
+*************************************************************************
+*** run per model, 4core, 1cluster, 50GB/s BW, 8MB GM, 512x512 img size, 1 batch, FP16 percision
+*** Unet: ignore activation func (layernorm, groupnorm, silu,etc) and reshape
+*** total 384 ops, 94 ops are mac bottleneck.
+*** 290 ops are ldst bound(220 are transfomer bmm/linear, 70 are conv)
+*** Unet time cost is 58.33ms
+*************************************************************************

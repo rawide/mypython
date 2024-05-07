@@ -8,8 +8,9 @@ IMG_W = 512
 IMG_H = 512
 BATCH = 1
 GM_MAX_SIZE = 8*2**20 # 8mb total
+PRECISION = "FP16"
 
-if len(sys.argv) == 7:
+if len(sys.argv) == 8:
     print(sys.argv, len(sys.argv))
     CORE = int(sys.argv[1])
     CLUSTER = int(sys.argv[2])
@@ -17,11 +18,11 @@ if len(sys.argv) == 7:
     IMG_W = int(sys.argv[4])
     IMG_H = int(sys.argv[5])
     GM_MAX_SIZE= int(sys.argv[6])*2**20
+    PERCISION = sys.argv[7]
 elif len(sys.argv) == 1:
-    print("usage ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h] [GM_size(MB)]\n")
-    print("run per model w/ default setting(4core,1cluster,50GB/s,8M gm, 512x512,batch 1)\n")
+    print("use default setting")
 else:
-    print("please input the x3 and sd conf, ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h]\n")
+    print("usage ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h] [GM_size(MB)] [PERCISION(FP16/INT8)]\n")
     exit()
 
 LATENT_SCALE_RATIO = 8
@@ -30,7 +31,6 @@ LATENT_H = IMG_H/LATENT_SCALE_RATIO
 
 MTP_CI_STEP = 8
 MTP_CO_STEP = 16
-PRECISION = "FP16"
 DATALEN = 2 if PRECISION == "FP16" else ( 1 if PRECISION == "INT8" else 4)
 MAC = 16*16*8*2*2/(2 if PRECISION == "INT8" else 4)
 COMP_POWER = CORE*CLUSTER*CLK*MAC
@@ -78,8 +78,8 @@ class Feature():
         self.n, self.c, self.h, self.w, self.len, self.dims, self.location, self.format = (n,c,h,w,len,dims,location,format)
         self.name = name
         if self.format == "nchw":
-            self.shape = (n,c,h,w)
-            self.size = n*c*h*w*DATALEN
+            self.shape = (self.n,self.c,self.h,self.w)
+            self.size = self.n*self.c*self.h*self.w*DATALEN
         elif self.format == "nld":
             self.shape = (n, len, dims)
             self.size = n*len*dims*DATALEN
@@ -98,6 +98,19 @@ class Feature():
         else:
             print("feature %s is stored in DDR, doesn't need remove form GM"%self.name)
 
+    def getSize(self):
+        if self.format == "nchw":
+            return self.n*self.c*self.h*self.w*DATALEN
+        elif self.format == "nld":
+            return self.n*self.len*self.dims*DATALEN
+        else:
+            return None
+
+    def getShape(self):
+        if self.format == "nchw":
+            return (self.n,self.c,self.h,self.w)
+        elif self.format == "nld":
+            return (self.n, self.len, self.dims)
 
 class WTConvKernel():
     def __init__(
@@ -183,25 +196,25 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
     mac_time = 10**6*macs/COMP_POWER
     ldst_size = 0
     if "GM" not in input_feature.location:
-        ldst_size += input_feature.size
+        ldst_size += input_feature.getSize()
     if "GM" not in kernel.location:
         ldst_size += kernel.size
     if "DDR" in output_feature.location:
         # calculate the write time cost.
-        ldst_size += output_feature.size
+        ldst_size += output_feature.getSize()
     ldst_time = 10**6*ldst_size/BW/2**30
-    op_time = Time(op="conv2D",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.shape,
-                   op2_shape=kernel.shape,out_shape=output_feature.shape)
+    op_time = Time(op="conv2D",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.getShape(),
+                   op2_shape=kernel.shape,out_shape=output_feature.getShape())
 
     # Printing shapes and sizes
     print("\n---> running %s <---"%tag)
-    print("Input     Shape:", input_feature.shape)
-    print("Input  Size(KB):", formatsize(input_feature.size, "KB"))
+    print("Input     Shape:", input_feature.getShape())
+    print("Input  Size(KB):", formatsize(input_feature.getSize(), "KB"))
     print("Kernel    Shape:", kernel.shape)
     print("Kernel Size(KB):", formatsize(kernel.size, "KB"))
     print("MAC time = %.2fus, ldst time = %.2fus"%(mac_time, ldst_time))
-    print("Output    Shape:", output_feature.shape)
-    print("Output Size(KB):", formatsize(output_feature.size, "KB"))
+    print("Output    Shape:", output_feature.getShape())
+    print("Output Size(KB):", formatsize(output_feature.getSize(), "KB"))
 
     return output_feature, op_time
 
@@ -220,25 +233,25 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
     mac_time = macs/COMP_POWER
     ldst_size = 0
     if "GM" not in input_feature.location:
-        ldst_size += input_feature.size
+        ldst_size += input_feature.getSize()
     if "GM" not in wt_linear.location:
         ldst_size += wt_linear.size
     if "DDR" in output_feature.location:
         # calculate the write time cost.
-        ldst_size += output_feature.size
+        ldst_size += output_feature.getSize()
     ldst_time = 10**6*ldst_size/BW/2**30
-    op_time = Time(op="Linear",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.shape,
-                   op2_shape=wt_linear.shape,out_shape=output_feature.shape)
+    op_time = Time(op="Linear",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.getShape(),
+                   op2_shape=wt_linear.shape,out_shape=output_feature.getShape())
     
     # Printing shapes and sizes
     print("\n---> running %s <---"%tag)
-    print("Input        Shape:", input_feature.shape)
-    print("Input     Size(KB):", formatsize(input_feature.size, "KB"))
+    print("Input        Shape:", input_feature.getShape())
+    print("Input     Size(KB):", formatsize(input_feature.getSize(), "KB"))
     print("wt_linear    Shape:", wt_linear.shape)
     print("wt_linear Size(KB):", formatsize(wt_linear.size, "KB"))
     print("MAC time = %.2fus, ldst time = %.2fus"%(mac_time, ldst_time))
-    print("Output       Shape:", output_feature.shape)
-    print("Output    Size(KB):", formatsize(output_feature.size, "KB"))
+    print("Output       Shape:", output_feature.getShape())
+    print("Output    Size(KB):", formatsize(output_feature.getSize(), "KB"))
 
     return output_feature, op_time
 
@@ -257,25 +270,25 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
     mac_time = macs/COMP_POWER
     ldst_size = 0
     if "GM" not in input1.location:
-        ldst_size += input1.size
+        ldst_size += input1.getSize()
     if "GM" not in input2.location:
-        ldst_size += input2.size
+        ldst_size += input2.getSize()
     if "DDR" in output_feature.location:
         # calculate the write time cost.
-        ldst_size += output_feature.size
+        ldst_size += output_feature.getSize()
     ldst_time = 10**6*ldst_size/BW/2**30
-    op_time = Time(op="bmm",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input1.shape,
-                   op2_shape=input2.shape,out_shape=output_feature.shape)
+    op_time = Time(op="bmm",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input1.getShape(),
+                   op2_shape=input2.getShape(),out_shape=output_feature.getShape())
     
     # Printing shapes and sizes
     print("\n---> running %s <---"%tag)
-    print("Input1     Shape:", input1.shape)
-    print("Input1  Size(KB):", formatsize(input1.size, "KB"))
-    print("Input2    Shape:", input2.shape)
-    print("Input2 Size(KB):", formatsize(input2.size, "KB"))
+    print("Input1     Shape:", input1.getShape())
+    print("Input1  Size(KB):", formatsize(input1.getSize(), "KB"))
+    print("Input2    Shape:", input2.getShape())
+    print("Input2 Size(KB):", formatsize(input2.getSize(), "KB"))
     print("MAC time = %.2fus, ldst time = %.2fus"%(mac_time, ldst_time))
-    print("Output    Shape:", output_feature.shape)
-    print("Output Size(KB):", formatsize(output_feature.size, "KB"))
+    print("Output    Shape:", output_feature.getShape())
+    print("Output Size(KB):", formatsize(output_feature.getSize(), "KB"))
 
     return output_feature, op_time
 
@@ -549,13 +562,26 @@ def Unet():
     for op in time:
         total_time += op.op_time
 
+    op_ldst = 0
+    op_opbmm = 0
     for op in time:
         op.update(total_time)
         print("%s, %s %s %s to %s ldst=%.2fus, mac=%.2fus"%(op.tag, op.op1_shape, op.op, 
                                                             op.op2_shape, op.out_shape, op.ldst, op.mac))
+        if op.bottleneck == "ldst":
+            op_ldst += 1
+            if op.op != "conv2D":
+                op_opbmm += 1
 
-    print("total %d ops"%len(time))
-    print("unet time cost is %.2fms"%(total_time/1000.0))
+    ops = len(time)
+    print("*************************************************************************")
+    print("*** run per model, %dcore, %dcluster, %dGB/s BW, %dMB GM, %dx%d img size, %d batch, %s percision"%
+          (CORE,CLUSTER,BW,GM_MAX_SIZE/2**20,IMG_H,IMG_W,BATCH,PRECISION))
+    print("*** Unet: ignore activation func (layernorm, groupnorm, silu,etc) and reshape")
+    print("*** total %d ops, %d ops are mac bottleneck."%(ops, ops-op_ldst))
+    print("*** %d ops are ldst bound(%d are transfomer bmm/linear, %d are conv)"%(op_ldst, op_opbmm, op_ldst-op_opbmm))
+    print("*** Unet time cost is %.2fms"%(total_time/1000.0))
+    print("*************************************************************************")
     return total_time
 
 x = Unet()
