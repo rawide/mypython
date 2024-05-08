@@ -14,15 +14,15 @@ if len(sys.argv) == 8:
     print(sys.argv, len(sys.argv))
     CORE = int(sys.argv[1])
     CLUSTER = int(sys.argv[2])
-    BW = int(sys.argv[3])
-    IMG_W = int(sys.argv[4])
-    IMG_H = int(sys.argv[5])
-    GM_MAX_SIZE= int(sys.argv[6])*2**20
+    GM_MAX_SIZE= int(sys.argv[3])*2**20
+    BW = int(sys.argv[4])
+    IMG_W = int(sys.argv[5])
+    IMG_H = int(sys.argv[6])
     PERCISION = sys.argv[7]
 elif len(sys.argv) == 1:
     print("use default setting")
 else:
-    print("usage ./sd_perf.py [core/cluster] [cluster] [BW(GB)] [img_size_w] [image_size_h] [GM_size(MB)] [PERCISION(FP16/INT8)]\n")
+    print("usage ./sd_perf.py [core/cluster] [cluster] [GM_size(MB)] [BW(GB)] [img_size_w] [image_size_h] [PERCISION(FP16/INT8)]\n")
     exit()
 
 LATENT_SCALE_RATIO = 8
@@ -133,7 +133,7 @@ class WTLinear():
             self,
             ci: int = None,
             co: int = None,
-            location: str = "DDR"            
+            location: str = "DDR"
     ):
         super().__init__()
         self.ci, self.co, self.location = (ci, co, location)
@@ -189,7 +189,7 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
     w_out = (input_feature.w + 2 * kernel.padding - kernel.kw) // kernel.stride + 1
 
     # Prepare output feature dimensions
-    output_feature = Feature(n=input_feature.n, c=kernel.co, h=h_out, w=w_out, location=saveto, name=tag)
+    output_feature = Feature(n=input_feature.n, c=kernel.co, h=h_out, w=w_out, location=saveto, name=tag+"[OPCONV_output]")
     
     # Calculate the number of MAC operations
     macs = input_feature.n * co_rounded * h_out * w_out * ci_rounded * kernel.kw * kernel.kh
@@ -207,14 +207,14 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
                    op2_shape=kernel.shape,out_shape=output_feature.getShape())
 
     # Printing shapes and sizes
-    print("\n---> running %s <---"%tag)
-    print("Input     Shape:", input_feature.getShape())
-    print("Input  Size(KB):", formatsize(input_feature.getSize(), "KB"))
-    print("Kernel    Shape:", kernel.shape)
-    print("Kernel Size(KB):", formatsize(kernel.size, "KB"))
+    print("---> running %s <---"%tag)
+    print("Input  Shape:", input_feature.getShape())
+    print("Input   Size: %.2fKB at %s"%(formatsize(input_feature.getSize(), "KB"),input_feature.location))
+    print("Kernel Shape:", kernel.shape)
+    print("Kernel  Size: %.2fKB at DDR"%formatsize(kernel.size, "KB"))
     print("MAC time = %.2fus, ldst time = %.2fus"%(mac_time, ldst_time))
-    print("Output    Shape:", output_feature.getShape())
-    print("Output Size(KB):", formatsize(output_feature.getSize(), "KB"))
+    print("Output Shape:", output_feature.getShape())
+    print("Output  Size: %.2fKB at %s\n"%(formatsize(output_feature.getSize(), "KB"),output_feature.location))
 
     return output_feature, op_time
 
@@ -226,7 +226,7 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
     dims, co_rounded = rounded_ci_co(wt_linear.ci, wt_linear.co)
 
     # Prepare output feature dimensions
-    output_feature = Feature(n=input_feature.n, len=input_feature.len, dims=wt_linear.co, format="nld", location=saveto, name=tag)
+    output_feature = Feature(n=input_feature.n, len=input_feature.len, dims=wt_linear.co, format="nld", location=saveto, name=tag+"[OPLINEAR_output]")
 
     # Calculate the number of MAC operations
     macs = input_feature.n * input_feature.len * dims * co_rounded
@@ -244,14 +244,14 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
                    op2_shape=wt_linear.shape,out_shape=output_feature.getShape())
     
     # Printing shapes and sizes
-    print("\n---> running %s <---"%tag)
-    print("Input        Shape:", input_feature.getShape())
-    print("Input     Size(KB):", formatsize(input_feature.getSize(), "KB"))
-    print("wt_linear    Shape:", wt_linear.shape)
-    print("wt_linear Size(KB):", formatsize(wt_linear.size, "KB"))
+    print("---> running %s <---"%tag)
+    print("Input     Shape:", input_feature.getShape())
+    print("Input      Size: %.2fKB at %s"%(formatsize(input_feature.getSize(), "KB"),input_feature.location))
+    print("wt_linear Shape:", wt_linear.shape)
+    print("wt_linear  Size: %.2fKB at DDR"%formatsize(wt_linear.size, "KB"))
     print("MAC time = %.2fus, ldst time = %.2fus"%(mac_time, ldst_time))
-    print("Output       Shape:", output_feature.getShape())
-    print("Output    Size(KB):", formatsize(output_feature.getSize(), "KB"))
+    print("Output    Shape:", output_feature.getShape())
+    print("Output     Size: %.2fKB at %s\n"%(formatsize(output_feature.getSize(), "KB"),output_feature.location))
 
     return output_feature, op_time
 
@@ -263,7 +263,7 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
     dims, co_rounded = rounded_ci_co(input1.dims, input2.dims)
 
     # Prepare output feature dimensions
-    output_feature = Feature(n=input1.n, len=input1.len, dims=input2.dims, format="nld", location=saveto, name=tag)
+    output_feature = Feature(n=input1.n, len=input1.len, dims=input2.dims, format="nld", location=saveto, name=tag+"[OPBMM_output]")
 
     # Calculate the number of MAC operations
     macs = input1.n * input1.len * dims * co_rounded
@@ -281,14 +281,14 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
                    op2_shape=input2.getShape(),out_shape=output_feature.getShape())
     
     # Printing shapes and sizes
-    print("\n---> running %s <---"%tag)
-    print("Input1     Shape:", input1.getShape())
-    print("Input1  Size(KB):", formatsize(input1.getSize(), "KB"))
-    print("Input2    Shape:", input2.getShape())
-    print("Input2 Size(KB):", formatsize(input2.getSize(), "KB"))
+    print("---> running %s <---"%tag)
+    print("Input1 Shape:", input1.getShape())
+    print("Input1  Size: %.2fKB at %s"%(formatsize(input1.getSize(), "KB"), input1.location))
+    print("Input2 Shape:", input2.getShape())
+    print("Input2  Size: %.2fKB at %s"%(formatsize(input2.getSize(), "KB"), input2.location))
     print("MAC time = %.2fus, ldst time = %.2fus"%(mac_time, ldst_time))
-    print("Output    Shape:", output_feature.getShape())
-    print("Output Size(KB):", formatsize(output_feature.getSize(), "KB"))
+    print("Output Shape:", output_feature.getShape())
+    print("Output  Size: %.2fKB at %s\n"%(formatsize(output_feature.getSize(), "KB"),output_feature.location))
 
     return output_feature, op_time
 
@@ -320,8 +320,9 @@ def ResnetBlock2D(temb:Feature, sample:Feature, ci:int, co:int, tag:str, saveout
     tag = tag + "->" + ResnetBlock2D.__name__
     # 0 step, calc temb
     # ignore silu part and add this part to temg init. temb input fixed as 1280.
-    wt_temb_linear = WTLinear(ci=1280,co=co)
-    temb_output, temb_t = op_linear(temb,wt_temb_linear,tag+"->temb_linear","GM")
+    if temb is not None:
+        wt_temb_linear = WTLinear(ci=1280,co=co)
+        temb_output, temb_t = op_linear(temb,wt_temb_linear,tag+"->temb_linear","GM")
 
     # 1 step, calc sample
     # 1.1 TODO, current ignore group norm and silu
@@ -331,7 +332,9 @@ def ResnetBlock2D(temb:Feature, sample:Feature, ci:int, co:int, tag:str, saveout
 
     # 1.3 TODO resdiual add 
     # 2.1 TODO group+silu
-    temb_output.release()
+    if temb is not None:
+        temb_output.release()
+
     # 2.2 conv2
     kernel2 = WTConvKernel(co,co)
     sample_conv2, conv2_t = op_conv(sample_conv1,kernel2,tag+"->sample conv2","GM,DDR")
@@ -344,12 +347,15 @@ def ResnetBlock2D(temb:Feature, sample:Feature, ci:int, co:int, tag:str, saveout
         output, res_t = op_eltwise(sample_conv2,sample_res,tag+"->sample res add")
         sample_res.release()
         sample_conv2.release()
-        t = (temb_t, conv1_t, conv2_t, resconv_t, res_t)
+        t = (conv1_t, conv2_t, resconv_t, res_t)
     else:
         output, res_t = op_eltwise(sample_conv2,sample,tag+"->sample res add")
         sample.release()
         sample_conv2.release()
-        t = (temb_t, conv1_t, conv2_t, res_t)
+        t = (conv1_t, conv2_t, res_t)
+
+    if temb is not None:
+        t = (temb_t, ) + t
 
     return output, t
 
@@ -556,32 +562,124 @@ def Unet():
     output, t = op_conv(upblock,conv_out,"post-proc conv_out","GM")
     time += (t,)
 
+    return time
+
+
+def parseTime(time:Time, tag:str):
     # summary all op time cost.
-    print("--------------------> summar unet perf data <--------------------")
+    print("--------------------> summar %s perf data <--------------------"%tag)
     total_time = 0
     for op in time:
         total_time += op.op_time
 
     op_ldst = 0
     op_opbmm = 0
+    op_opconv = 0
     for op in time:
         op.update(total_time)
         print("%s, %s %s %s to %s ldst=%.2fus, mac=%.2fus"%(op.tag, op.op1_shape, op.op, 
                                                             op.op2_shape, op.out_shape, op.ldst, op.mac))
         if op.bottleneck == "ldst":
             op_ldst += 1
-            if op.op != "conv2D":
+            if op.op == "conv2D":
+                op_opconv += 1
+            elif op.op == "bmm":
                 op_opbmm += 1
 
     ops = len(time)
     print("*************************************************************************")
     print("*** run per model, %dcore, %dcluster, %dGB/s BW, %dMB GM, %dx%d img size, %d batch, %s percision"%
           (CORE,CLUSTER,BW,GM_MAX_SIZE/2**20,IMG_H,IMG_W,BATCH,PRECISION))
-    print("*** Unet: ignore activation func (layernorm, groupnorm, silu,etc) and reshape")
+    print("*** %s: ignore activation func (layernorm, groupnorm, silu,etc), eltwise and reshape"%tag)
     print("*** total %d ops, %d ops are mac bottleneck."%(ops, ops-op_ldst))
-    print("*** %d ops are ldst bound(%d are transfomer bmm/linear, %d are conv)"%(op_ldst, op_opbmm, op_ldst-op_opbmm))
-    print("*** Unet time cost is %.2fms"%(total_time/1000.0))
+    print("*** %d ops are ldst bound(%d are bmm, %d are linear, %d are conv)"%(op_ldst, op_opbmm, op_ldst-op_opbmm-op_opconv, op_opconv))
+    print("*** %s time cost is %.2fms"%(tag, total_time/1000.0))
     print("*************************************************************************")
-    return total_time
 
-x = Unet()
+def Attn(input:Feature, ci:int, tag:str):
+    tag = tag+Attn.__name__
+
+    # TODO add reshape here.
+    sample = Feature(input.n,None,None,None,input.h*input.w,input.c,"GM","nld","reshape_to_attn")
+    input.release()
+
+    wqkv = WTLinear(ci=ci,co=ci)
+    q, q_t = op_linear(sample,wqkv,tag+"->selfattn_q")
+    k, k_t = op_linear(sample,wqkv,tag+"->selfattn_k")
+    # TODO, transpose k to kt
+    k.len = k.dims
+    k.dims = q.len
+    qkt, qkt_t = op_bmm(q,k,tag+"->setfattn_qkt")
+    q.release()
+    k.release()
+    # ignore scaler and softmax
+    v, v_t = op_linear(sample,wqkv,tag+"->selfattn_v")
+    attn, attn_t = op_bmm(qkt,v,tag+"->selfattn_score")
+    qkt.release()
+    v.release()
+    wt_attnlinear = WTLinear(ci=ci,co=ci)
+    selfattn, selfattn_t = op_linear(attn, wt_attnlinear, tag+"->selfattn_o")
+    attn.release()
+    # 0.2 TODO residual add
+    sample.release()
+    t = (q_t,k_t,v_t,qkt_t,attn_t,selfattn_t)
+
+    return selfattn, t
+
+def UpDecoderBlock2D(input:Feature, ci:int, co:int, tag:str):
+    resb1, res1_t = ResnetBlock2D(None,input,ci,co,tag+"->layer1",False)
+    resb2, res2_t = ResnetBlock2D(None,resb1,co,co,tag+"->layer2",False)
+    resb3, res3_t = ResnetBlock2D(None,resb2,co,co,tag+"->layer3",False)
+    t = res1_t + res2_t + res3_t
+    if tag != "UB4":
+        output, up_t = Upsample2D(resb3,co,co,tag+"->Upsample2D")
+        t += up_t
+        return output, t
+    else:
+        return resb3, t
+
+def UNetMidBlock2D(input:Feature, ci:int, tag:str):
+    resb1, res1_t = ResnetBlock2D(None,input,ci,ci,tag+"->layer1",False)
+    attn, attn_t = Attn(resb1,ci,tag)
+    # TODO add reshape time here
+    res2_in = Feature(n=resb1.n,c=resb1.c,h=resb1.h,w=resb1.w,len=resb1.len,dims=resb1.dims,name=tag+"attn_reshape")
+    attn.release()
+    resb2, res2_t = ResnetBlock2D(None,res2_in,ci,ci,tag+"->layer2",False)
+    t = res1_t + attn_t + res2_t
+    return resb2, t
+
+def VAEDecoder():
+    # 0 step post_quant and conv in
+    time = ()
+    latent = Feature(n=BATCH,c=4,h=LATENT_H,w=LATNET_W,format="nchw",location="DDR",name="latent")
+    kernel_pq_conv = WTConvKernel(4,4,1,1)
+    pqconv_out, pq_conv_t = op_conv(latent,kernel_pq_conv,"post_quant_conv")
+    kernel_conv_in = WTConvKernel(512,4)
+    conv_in, conv_in_t = op_conv(pqconv_out,kernel_conv_in,"conv_in")
+    pqconv_out.release()
+    time = (pq_conv_t, conv_in_t)
+
+    # 1 mid block
+    mid, mid_t = UNetMidBlock2D(conv_in,512,"Mid")
+
+    # 2 up block
+    up1, up1_t = UpDecoderBlock2D(mid,512,512,"UB1")
+    up2, up2_t = UpDecoderBlock2D(up1,512,512,"UB2")
+    up3, up3_t = UpDecoderBlock2D(up2,512,256,"UB3")
+    up_block, up4_t = UpDecoderBlock2D(up3,256,128,"UB4")
+
+    time = time + mid_t + up1_t + up2_t + up3_t + up4_t
+
+    # 3 post conv
+    # ignore GroupNorm and Silu
+    kernel_conv_out = WTConvKernel(3,128)
+    image, conv_out_t = op_conv(up_block,kernel_conv_out,"conv_out","DDR")
+    time = time + (conv_out_t,)
+
+    return time
+
+time_unet = Unet()
+parseTime(time_unet,"Unet")
+# time_vae_decoder = VAEDecoder()
+# parseTime(time_vae_decoder,"VAE Decoder")
+
