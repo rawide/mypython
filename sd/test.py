@@ -1,5 +1,5 @@
 import sys
-import torch
+# import torch
 import inspect
 
 # sample = torch.tensor([[[1,1,1,1],[1,1,1,1],[1,1,1,1],[1,1,1,1]],[[1,1,1,1],[1,1,1,1],[1,1,1,1],[1,1,1,1]]])
@@ -10,6 +10,13 @@ import inspect
 # sample = 3*sample
 # out_state = out_state + (sample, )
 # down_block_res_samples += out_state
+
+x = sys.argv[1]
+y = 2 if x == "FP16" else ( 1 if x == "INT8" else 4)
+print(x)
+print(len(x))
+print(x=="FP16")
+print(y)
 
 # print(out_state)
 # print(down_block_res_samples)
@@ -24,45 +31,46 @@ import inspect
 # t3 = (6,7,8,9)
 # t = t1+t2+t3
 # print(t)
-SS = 20
-S = 0
-def gm_overflow_check(size):
-    global S
-    if size > SS - S:
-        return True
-    else:
-        print("current gm used = %.2fMB, required = %.2fMB, remiand = %.2fMB"%(S, size, (SS-S-size)))
-        S += size
-        return False
 
-def gm_remove(size):
-    global S
-    stack = inspect.stack()
-    calling = stack[2].function
-    print(calling)
-    if S < size:
-        print("[ERR] release GM size exceed remaind! current used %.2fMB, released %.2fMB"%(S, size))
-    else:
-        S -= size
-        print("gm size removed %.2fMB, still remained %.2fMB"%(size, S))
+# SS = 20
+# S = 0
+# def gm_overflow_check(size):
+#     global S
+#     if size > SS - S:
+#         return True
+#     else:
+#         print("current gm used = %.2fMB, required = %.2fMB, remiand = %.2fMB"%(S, size, (SS-S-size)))
+#         S += size
+#         return False
 
-class A():
-    def __init__(
-            self
-    ):
-        gm_overflow_check(1)
+# def gm_remove(size):
+#     global S
+#     stack = inspect.stack()
+#     calling = stack[2].function
+#     print(calling)
+#     if S < size:
+#         print("[ERR] release GM size exceed remaind! current used %.2fMB, released %.2fMB"%(S, size))
+#     else:
+#         S -= size
+#         print("gm size removed %.2fMB, still remained %.2fMB"%(size, S))
 
-    def release(
-            self
-    ):
-        gm_remove(1)
+# class A():
+#     def __init__(
+#             self
+#     ):
+#         gm_overflow_check(1)
 
-def func(input):
-    input.release()
-    a = A()
-    return a
+#     def release(
+#             self
+#     ):
+#         gm_remove(1)
 
-aa = A()
-b = func(aa)
+# def func(input):
+#     input.release()
+#     a = A()
+#     return a
 
-print(S)
+# aa = A()
+# b = func(aa)
+
+# print(S)

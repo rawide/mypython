@@ -10,7 +10,7 @@ BATCH = 1
 GM_MAX_SIZE = 8*2**20 # 8mb total
 PRECISION = "FP16"
 
-if len(sys.argv) == 8:
+if len(sys.argv) == 9:
     print(sys.argv, len(sys.argv))
     CORE = int(sys.argv[1])
     CLUSTER = int(sys.argv[2])
@@ -18,11 +18,12 @@ if len(sys.argv) == 8:
     BW = int(sys.argv[4])
     IMG_W = int(sys.argv[5])
     IMG_H = int(sys.argv[6])
-    PERCISION = sys.argv[7]
+    PRECISION = sys.argv[7]
+    BATCH = int(sys.argv[8])
 elif len(sys.argv) == 1:
-    print("use default setting")
+    print("use default setting 4core, 1cluster, 8M GM, 50GB/S BW, 512x512, FP16, 1 batch")
 else:
-    print("usage ./sd_perf.py [core/cluster] [cluster] [GM_size(MB)] [BW(GB)] [img_size_w] [image_size_h] [PERCISION(FP16/INT8)]\n")
+    print("usage ./sd_perf.py [core/cluster] [cluster] [GM_size(MB)] [BW(GB)] [img_size_w] [image_size_h] [PERCISION(FP16/INT8)] [Batch]\n")
     exit()
 
 LATENT_SCALE_RATIO = 8
@@ -143,16 +144,19 @@ class WTLinear():
 class Time():
     def __init__(
             self,
-            op: str  = "conv2D",
+            op: str  = None,
             tag: str = None,
             ldst: int= 0,
             mac:  int= 0,
+            mac_c:int= 0, # valid mac count, no rounding
             op1_shape = None,
             op2_shape = None,
             out_shape = None
     ):
         super().__init__()
-        self.op, self.tag, self.ldst, self.mac = (op, tag, ldst, mac)
+        if ldst == 0:
+            ldst = mac # read/write from GM, sync with mtp
+        self.op, self.tag, self.ldst, self.mac, self.mac_c = (op, tag, ldst, mac, mac_c)
         self.op1_shape, self.op2_shape, self.out_shape = (op1_shape, op2_shape, out_shape)
         self.op_time = self.ldst if self.ldst >= self.mac else self.mac
         self.bottleneck = "ldst" if self.ldst >= self.mac else "mac"
@@ -193,6 +197,7 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
     
     # Calculate the number of MAC operations
     macs = input_feature.n * co_rounded * h_out * w_out * ci_rounded * kernel.kw * kernel.kh
+    valid_mac = input_feature.n * h_out * w_out * kernel.ci * kernel.co * kernel.kw * kernel.kh
     mac_time = 10**6*macs/COMP_POWER
     ldst_size = 0
     if "GM" not in input_feature.location:
@@ -204,7 +209,7 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
         ldst_size += output_feature.getSize()
     ldst_time = 10**6*ldst_size/BW/2**30
     op_time = Time(op="conv2D",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.getShape(),
-                   op2_shape=kernel.shape,out_shape=output_feature.getShape())
+                   op2_shape=kernel.shape,out_shape=output_feature.getShape(),mac_c=valid_mac)
 
     # Printing shapes and sizes
     print("---> running %s <---"%tag)
@@ -230,6 +235,7 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
 
     # Calculate the number of MAC operations
     macs = input_feature.n * input_feature.len * dims * co_rounded
+    valid_mac = input_feature.n * input_feature.len * wt_linear.ci * wt_linear.co
     mac_time = macs/COMP_POWER
     ldst_size = 0
     if "GM" not in input_feature.location:
@@ -241,7 +247,7 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
         ldst_size += output_feature.getSize()
     ldst_time = 10**6*ldst_size/BW/2**30
     op_time = Time(op="Linear",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.getShape(),
-                   op2_shape=wt_linear.shape,out_shape=output_feature.getShape())
+                   op2_shape=wt_linear.shape,out_shape=output_feature.getShape(),mac_c=valid_mac)
     
     # Printing shapes and sizes
     print("---> running %s <---"%tag)
@@ -267,6 +273,7 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
 
     # Calculate the number of MAC operations
     macs = input1.n * input1.len * dims * co_rounded
+    valid_mac = input1.n * input1.len * input2.len * input2.dims
     mac_time = macs/COMP_POWER
     ldst_size = 0
     if "GM" not in input1.location:
@@ -278,7 +285,7 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
         ldst_size += output_feature.getSize()
     ldst_time = 10**6*ldst_size/BW/2**30
     op_time = Time(op="bmm",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input1.getShape(),
-                   op2_shape=input2.getShape(),out_shape=output_feature.getShape())
+                   op2_shape=input2.getShape(),out_shape=output_feature.getShape(),mac_c=valid_mac)
     
     # Printing shapes and sizes
     print("---> running %s <---"%tag)
@@ -569,16 +576,33 @@ def parseTime(time:Time, tag:str):
     # summary all op time cost.
     print("--------------------> summar %s perf data <--------------------"%tag)
     total_time = 0
+    total_mac = 0
     for op in time:
         total_time += op.op_time
+        total_mac += op.mac_c
 
     op_ldst = 0
     op_opbmm = 0
     op_opconv = 0
+    op_totalconv = 0
+    op_totalbmm = 0
+    op_totallinear = 0
+    # ops = len(time)
+    ops = 0
     for op in time:
+        if op.op == None: # ignore invlaild time. here is element wise add. redisual layer
+            continue
         op.update(total_time)
-        print("%s, %s %s %s to %s ldst=%.2fus, mac=%.2fus"%(op.tag, op.op1_shape, op.op, 
-                                                            op.op2_shape, op.out_shape, op.ldst, op.mac))
+        print("%s, %s %s %s to %s ldst=%.2fus, mac=%.2fus, bottleneck is %s"%(op.tag, op.op1_shape, op.op, 
+                                                            op.op2_shape, op.out_shape, op.ldst, op.mac, op.bottleneck))
+        ops += 1
+        if op.op == "conv2D":
+            op_totalconv += 1
+        elif op.op == "bmm":
+            op_totalbmm += 1
+        else:
+            op_totallinear += 1
+            
         if op.bottleneck == "ldst":
             op_ldst += 1
             if op.op == "conv2D":
@@ -586,14 +610,15 @@ def parseTime(time:Time, tag:str):
             elif op.op == "bmm":
                 op_opbmm += 1
 
-    ops = len(time)
     print("*************************************************************************")
-    print("*** run per model, %dcore, %dcluster, %dGB/s BW, %dMB GM, %dx%d img size, %d batch, %s percision"%
+    print("*** perf model, %dcore, %dcluster, %dGB/s BW, %dMB GM, %dx%d img size, %d batch, %s precision"%
           (CORE,CLUSTER,BW,GM_MAX_SIZE/2**20,IMG_H,IMG_W,BATCH,PRECISION))
-    print("*** %s: ignore activation func (layernorm, groupnorm, silu,etc), eltwise and reshape"%tag)
-    print("*** total %d ops, %d ops are mac bottleneck."%(ops, ops-op_ldst))
-    print("*** %d ops are ldst bound(%d are bmm, %d are linear, %d are conv)"%(op_ldst, op_opbmm, op_ldst-op_opbmm-op_opconv, op_opconv))
-    print("*** %s time cost is %.2fms"%(tag, total_time/1000.0))
+    print("*** [%s]: ignore activation func (layernorm, groupnorm, silu,etc), eltwise and reshape"%tag)
+    print("*** total valid mac is %.3fTMACS"%(total_mac/10**12))
+    print("*** total %d ops, conv %d, bmm %d, linear %d"%(ops,op_totalconv,op_totalbmm,op_totallinear))
+    print("*** bound at computer(MAC) is %d ops."%(ops-op_ldst))
+    print("*** bound at memory(ldst) is %d ops w/ (%d are bmm, %d are linear, %d are conv)"%(op_ldst, op_opbmm, op_ldst-op_opbmm-op_opconv, op_opconv))
+    print("*** total time cost is %.2fms, estimate %.2fms w/ 1.3 ratio for reshape, act and so on."%(total_time/1000.0, 1.3*total_time/1000))
     print("*************************************************************************")
 
 def Attn(input:Feature, ci:int, tag:str):
@@ -678,8 +703,8 @@ def VAEDecoder():
 
     return time
 
-time_unet = Unet()
-parseTime(time_unet,"Unet")
-# time_vae_decoder = VAEDecoder()
-# parseTime(time_vae_decoder,"VAE Decoder")
+# time_unet = Unet()
+# parseTime(time_unet,"Unet")
+time_vae_decoder = VAEDecoder()
+parseTime(time_vae_decoder,"VAE Decoder")
 
