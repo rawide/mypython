@@ -577,8 +577,12 @@ def parseTime(time:Time, tag:str):
     print("--------------------> summar %s perf data <--------------------"%tag)
     total_time = 0
     total_mac = 0
+    total_mac_time = 0
+    total_ldst_time = 0
     for op in time:
         total_time += op.op_time
+        total_mac_time += op.mac
+        total_ldst_time += op.ldst
         total_mac += op.mac_c
 
     op_ldst = 0
@@ -587,6 +591,8 @@ def parseTime(time:Time, tag:str):
     op_totalconv = 0
     op_totalbmm = 0
     op_totallinear = 0
+    op_memboundtime = 0
+    op_compboundtime = 0
     # ops = len(time)
     ops = 0
     for op in time:
@@ -605,10 +611,13 @@ def parseTime(time:Time, tag:str):
             
         if op.bottleneck == "ldst":
             op_ldst += 1
+            op_memboundtime += op.ldst
             if op.op == "conv2D":
                 op_opconv += 1
             elif op.op == "bmm":
                 op_opbmm += 1
+        else:
+            op_compboundtime += op.mac
 
     print("*************************************************************************")
     print("*** perf model, %dcore, %dcluster, %dGB/s BW, %dMB GM, %dx%d img size, %d batch, %s precision"%
@@ -616,9 +625,10 @@ def parseTime(time:Time, tag:str):
     print("*** [%s]: ignore activation func (layernorm, groupnorm, silu,etc), eltwise and reshape"%tag)
     print("*** total valid mac is %.3fTMACS"%(total_mac/10**12))
     print("*** total %d ops, conv %d, bmm %d, linear %d"%(ops,op_totalconv,op_totalbmm,op_totallinear))
-    print("*** bound at computer(MAC) is %d ops."%(ops-op_ldst))
-    print("*** bound at memory(ldst) is %d ops w/ (%d are bmm, %d are linear, %d are conv)"%(op_ldst, op_opbmm, op_ldst-op_opbmm-op_opconv, op_opconv))
-    print("*** total time cost is %.2fms, estimate %.2fms w/ 1.3 ratio for reshape, act and so on."%(total_time/1000.0, 1.3*total_time/1000))
+    print("*** bound at computer(MAC) is %d ops. cost %.2fms(%.2f%%)"%(ops-op_ldst, op_compboundtime/1000.0, 100*op_compboundtime/total_time))
+    print("*** bound at memory(ldst) is %d ops w/ (%d are bmm, %d are linear, %d are conv), cost %.2fms"%(op_ldst, op_opbmm, op_ldst-op_opbmm-op_opconv, op_opconv, op_memboundtime/1000.0))
+    print("*** total time cost is %.2fms, comptime %.2fms(%.2f%%), memtime %.2fms(%.2f%%)."%
+          (total_time/1000.0, total_mac_time/1000.0, 100*total_mac_time/total_time, total_ldst_time/1000.0, 100*total_ldst_time/total_time))
     print("*************************************************************************")
 
 def Attn(input:Feature, ci:int, tag:str):
