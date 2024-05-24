@@ -3,27 +3,29 @@ import sys
 CORE = 4
 CLUSTER = 1
 CLK = 10**9
-BW = 50 # 50GB/s
+BW = 50.0 # 50GB/s
 IMG_W = 512
 IMG_H = 512
 BATCH = 1
 GM_MAX_SIZE = 8*2**20 # 8mb total
 PRECISION = "FP16"
+MODEL = "Unet"
 
-if len(sys.argv) == 9:
+if len(sys.argv) == 10:
     print(sys.argv, len(sys.argv))
     CORE = int(sys.argv[1])
     CLUSTER = int(sys.argv[2])
     GM_MAX_SIZE= int(sys.argv[3])*2**20
-    BW = int(sys.argv[4])
+    BW = float(sys.argv[4])
     IMG_W = int(sys.argv[5])
     IMG_H = int(sys.argv[6])
     PRECISION = sys.argv[7]
     BATCH = int(sys.argv[8])
+    MODEL = sys.argv[9]
 elif len(sys.argv) == 1:
-    print("use default setting 4core, 1cluster, 8M GM, 50GB/S BW, 512x512, FP16, 1 batch")
+    print("use default setting 4core, 1cluster, 8M GM, 50GB/S BW, 512x512, FP16, 1 batch, unet")
 else:
-    print("usage ./sd_perf.py [core/cluster] [cluster] [GM_size(MB)] [BW(GB)] [img_size_w] [image_size_h] [PERCISION(FP16/INT8)] [Batch]\n")
+    print("usage ./sd_perf.py [core/cluster] [cluster] [GM_size(MB)] [BW(GB)] [img_size_w] [image_size_h] [PERCISION(FP16/INT8)] [Batch] [model(Unet,VAE)]\n")
     exit()
 
 LATENT_SCALE_RATIO = 8
@@ -713,8 +715,10 @@ def VAEDecoder():
 
     return time
 
-# time_unet = Unet()
-# parseTime(time_unet,"Unet")
-time_vae_decoder = VAEDecoder()
-parseTime(time_vae_decoder,"VAE Decoder")
+if MODEL == "Unet":
+    time_unet = Unet()
+    parseTime(time_unet,"Unet")
+elif MODEL == "VAE":
+    time_vae_decoder = VAEDecoder()
+    parseTime(time_vae_decoder,"VAE Decoder")
 
