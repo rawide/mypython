@@ -722,3 +722,4 @@ elif MODEL == "VAE":
     time_vae_decoder = VAEDecoder()
     parseTime(time_vae_decoder,"VAE Decoder")
 
+print("usage ./sd_perf.py [core/cluster] [cluster] [GM_size(MB)] [BW(GB)] [img_size_w] [image_size_h] [PERCISION(FP16/INT8)] [Batch] [model(Unet,VAE)]\n")
