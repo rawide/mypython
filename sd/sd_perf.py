@@ -36,7 +36,8 @@ MTP_CI_STEP = 8
 MTP_CO_STEP = 16
 DATALEN = 2 if PRECISION == "FP16" else ( 1 if PRECISION == "INT8" else 4)
 MAC = 16*16*8*2*2/(2 if PRECISION == "INT8" else 4)
-COMP_POWER = CORE*CLUSTER*CLK*MAC
+MULTI_CORE_ULTI = 0.7 if CORE*CLUSTER != 1 else 1
+COMP_POWER = CORE*CLUSTER*CLK*MAC*MULTI_CORE_ULTI
 
 GM_size = 0 # gm_size
 
@@ -198,7 +199,12 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
     output_feature = Feature(n=input_feature.n, c=kernel.co, h=h_out, w=w_out, location=saveto, name=tag+"[OPCONV_output]")
     
     # Calculate the number of MAC operations
-    macs = input_feature.n * co_rounded * h_out * w_out * ci_rounded * kernel.kw * kernel.kh
+    if kernel.kh == 3:
+        mac_ulti_ratio = 0.58 # mac uti is 55% for conv3x3 under unlimited DDR.
+    else:
+        mac_ulti_ratio = 1
+
+    macs = input_feature.n * co_rounded * h_out * w_out * ci_rounded * kernel.kw * kernel.kh / mac_ulti_ratio
     valid_mac = input_feature.n * h_out * w_out * kernel.ci * kernel.co * kernel.kw * kernel.kh
     mac_time = 10**6*macs/COMP_POWER
     ldst_size = 0
