@@ -1,0 +1,4 @@
+1. simulation for DDR BW betweem DDR, fabric and IP
+2. IP and fabric are working under differernt clk
+3. IP supports outstanding buffer
+2. not finished
