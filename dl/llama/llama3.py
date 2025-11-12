@@ -1,8 +1,8 @@
 import sys
 
 print(sys.argv, len(sys.argv))
-if len(sys.argv) != 6:
-    print("please input the model parameters, ./macs.py [hidden_dims] [decoder layers] [in_lens] [out_lens] [BW(GB/s)]\n")
+if len(sys.argv) != 5:
+    print("please input the model parameters, ./macs.py [wt size (7B/33B/65B)] [BW(GB/s)] [in_lens] [out_lens]\n")
     exit()
 
 # init params
@@ -12,13 +12,26 @@ word_dims = 4096
 decoder_layers = 32
 ffn_dims = 14336
 
-word_dims = int(sys.argv[1])
-decoder_layers = int(sys.argv[2])
+model = sys.argv[1]
+if model == "7B":
+    word_dims = 4096
+    decoder_layers = 32
+elif model == "33B":
+    word_dims = 6656
+    decoder_layers = 60
+elif model == "65B":
+    word_dims = 8192
+    decoder_layers = 80
+else:
+    print("invalid model select!")
+    exit()
+
 heads = word_dims/128
-ffn_dims = int((word_dims*8/3)/256 + 0.5) * 256
+bw = float(sys.argv[2])
+#ffn_dims = int((word_dims*8/3)/256 + 0.5) * 256
 in_len = int(sys.argv[3])
 out_len = int(sys.argv[4])
-bw = float(sys.argv[5])
+
 
 def MACs(len):
     MAC_Q = word_dims*word_dims # after 1st time, generate 1token update.
@@ -76,10 +89,8 @@ def total_weight(in_len, out_len, wt_type='INT8', kv_type='FP16'):
 
 wt_size = total_weight(in_len, out_len)
 wt_size_int4 = total_weight(in_len, out_len, 'INT4', 'INT8')
+ideal_perf_INT8 = out_len*bw/(wt_size/10**9) #2**30 due to BW calc is using 10**9
+ideal_perf_INT4 = out_len*bw/(wt_size_int4/10**9)
 
-#print("input %d words generate %d words will cost %.3fTMACs"%(in_len, out_len, mac/2**40))
-#print("under %.1fTB/s BW, perf is %.1ftoken/s@FP8 and %.1ftokens@FP16"%(bw, out_len*bw/(mac/2**40), out_len*bw*0.5/(mac/2**40)))
-#print("FP32 model weight size is %.2fGB, FP16 is %.2fGB, INT8 is %.2fGB"%(weight(1,'FP32')/2**30,weight(1,'FP16')/2**30, weight(1,'INT8')/2**30))
 print("llama parameters are dims=%d, layers=%d, heads=%d, ffn_nodes=%d"%(word_dims, decoder_layers, heads, ffn_dims))
-print("input %d words generate %d words will cost %.3fTMACs"%(in_len, out_len, mac/2**40))
-print("under %.2fGB/s BW, ideal perf is %.2ftoken/s@FP8orINT8, %.2ftokens/s@INT4"%(bw, out_len*bw/(wt_size/2**30), out_len*bw/(wt_size_int4/2**30)))
+print("under %.2fGB/s BW, \nfor INT8, ideal perf is %.2ftoken/s, \nfor INT4 ideal perf is %.2ftokens/s"%(bw, ideal_perf_INT8, ideal_perf_INT4))

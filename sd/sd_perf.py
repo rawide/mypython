@@ -13,7 +13,7 @@ MODEL = "Unet"
 
 if len(sys.argv) == 10:
     print(sys.argv, len(sys.argv))
-    CORE = int(sys.argv[1])
+    CORE = float(sys.argv[1])
     CLUSTER = int(sys.argv[2])
     GM_MAX_SIZE= int(sys.argv[3])*2**20
     BW = float(sys.argv[4])
@@ -39,8 +39,11 @@ MAC = 16*16*8*2*2/(2 if PRECISION == "INT8" else 4)
 MULTI_CORE_ULTI = 0.7 if CORE*CLUSTER != 1 else 1
 COMP_POWER = CORE*CLUSTER*CLK*MAC*MULTI_CORE_ULTI
 
+mac_ulti_ratio = 0.20 if MODEL == "Unet" else 0.3 # current Unet is 7.5%. VAE is 24%
+mac_ulti_ratio = mac_ulti_ratio if CORE != 1 else mac_ulti_ratio/MULTI_CORE_ULTI
 GM_size = 0 # gm_size
 
+# Calculate the number of MAC operations
 def rounded_ci_co(ci, co):
     ci_rounded = ((ci + (MTP_CI_STEP-1)) // MTP_CI_STEP ) * MTP_CI_STEP
     co_rounded = ((co + (MTP_CO_STEP-1)) // MTP_CO_STEP ) * MTP_CO_STEP
@@ -197,12 +200,6 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
 
     # Prepare output feature dimensions
     output_feature = Feature(n=input_feature.n, c=kernel.co, h=h_out, w=w_out, location=saveto, name=tag+"[OPCONV_output]")
-    
-    # Calculate the number of MAC operations
-    if kernel.kh == 3:
-        mac_ulti_ratio = 0.58 # mac uti is 55% for conv3x3 under unlimited DDR.
-    else:
-        mac_ulti_ratio = 1
 
     macs = input_feature.n * co_rounded * h_out * w_out * ci_rounded * kernel.kw * kernel.kh / mac_ulti_ratio
     valid_mac = input_feature.n * h_out * w_out * kernel.ci * kernel.co * kernel.kw * kernel.kh
@@ -215,7 +212,7 @@ def op_conv(input_feature:Feature, kernel:WTConvKernel, tag:str="conv", saveto:s
     if "DDR" in output_feature.location:
         # calculate the write time cost.
         ldst_size += output_feature.getSize()
-    ldst_time = 10**6*ldst_size/BW/2**30
+    ldst_time = 10**6*ldst_size/BW/10**9
     op_time = Time(op="conv2D",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.getShape(),
                    op2_shape=kernel.shape,out_shape=output_feature.getShape(),mac_c=valid_mac)
 
@@ -242,7 +239,7 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
     output_feature = Feature(n=input_feature.n, len=input_feature.len, dims=wt_linear.co, format="nld", location=saveto, name=tag+"[OPLINEAR_output]")
 
     # Calculate the number of MAC operations
-    macs = input_feature.n * input_feature.len * dims * co_rounded
+    macs = input_feature.n * input_feature.len * dims * co_rounded / mac_ulti_ratio
     valid_mac = input_feature.n * input_feature.len * wt_linear.ci * wt_linear.co
     mac_time = macs/COMP_POWER
     ldst_size = 0
@@ -253,7 +250,7 @@ def op_linear(input_feature:Feature, wt_linear:WTLinear, tag:str="op_linear", sa
     if "DDR" in output_feature.location:
         # calculate the write time cost.
         ldst_size += output_feature.getSize()
-    ldst_time = 10**6*ldst_size/BW/2**30
+    ldst_time = 10**6*ldst_size/BW/10**9
     op_time = Time(op="Linear",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input_feature.getShape(),
                    op2_shape=wt_linear.shape,out_shape=output_feature.getShape(),mac_c=valid_mac)
     
@@ -280,7 +277,7 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
     output_feature = Feature(n=input1.n, len=input1.len, dims=input2.dims, format="nld", location=saveto, name=tag+"[OPBMM_output]")
 
     # Calculate the number of MAC operations
-    macs = input1.n * input1.len * dims * co_rounded
+    macs = input1.n * input1.len * dims * co_rounded / mac_ulti_ratio
     valid_mac = input1.n * input1.len * input2.len * input2.dims
     mac_time = macs/COMP_POWER
     ldst_size = 0
@@ -291,7 +288,7 @@ def op_bmm(input1:Feature, input2:Feature, tag:str="op_bmm", saveto:str="GM"):
     if "DDR" in output_feature.location:
         # calculate the write time cost.
         ldst_size += output_feature.getSize()
-    ldst_time = 10**6*ldst_size/BW/2**30
+    ldst_time = 10**6*ldst_size/BW/10**9
     op_time = Time(op="bmm",tag=tag,ldst=ldst_time,mac=mac_time,op1_shape=input1.getShape(),
                    op2_shape=input2.getShape(),out_shape=output_feature.getShape(),mac_c=valid_mac)
     
@@ -637,6 +634,9 @@ def parseTime(time:Time, tag:str):
     print("*** bound at memory(ldst) is %d ops w/ (%d are bmm, %d are linear, %d are conv), cost %.2fms"%(op_ldst, op_opbmm, op_ldst-op_opbmm-op_opconv, op_opconv, op_memboundtime/1000.0))
     print("*** total time cost is %.2fms, comptime %.2fms(%.2f%%), memtime %.2fms(%.2f%%)."%
           (total_time/1000.0, total_mac_time/1000.0, 100*total_mac_time/total_time, total_ldst_time/1000.0, 100*total_ldst_time/total_time))
+    #refine_ratio = (0.3/0.075) if tag == "Unet" else (0.3/0.24) # unet conv2D is 45% of total time, mac util is 7%, comes from NPU team. VAE mac util is 20%.
+    #refine_ratio = 1
+    #print("*** after mac util refine, %s cost is %.2fms"%(tag, total_time*refine_ratio/1000.0))
     print("*************************************************************************")
 
 def Attn(input:Feature, ci:int, tag:str):
